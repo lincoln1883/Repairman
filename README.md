@@ -18,11 +18,11 @@
 - [📝 License](#license)
 
 
-# ⚙️ "EasyTask Home" Backend  <a name="about-project"></a>
+# 🖥️ "EasyTask Home" Front-end  <a name="about-project"></a>
 
-**EasyTask Home Front-end" is an application to complement our "Appointments for Home Services" project, providing a user-friendly interface for scheduling and managing home service appointments.
+**EasyTask Home Front-end** is an application to complement our "Appointments for Home Services" project, providing a user-friendly interface for scheduling and managing home service appointments.
 
-## 🖥️Integration with Back-End
+## ⚙️ Integration with Back-End
 
 This front-end project is designed to seamlessly integrate with its counterpart *back-end project* 👉🏽[Appointment-capstone-backend](https://github.com/lincoln1883/Appointment-capstone-backend). The Back-end project provides the API endpoints and database for the front-end project.
 ## 🛠 Built With <a name="built-with"></a>
