@@ -1,6 +1,6 @@
 <br>
 <div align='center'>
-	<h1>EasyTask Home App Front-end (API)</h1>
+	<h1>HandyHome Hub App Front-end (API)</h1>
   </div>
 <a name="readme-top"></a>
 
@@ -18,9 +18,9 @@
 - [📝 License](#license)
 
 
-# 🖥️ "EasyTask Home" Front-end  <a name="about-project"></a>
+# 🖥️ "HandyHome Hub" Front-end  <a name="about-project"></a>
 
-**EasyTask Home Front-end** is an application to complement our "Appointments for Home Services" project, providing a user-friendly interface for scheduling and managing home service appointments.
+**HandyHome Hub Front-end** is an application to complement our "Appointments for Home Services" project, providing a user-friendly interface for scheduling and managing home service appointments.
 
 ## ⚙️ Integration with Back-End
 
