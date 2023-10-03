@@ -2,6 +2,7 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
 import Splash from './pages/Splash';
+import TradeDetails from './pages/TradeDetails';
 import Reservations from './pages/Reservations';
 import Reserve from './pages/Reserve';
 import AddTrades from './pages/AddTrades';
@@ -13,6 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Splash />} />
+        <Route path="/trades/:id" element={<TradeDetails />} />
         <Route path="/delete" element={<DeleteTrade />} />
         <Route path="/add" element={<AddTrades />} />
         <Route path="/reservations" element={<Reservations />} />
