@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './components/Layout';
-import SplashScreen from './pages/Splash';
+import Splash from './pages/Splash';
 import Reservations from './pages/Reservations';
 import Reserve from './pages/Reserve';
 import AddTrades from './pages/AddTrades';
@@ -10,7 +10,7 @@ import DeleteTrade from './pages/DeleteTrade';
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<SplashScreen />} />
+      <Route path="/" element={<Splash />} />
       <Route path="/home" element={<Layout />}>
         <Route index element={<Reservations />} />
         <Route path="reserve" element={<Reserve />} />
