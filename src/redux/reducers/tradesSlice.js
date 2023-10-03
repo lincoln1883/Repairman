@@ -11,6 +11,7 @@ const initialState = {
 
 export const fetchTrades = createAsyncThunk('trades/fetchTrades', async () => {
   const response = await axios.get('http://localhost:3001/api/v1/trades/');
+  console.log(response.data);
   return response.data;
 });
 

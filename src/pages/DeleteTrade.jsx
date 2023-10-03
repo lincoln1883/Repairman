@@ -1,8 +1,9 @@
 import React from 'react';
+import TradeDelete from '../components/TradeDelete';
 
 const DeleteTrade = () => (
   <>
-    <h1>Delete a Trade</h1>
+    <TradeDelete />
   </>
 );
 
