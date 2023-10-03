@@ -14,6 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Splash />} />
+        <Route path="/trades" element={<Splash />} />
         <Route path="/trades/:id" element={<TradeDetails />} />
         <Route path="/delete" element={<DeleteTrade />} />
         <Route path="/add" element={<AddTrades />} />
