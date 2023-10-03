@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import { fetchTradeDetails } from '../redux/reducers/tradeDetailsSlice';
 
 const TradesDetails = () => {
@@ -49,15 +49,21 @@ const TradesDetails = () => {
               Type:
               {trade.trade_type}
             </p>
-            <div className="mt-4 text-gray-600">
-              <p className="text-sm">
-                Created At:
-                {new Date(trade.created_at).toLocaleString()}
-              </p>
-              <p className="text-sm">
-                Updated At:
-                {new Date(trade.updated_at).toLocaleString()}
-              </p>
+            <div className="mt-4 space-x-2">
+              <Link
+                to={`
+                /reserve`}
+                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+              >
+                Reserve
+              </Link>
+              <Link
+                to={`
+                /delete`}
+                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+              >
+                Delete
+              </Link>
             </div>
           </div>
         </div>
