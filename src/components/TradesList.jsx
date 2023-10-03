@@ -32,9 +32,12 @@ const TradesList = () => {
           key={trade.id}
           className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg"
         >
-          <img src={trade.image} alt={trade.name} className="w-full h-auto" />
+          <img
+            src={trade.image}
+            alt={trade.name}
+            className="w-full h-40 object-cover" // Adjust the height here (e.g., h-40) as needed
+          />
           <h2 className="text-lg font-semibold mt-2">{trade.name}</h2>
-          <p className="text-gray-600 text-sm">{trade.description}</p>
           <p className="text-gray-700 text-sm">
             Location:
             {trade.location}
@@ -50,14 +53,6 @@ const TradesList = () => {
           <p className="text-gray-700 text-sm">
             Type:
             {trade.trade_type}
-          </p>
-          <p className="text-gray-700 text-sm">
-            Created At:
-            {new Date(trade.created_at).toLocaleString()}
-          </p>
-          <p className="text-gray-700 text-sm">
-            Updated At:
-            {new Date(trade.updated_at).toLocaleString()}
           </p>
         </div>
       ))}
