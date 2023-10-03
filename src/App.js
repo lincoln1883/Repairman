@@ -7,6 +7,7 @@ import Reserve from './pages/Reserve';
 import AddTrades from './pages/AddTrades';
 import DeleteTrade from './pages/DeleteTrade';
 import './App.css';
+import TradesList from './components/trades/Trades-list';
 
 function App() {
   return (
