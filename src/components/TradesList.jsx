@@ -39,7 +39,7 @@ const TradesList = () => {
             className="w-full h-40 object-cover" // Adjust the height here (e.g., h-40) as needed
           />
           <h2 className="text-lg font-semibold mt-2">
-            <Link to={`/trades/${trade.id}`}>{trade.name}</Link>
+            <Link to={`/trade/${trade.id}`}>{trade.name}</Link>
           </h2>
           <p className="text-gray-700 text-sm">
             Location:
