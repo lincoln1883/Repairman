@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-// import { deleteItem } from '../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTrades, updateRemoveTrade } from '../redux/reducers/tradesSlice';
 
@@ -41,24 +40,28 @@ const TradeDelete = () => {
       <p className="text-sm text-gray-500">
         Click on a trade to remove or restore it
       </p>
-      <div className="trades-list grid grid-cols-1 md:grid-cols-2 gap-4 p-4 w-full">
-        <ul>
-          {trades.map((trade) => (
-            <li key={trade.id}>
-              <div className="flex justify-between items-center text-lg font-semibold mt-2 bg-slate-100 rounded-lg shadow-md p-2 hover:shadow-lg m-2">
+      <div className="mt-4 flex flex-row flex-wrap justify-evenly gap-4">
+        {trades.map((trade) => (
+          <div key={trade.id} className="block h-40 w-80 min-w-0 relative rounded-lg bg-white p-6 shadow-lg border-solid border-2 border-slate-400">
+            <div
+              className={`absolute inset-0 bg-cover bg-center bg-no-repeat rounded-lg ${trade.removed ? 'opacity-50 grayscale' : 'opacity-60'}`}
+              style={{ backgroundImage: `url(${trade.image})` }}
+            />
+            <div className="relative z-10 flex flex-col h-full justify-between">
+              <h5 className="text-xl font-bold text-neutral-800 text-slate-800">
                 {trade.name}
-                <button
-                  type="button"
-                  className={`text-gray-700 text-sm rounded-lg shadow-md p-2 hover:shadow-lg
-                    ${trade.removed ? 'bg-green-200' : 'bg-red-200'}`}
-                  onClick={() => handleToggleRemoved(trade.id, trade.removed)}
-                >
-                  {trade.removed ? 'Restore' : 'Remove'}
-                </button>
-              </div>
-            </li>
-          ))}
-        </ul>
+              </h5>
+              <button
+                type="button"
+                className={`text-gray-700 font-medium text-sm rounded-sm shadow-sm shadow-slate-600 p-2 border-2 hover:shadow-lg hover:bg-gray-100 hover:shadow-slate-900
+                  ${trade.removed ? 'border-green-500' : 'border-red-500'}`}
+                onClick={() => handleToggleRemoved(trade.id, trade.removed)}
+              >
+                {trade.removed ? 'Restore' : 'Remove'}
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
