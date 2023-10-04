@@ -52,8 +52,14 @@ const TradeDelete = () => {
               } transition-all duration-300`}
               style={{ backgroundImage: `url(${trade.image})` }}
             />
-            <div className="p-6 bg-neutral-300 backdrop-filter bg-opacity-50 absolute inset-0 flex flex-col items-center justify-center text-white">
-              <h5 className="text-2xl font-semibold text-neutral-900">
+            <div className="p-6 bg-black backdrop-filter bg-opacity-50 absolute inset-0 flex flex-col items-center justify-center text-white">
+              <h5
+                className={`text-2xl font-semibold ${
+                  trade.removed
+                    ? 'text-gradient text-outline'
+                    : 'text-white text-shadow'
+                }`}
+              >
                 {trade.name}
               </h5>
               <button
