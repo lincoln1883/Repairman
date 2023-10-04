@@ -7,21 +7,21 @@ import Reservations from './pages/Reservations';
 import Reserve from './pages/Reserve';
 import AddTrades from './pages/AddTrades';
 import DeleteTrade from './pages/DeleteTrade';
-import './App.css';
+import ListTrades from './pages/ListTrades';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Splash />} />
-        <Route path="/trades" element={<Splash />} />
-        <Route path="/trades/:id" element={<TradeDetails />} />
-        <Route path="/delete" element={<DeleteTrade />} />
-        <Route path="/add" element={<AddTrades />} />
-        <Route path="/reservations" element={<Reservations />} />
-        <Route path="/reserve" element={<Reserve />} />
-        <Route path="*" element={<h1>Not Found</h1>} />
+      <Route path="/" element={<Splash />} />
+      <Route path="/trade" element={<Layout />}>
+        <Route index element={<ListTrades />} />
+        <Route path=":id" element={<TradeDetails />} />
+        <Route path="reservations" element={<Reservations />} />
+        <Route path="reserve" element={<Reserve />} />
+        <Route path="add" element={<AddTrades />} />
+        <Route path="delete" element={<DeleteTrade />} />
       </Route>
+      <Route path="*" element={<h1>Not Found</h1>} />
     </Routes>
   );
 }
