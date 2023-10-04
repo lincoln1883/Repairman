@@ -9,9 +9,18 @@ const initialState = {
   error: null,
 };
 
-export const fetchTrades = createAsyncThunk('trades/fetchTrades', async () => {
+export const fetchTrades = createAsyncThunk('trades/fetchTrades', async (includeremoved = false) => {
   const response = await axios.get('http://localhost:3001/api/v1/trades/');
-  return response.data;
+
+  let trades = [];
+
+  // If includeremoved is true, filter the data to include only trades with removed = false
+  if (includeremoved) {
+    trades = response.data;
+  } else {
+    trades = response.data.filter((trade) => trade.removed === false);
+  }
+  return trades;
 });
 
 // this action creator is used to update the removed field of a trade (toogling the remove button)
