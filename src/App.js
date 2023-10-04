@@ -8,6 +8,8 @@ import AddTrades from './pages/AddTrades';
 import DeleteTrade from './pages/DeleteTrade';
 import TradesList from './components/TradesList';
 import './App.css';
+import Login from './components/auth/Login';
+import Register from './components/auth/Register';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/add" element={<AddTrades />} />
         <Route path="/reservations" element={<Reservations />} />
         <Route path="/reserve" element={<Reserve />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="*" element={<h1>Not Found</h1>} />
       </Route>
     </Routes>
