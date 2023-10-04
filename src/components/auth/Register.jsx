@@ -8,8 +8,6 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPass] = useState('');
 
-  const navigate = useNavigate();
-
   const dispatch = useDispatch();
   const status = useSelector((state) => state.register.status);
 
@@ -48,6 +46,7 @@ const Register = () => {
                 id="username"
                 type="text"
                 placeholder="Name"
+                required
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               />
@@ -62,6 +61,7 @@ const Register = () => {
                 id="email"
                 type="email"
                 placeholder="Email"
+                required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -76,6 +76,7 @@ const Register = () => {
                 id="password"
                 type="password"
                 placeholder="***********"
+                required
                 value={password}
                 onChange={(e) => setPass(e.target.value)}
               />

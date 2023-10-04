@@ -7,7 +7,6 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPass] = useState('');
 
-  const navigate = useNavigate();
   const status = useSelector((state) => state.login.status);
 
   const dispatch = useDispatch();
@@ -42,6 +41,7 @@ const Login = () => {
                 id="email"
                 type="email"
                 placeholder="Email"
+                required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
@@ -56,6 +56,7 @@ const Login = () => {
                 id="password"
                 type="password"
                 placeholder="******************"
+                required
                 value={password}
                 onChange={(e) => setPass(e.target.value)}
               />
