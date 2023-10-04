@@ -1,9 +1,9 @@
 import React from 'react';
-import TradesList from '../components/TradesList';
+import SplashScreen from '../components/SplashScreen';
 
 const Splash = () => (
   <>
-    <TradesList />
+    <SplashScreen />
   </>
 );
 
