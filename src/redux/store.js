@@ -1,9 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import { logoutReducer } from './reducers/auth/logoutSlice';
+import { registerReducer } from './reducers/auth/registerSlice';
+import { loginReducer } from './reducers/auth/loginSlice';
 
 const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    register: registerReducer,
+    login: loginReducer,
+    logout: logoutReducer,
   },
 });
 
