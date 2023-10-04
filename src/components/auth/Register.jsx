@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { redirect } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../redux/reducers/auth/registerSlice';
 
@@ -30,7 +30,7 @@ const Register = () => {
   };
 
   if (status === 'success') {
-    navigate('/login');
+    redirect('/login');
   }
 
   return (
