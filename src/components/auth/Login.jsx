@@ -27,7 +27,7 @@ const Login = () => {
   };
 
   if (status === 'success') {
-    navigate('/trades');
+    redirect('/trades');
   }
 
   return (

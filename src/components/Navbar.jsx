@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, redirect } from 'react-router-dom';
 import { logoutUser } from '../redux/reducers/auth/logoutSlice';
 
 const Navbar = () => {
@@ -24,6 +24,10 @@ const Navbar = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
   };
+
+  if (!user) {
+    redirect('/home');
+  }
 
   return (
     <nav className="w-50">
