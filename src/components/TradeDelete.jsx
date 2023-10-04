@@ -9,7 +9,7 @@ const TradeDelete = () => {
   const loading = useSelector((state) => state.trades.loading);
 
   useEffect(() => {
-    dispatch(fetchTrades());
+    dispatch(fetchTrades(true));
   }, [dispatch]);
 
   if (!isAdmin) {
@@ -54,7 +54,7 @@ const TradeDelete = () => {
               <button
                 type="button"
                 className={`text-gray-700 font-medium text-sm rounded-sm shadow-sm shadow-slate-600 p-2 border-2 hover:shadow-lg hover:bg-gray-100 hover:shadow-slate-900
-                  ${trade.removed ? 'border-green-500' : 'border-red-500'}`}
+                  ${trade.removed ? 'border-slate-500' : 'border-red-500'}`}
                 onClick={() => handleToggleRemoved(trade.id, trade.removed)}
               >
                 {trade.removed ? 'Restore' : 'Remove'}

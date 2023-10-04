@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { fetchTrades } from '../redux/reducers/tradesSlice';
 
 const TradesList = () => {
@@ -37,7 +38,9 @@ const TradesList = () => {
             alt={trade.name}
             className="w-full h-40 object-cover" // Adjust the height here (e.g., h-40) as needed
           />
-          <h2 className="text-lg font-semibold mt-2">{trade.name}</h2>
+          <h2 className="text-lg font-semibold mt-2">
+            <Link to={`/trade/${trade.id}`}>{trade.name}</Link>
+          </h2>
           <p className="text-gray-700 text-sm">
             Location:
             {trade.location}
