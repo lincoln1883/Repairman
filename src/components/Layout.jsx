@@ -6,7 +6,7 @@ const Layout = () => (
   <div style={{ display: 'flex', height: '100vh' }}>
     <Navbar />
     <div
-      className="flex justify-center"
+      className="flex mx-auto items-center justify-center w-full h-full bg-gray-100"
       style={{
         flex: 1, padding: '20px', height: '100%', overflowY: 'auto',
       }}
