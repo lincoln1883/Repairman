@@ -5,7 +5,7 @@ const SplashScreen = () => {
   const navigate = useNavigate();
 
   function handleHome() {
-    navigate('/home');
+    navigate('/trade');
   }
 
   return (

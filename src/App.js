@@ -11,7 +11,7 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Splash />} />
-      <Route path="/home" element={<Layout />}>
+      <Route path="/trade" element={<Layout />}>
         <Route index element={<Reservations />} />
         <Route path="reserve" element={<Reserve />} />
         <Route path="add" element={<AddTrades />} />

@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const links = [
-    { path: '/', text: 'Home' },
-    { path: '/reserve', text: 'Reserve' },
-    { path: '/reservations', text: 'My Reservations' },
-    { path: '/add', text: 'Add Trade' },
-    { path: '/delete', text: 'Delete Trade' },
+    { path: '/trade', text: 'Home' },
+    { path: '/trade/reserve', text: 'Reserve' },
+    { path: '/trade/', text: 'My Reservations' },
+    { path: '/trade/add', text: 'Add Trade' },
+    { path: '/trade/delete', text: 'Delete Trade' },
   ];
 
   return (
