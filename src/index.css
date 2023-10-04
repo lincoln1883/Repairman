@@ -21,12 +21,6 @@ body {
   height: 100vh;
 }
 
-.splash-container > .splash {
-  border: 1px solid #000;
-  border-radius: 2rem;
-  box-shadow: 8px 14px 8px grey;
-}
-
 code {
   font-family:
     source-code-pro,

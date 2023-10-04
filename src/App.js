@@ -12,7 +12,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Splash />} />
       <Route path="/trade" element={<Layout />}>
-        <Route index element={<Reservations />} />
+        <Route path="reservations" element={<Reservations />} />
         <Route path="reserve" element={<Reserve />} />
         <Route path="add" element={<AddTrades />} />
         <Route path="delete" element={<DeleteTrade />} />

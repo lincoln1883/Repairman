@@ -5,7 +5,7 @@ const Navbar = () => {
   const links = [
     { path: '/trade', text: 'Home' },
     { path: '/trade/reserve', text: 'Reserve' },
-    { path: '/trade/', text: 'My Reservations' },
+    { path: '/trade/reservations', text: 'My Reservations' },
     { path: '/trade/add', text: 'Add Trade' },
     { path: '/trade/delete', text: 'Delete Trade' },
   ];
