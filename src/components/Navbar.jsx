@@ -10,11 +10,11 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const links = [
-    { path: '/', text: 'Home' },
-    { path: '/reserve', text: 'Reserve' },
-    { path: '/reservations', text: 'My Reservations' },
-    { path: '/add', text: 'Add Trade' },
-    { path: '/delete', text: 'Delete Trade' },
+    { path: '/trade', text: 'Home' },
+    { path: '/trade/reserve', text: 'Reserve' },
+    { path: '/trade/reservations', text: 'My Reservations' },
+    { path: '/trade/add', text: 'Add Trade' },
+    { path: '/trade/delete', text: 'Delete Trade' },
     { path: '/login', text: 'Login' },
     { path: '/register', text: 'Register' },
   ];
