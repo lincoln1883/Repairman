@@ -51,15 +51,13 @@ const TradesDetails = () => {
             </p>
             <div className="mt-4 space-x-2">
               <Link
-                to={`
-                /reserve`}
+                to="/trade/reserve"
                 className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
               >
                 Reserve
               </Link>
               <Link
-                to={`
-                /delete`}
+                to="/trade/delete"
                 className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
               >
                 Delete
