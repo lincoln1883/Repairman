@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom';
 import { logoutUser } from '../redux/reducers/auth/logoutSlice';
 
 const Navbar = () => {
+  const userInfo = JSON.parse(localStorage.getItem('user')) || [];
+  const user = userInfo.data;
+
+  const dispatch = useDispatch();
+
   const links = [
     { path: '/', text: 'Home' },
     { path: '/reserve', text: 'Reserve' },
@@ -11,6 +16,12 @@ const Navbar = () => {
     { path: '/add', text: 'Add Trade' },
     { path: '/delete', text: 'Delete Trade' },
   ];
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+  };
 
   return (
     <nav className="w-50">
