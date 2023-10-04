@@ -6,6 +6,7 @@ import Reservations from './pages/Reservations';
 import Reserve from './pages/Reserve';
 import AddTrades from './pages/AddTrades';
 import DeleteTrade from './pages/DeleteTrade';
+import TradesList from './components/TradesList';
 import './App.css';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route index element={<Splash />} />
+        <Route path="/trades" element={<TradesList />} />
         <Route path="/delete" element={<DeleteTrade />} />
         <Route path="/add" element={<AddTrades />} />
         <Route path="/reservations" element={<Reservations />} />
