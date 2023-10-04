@@ -15,6 +15,8 @@ const Navbar = () => {
     { path: '/reservations', text: 'My Reservations' },
     { path: '/add', text: 'Add Trade' },
     { path: '/delete', text: 'Delete Trade' },
+    { path: '/login', text: 'Login' },
+    { path: '/register', text: 'Register' },
   ];
 
   const handleLogout = () => {
@@ -27,6 +29,11 @@ const Navbar = () => {
     <nav className="w-50">
       <div className="flex flex-col justify-around items-center m-3">
         <h1 className="text-3xl">Trade Tracker</h1>
+        <h2 className="text-xl">
+          Welcome
+          {' '}
+          { user ? user.name : 'Guest'}
+        </h2>
         <div className="navbar-nav mx-auto">
           <ul>
             {links.map((link) => (
@@ -34,6 +41,7 @@ const Navbar = () => {
                 <Link to={link.path}>{link.text}</Link>
               </li>
             ))}
+            <button type="button" onClick={handleLogout}>Logout</button>
           </ul>
         </div>
       </div>
