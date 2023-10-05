@@ -34,24 +34,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<Splash />} />
-      <Route path="/trade" element={<Layout />}>
-        <Route index element={<ListTrades />} />
-        <Route path=":id" element={<TradeDetails />} />
-        <Route path="reservations" element={<Reservations />} />
-        <Route path="reserve" element={<Reserve />} />
-        <Route path="add" element={<AddTrades />} />
-        <Route path="delete" element={<DeleteTrade />} />
-      <Route path="/" element={<Layout />}>
-        <Route index element={<Splash />} />
-        <Route path="/trades" element={<TradesList />} />
-        <Route path="/delete" element={<DeleteTrade />} />
-        <Route path="/add" element={<AddTrades />} />
-        <Route path="/reservations" element={<Reservations />} />
-        <Route path="/reserve" element={<Reserve />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="*" element={<h1>Not Found</h1>} />
-      </Route>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
