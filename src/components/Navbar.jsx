@@ -4,7 +4,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { logoutUser } from '../redux/reducers/auth/logoutSlice';
 import FooterToolbar from './FooterToolbar';
 
-
 const Navbar = () => {
   const userInfo = JSON.parse(localStorage.getItem('user')) || [];
   const user = userInfo.data;
