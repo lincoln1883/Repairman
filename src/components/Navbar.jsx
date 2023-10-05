@@ -32,6 +32,10 @@ const Navbar = () => {
     navigate('/');
   };
 
+  const headerStyle = {
+    fontFamily: 'Dancing Script',
+  };
+
   return (
     <nav className="w-50 flex flex-col justify-between center border-e-2">
       <div className="flex flex-col justify-around items-center m-3">
