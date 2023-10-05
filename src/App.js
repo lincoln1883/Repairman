@@ -18,6 +18,9 @@ function App() {
   if (currentUser) {
     return (
       <Routes>
+        <Route path="/" element={<Splash />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
         <Route path="/trade" element={<Layout />}>
           <Route index element={<ListTrades />} />
           <Route path=":id" element={<TradeDetails />} />
