@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { redirect } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../redux/reducers/auth/registerSlice';
 
@@ -8,6 +8,7 @@ const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPass] = useState('');
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const status = useSelector((state) => state.register.status);
 
@@ -27,9 +28,12 @@ const Register = () => {
     setPass('');
   };
 
-  if (status === 'success') {
-    redirect('/login');
-  }
+  useEffect(() => {
+    if (status === 'success') {
+      navigate('/login');
+      window.location.reload();
+    }
+  }, [status, navigate]);
 
   return (
     <div className="flex flex-col justify-center items-center mx-auto h-screen">
@@ -89,6 +93,17 @@ const Register = () => {
               Sign Up
             </button>
           </div>
+          <p className="mt-6 text-center text-neutral-800">
+            Have an Account?
+            {' '}
+            <Link
+              to="/login"
+              className="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+            >
+              login
+            </Link
+            >
+          </p>
         </form>
       </div>
     </div>
