@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/splashscreen.css';
 
 const SplashScreen = () => {
   const navigate = useNavigate();
+
+  const currentUser = localStorage.getItem('user');
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/trade');
+    }
+  }, [currentUser, navigate]);
 
   const handleLogin = () => {
     navigate('/login');
