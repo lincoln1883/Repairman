@@ -5,6 +5,7 @@ import usersReducer from './reducers/usersSlice';
 import { logoutReducer } from './reducers/auth/logoutSlice';
 import { registerReducer } from './reducers/auth/registerSlice';
 import { loginReducer } from './reducers/auth/loginSlice';
+import { reserveReducer } from './reducers/reserevSlice';
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     register: registerReducer,
     login: loginReducer,
     logout: logoutReducer,
+    reserve: reserveReducer,
   },
 });
 
