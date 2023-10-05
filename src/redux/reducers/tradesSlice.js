@@ -9,6 +9,12 @@ const initialState = {
   error: null,
 };
 
+export const addTrades = createAsyncThunk('trades/AddTrades', async (add) => {
+  const response = await axios.post('http://localhost:3001/api/v1/trades', add);
+  console.log('Post Requset:', response.data);
+  return response.data;
+});
+
 export const fetchTrades = createAsyncThunk('trades/fetchTrades', async (includeRemoved = false) => {
   const response = await axios.get('http://localhost:3001/api/v1/trades/');
 
@@ -42,6 +48,29 @@ const tradesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(addTrades.fulfilled, (state, action) => {
+        const {
+          name, description, image, price, duration, location, tradeType, userId,
+        } = action.payload;
+
+        const newTrade = {
+          name,
+          description,
+          image,
+          price,
+          duration,
+          location,
+          tradeType,
+          userId,
+        };
+        state.trades.push(newTrade);
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(addTrades.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
       .addCase(fetchTrades.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -65,6 +94,3 @@ const tradesSlice = createSlice({
 });
 
 export default tradesSlice.reducer;
-
-// Commented out the unused export statement to resolve linting error
-// export { fetchTrades };
