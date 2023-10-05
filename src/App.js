@@ -15,6 +15,22 @@ import Register from './components/auth/Register';
 import NotFound from './components/NotFound';
 
 function App() {
+  const currentUser = localStorage.getItem('user');
+  if (currentUser) {
+    return (
+      <Routes>
+        <Route path="/trade" element={<Layout />}>
+          <Route index element={<ListTrades />} />
+          <Route path=":id" element={<TradeDetails />} />
+          <Route path="reservations" element={<Reservations />} />
+          <Route path="reserve" element={<Reserve />} />
+          <Route path="add" element={<AddTrades />} />
+          <Route path="delete" element={<DeleteTrade />} />
+          <Route path="*" element={<NotFound />} />
+        </Route>
+      </Routes>
+    );
+  }
   return (
     <Routes>
       <Route path="/" element={<Splash />} />
