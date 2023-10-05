@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import FooterToolbar from './FooterToolbar';
 
 const Navbar = () => {
   const links = [
@@ -11,7 +12,7 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="w-50">
+    <nav className="w-50 flex flex-col justify-between center border-e-2">
       <div className="flex flex-col justify-around items-center m-3">
         <h1 className="text-3xl">Trade Tracker</h1>
         <div className="navbar-nav mx-auto">
@@ -24,6 +25,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
+      <FooterToolbar />
     </nav>
   );
 };
