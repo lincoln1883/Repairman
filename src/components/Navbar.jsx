@@ -1,12 +1,13 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, redirect } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { logoutUser } from '../redux/reducers/auth/logoutSlice';
 
 const Navbar = () => {
   const userInfo = JSON.parse(localStorage.getItem('user')) || [];
   const user = userInfo.data;
 
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const links = [
@@ -23,6 +24,8 @@ const Navbar = () => {
     dispatch(logoutUser());
     localStorage.removeItem('user');
     localStorage.removeItem('token');
+    navigate('/');
+    window.location.reload();
   };
 
   if (!user) {
