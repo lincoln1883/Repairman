@@ -1,8 +1,9 @@
 import React from 'react';
+import ReserveForm from '../components/ReserveForm';
 
 const Reserve = () => (
   <>
-    <h1>Reserve</h1>
+    <ReserveForm />
   </>
 );
 
