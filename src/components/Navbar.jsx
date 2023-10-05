@@ -38,8 +38,13 @@ const Navbar = () => {
 
   return (
     <nav className="w-50 flex flex-col justify-between center border-e-2">
-      <div className="flex flex-col justify-around items-center m-3">
-        <h1 className="text-3xl">Trade Tracker</h1>
+      <div className="flex flex-col justify-between items-center gap-8 m-3">
+        <h1
+          className="text-2xl mt-4"
+          style={headerStyle}
+        >
+          HandyHome
+        </h1>
         { user?.role === 'admin' && (
         <>
           <h2 className="text-xl">
@@ -51,10 +56,10 @@ const Navbar = () => {
             <ul>
               {adminLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path}>{link.text}</Link>
+                  <Link to={link.path} className="text-lg font-serif">{link.text}</Link>
                 </li>
               ))}
-              <button type="button" onClick={handleLogout}>Logout</button>
+              <button type="button" className="text-lg font-serif" onClick={handleLogout}>Logout</button>
             </ul>
           </div>
         </>
@@ -70,10 +75,10 @@ const Navbar = () => {
             <ul>
               {userLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path}>{link.text}</Link>
+                  <Link to={link.path} className="text-lg font-serif">{link.text}</Link>
                 </li>
               ))}
-              <button type="button" onClick={handleLogout}>Logout</button>
+              <button type="button" className="text-lg font-serif" onClick={handleLogout}>Logout</button>
             </ul>
           </div>
         </>
