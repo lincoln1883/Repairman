@@ -8,7 +8,6 @@ import Reserve from './pages/Reserve';
 import AddTrades from './pages/AddTrades';
 import DeleteTrade from './pages/DeleteTrade';
 import ListTrades from './pages/ListTrades';
-import TradesList from './components/TradesList';
 import './App.css';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
