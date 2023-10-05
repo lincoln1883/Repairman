@@ -15,8 +15,8 @@ const SplashScreen = () => {
 
   return (
     <div className="flex h-screen justify-center items-center splash-container">
-      <div className="splash p-10 shadow-2xl text-center">
-        <h1 className="splash-head text-4xl font-semibold mb-4">Welcome</h1>
+      <div className="splash p-10 shadow-2xl text-center ms-2 me-2">
+        <h1 className="splash-head text-4xl font-semibold mb-4">Handy Home Hub</h1>
         <p className="splash-subhead text-lg text-gray-600 mb-6">
           A Trade reservation system
         </p>
