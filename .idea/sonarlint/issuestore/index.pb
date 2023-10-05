@@ -7,8 +7,6 @@ D
 public/manifest.json,4/2/42e89cd2213b9d5dfae4f63522702c623170d792
 A
 public/robots.txt,d/a/dac799070c2d0c2fa24462b02c1f2dcc3fb3a1e9
-Y
-)src/features/counter/counterSlice.spec.js,6/0/607903892240343ad1ad51e4c4aa90b6022ef640
 A
 .stylelintrc.json,b/8/b8af146c14f2398fd612ac906f0be41df9d89b72
 8
@@ -34,12 +32,6 @@ A
 src/setupTests.js,b/7/b7e8d8f421068b8d51c89805d2035e747be2ff17
 B
 src/redux/store.js,b/f/bf7810bad55c8c031251188a5290278db09e4dfc
-O
-src/features/counter/Counter.js,a/9/a9f28dc22eea45c7af50101f7938a6fb6bbb0f96
-R
-"src/features/counter/counterAPI.js,e/b/eb0f2f863db4f33b0ec28beb148f438cb0a746d7
-T
-$src/features/counter/counterSlice.js,e/1/e170124adacb87937b2c36ae01d8683cad220623
 :
 
 src/App.js,1/e/1e43fa63aecd2127be034b3fb9d4caa172275714
@@ -47,5 +39,21 @@ src/App.js,1/e/1e43fa63aecd2127be034b3fb9d4caa172275714
 src/index.js,f/9/f900edc44cb929c2267a16100a32851f6d5b477d
 ?
 src/App.test.js,9/2/923703ced91ac38943d37930d9d27a7ebe8f01ad
-W
-'src/features/counter/Counter.module.css,6/d/6d0d927060643be63c6deaa2479b4395c31d981b
+D
+src/pages/Splash.jsx,c/7/c7061783c4ef17f53d0f9222bef9898a581fc2f4
+I
+src/components/Layout.jsx,f/b/fb4aa418208d81c3f472580f20f988c767c1adb2
+P
+ src/components/auth/Register.jsx,3/e/3e9f4c0e27f3014db45596839e5b6e0599361204
+C
+src/api/RailsApi.js,8/a/8a75587c5b9a4bb54bccc42061e8825bc23e440c
+X
+(src/redux/reducers/auth/registerSlice.js,4/2/425ae99d06398dfca20293710a15e5fcb6fef518
+I
+src/components/Navbar.jsx,d/1/d1eb1e252fd507134cfc95e08757d087da9b650a
+M
+src/components/auth/Login.jsx,5/2/5208ebf132a4034f7aff90678650014fe65e4786
+U
+%src/redux/reducers/auth/loginSlice.js,8/2/8228f5b9e8af856bf306c30d5800aa29e3101972
+V
+&src/redux/reducers/auth/logoutSlice.js,1/f/1f054940c27b35105b287be145b2702132146d83

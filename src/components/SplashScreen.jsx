@@ -5,9 +5,13 @@ import '../styles/splashscreen.css';
 const SplashScreen = () => {
   const navigate = useNavigate();
 
-  function handleHome() {
-    navigate('/trade');
-  }
+  const handleLogin = () => {
+    navigate('/login');
+  };
+
+  const handleSignup = () => {
+    navigate('/register');
+  };
 
   return (
     <div className="flex h-screen justify-center items-center splash-container">
@@ -19,14 +23,14 @@ const SplashScreen = () => {
         <div className="flex flex-col gap-4">
           <button
             type="button"
-            onClick={handleHome}
+            onClick={handleSignup}
             className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
           >
             Sign Up
           </button>
           <button
             type="button"
-            onClick={handleHome}
+            onClick={handleLogin}
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
           >
             Log In
