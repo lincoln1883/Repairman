@@ -7,9 +7,10 @@ const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPass] = useState('');
 
-  const status = useSelector((state) => state.login.status);
+  const loginStatus = useSelector((state) => state.login.status);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
