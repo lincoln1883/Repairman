@@ -9,8 +9,15 @@ const initialState = {
   error: null,
 };
 
+const token = JSON.parse(localStorage.getItem('token'));
+
+const headers = {
+  'Content-Type': 'application/json',
+  Authorization: `Bearer ${token}`,
+};
+
 export const fetchTrades = createAsyncThunk('trades/fetchTrades', async (includeRemoved = false) => {
-  const response = await axios.get('http://localhost:3001/api/v1/trades/');
+  const response = await axios.get('http://localhost:3001/api/v1/trades/', { headers });
 
   let trades = [];
 

@@ -6,12 +6,12 @@ const ReserveForm = () => {
   const [reservationData, setReservationData] = useState({
     trade_id: '',
     date: '',
+    city: 'dhaka',
   });
 
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('button has been clicked');
     dispatch(createReservation(reservationData));
   };
 
@@ -50,6 +50,7 @@ const ReserveForm = () => {
           onChange={handleInputChange}
         />
       </div>
+
       <div>
         <input
           type="date"
@@ -58,6 +59,7 @@ const ReserveForm = () => {
           onChange={handleInputChange}
         />
       </div>
+
       <div>
         <button type="submit">Create Reservation</button>
       </div>
