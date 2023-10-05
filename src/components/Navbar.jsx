@@ -43,7 +43,7 @@ const Navbar = () => {
         { user?.role === 'admin' && (
         <>
           <h2 className="text-xl">
-            Welcome
+            Signed in as
             {' '}
             { user.name }
           </h2>
@@ -62,7 +62,7 @@ const Navbar = () => {
         { user?.role === 'user' && (
         <>
           <h2 className="text-xl">
-            Welcome
+            Signed in as
             {' '}
             { user.name }
           </h2>
