@@ -77,6 +77,7 @@ const Register = () => {
                 type="password"
                 placeholder="***********"
                 required
+                minLength={6}
                 value={password}
                 onChange={(e) => setPass(e.target.value)}
               />
