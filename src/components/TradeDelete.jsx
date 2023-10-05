@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTrades, updateRemoveTrade } from '../redux/reducers/tradesSlice';
+import { getUserRole } from '../utils/userStorage';
 
 const TradeDelete = () => {
   const dispatch = useDispatch();
-  const isAdmin = useSelector((state) => state.users.role === 'admin');
+  const isAdmin = getUserRole() === 'admin';
   const trades = useSelector((state) => state.trades.trades);
   const loading = useSelector((state) => state.trades.loading);
 
