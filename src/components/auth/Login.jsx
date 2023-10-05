@@ -32,7 +32,7 @@ const Login = () => {
     }
   }, [loginStatus, navigate]);
   return (
-    <>
+    <div className="flex flex-col justify-center items-center mx-auto h-screen">
       <div className="w-full max-w-xs">
         <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" onSubmit={handleLogin}>
           <div className="mb-4">
@@ -67,13 +67,13 @@ const Login = () => {
             </label>
           </div>
           <div className="flex items-center justify-between">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">
               Login
             </button>
           </div>
         </form>
       </div>
-    </>
+    </div>
   );
 };
 export default Login;
