@@ -16,8 +16,6 @@ const Navbar = () => {
     { path: '/trade/reservations', text: 'My Reservations' },
     { path: '/trade/add', text: 'Add Trade' },
     { path: '/trade/delete', text: 'Delete Trade' },
-    { path: '/login', text: 'Login' },
-    { path: '/register', text: 'Register' },
   ];
 
   const handleLogout = () => {
@@ -27,10 +25,6 @@ const Navbar = () => {
     navigate('/');
     window.location.reload();
   };
-
-  if (!user) {
-    redirect('/home');
-  }
 
   return (
     <nav className="w-50">
