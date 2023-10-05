@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { redirect } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/reducers/auth/loginSlice';
 
@@ -25,10 +25,11 @@ const Login = () => {
     setPass('');
   };
 
-  if (status === 'success') {
-    redirect('/trades');
-  }
-
+  useEffect(() => {
+    if (loginStatus === 'success') {
+      navigate('/trade');
+    }
+  }, [loginStatus, navigate]);
   return (
     <>
       <div className="w-full max-w-xs">
