@@ -12,6 +12,7 @@ import TradesList from './components/TradesList';
 import './App.css';
 import Login from './components/auth/Login';
 import Register from './components/auth/Register';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
