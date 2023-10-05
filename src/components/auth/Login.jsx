@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/reducers/auth/loginSlice';
 
@@ -29,6 +29,7 @@ const Login = () => {
   useEffect(() => {
     if (loginStatus === 'success') {
       navigate('/trade');
+      window.location.reload();
     }
   }, [loginStatus, navigate]);
   return (
@@ -71,6 +72,17 @@ const Login = () => {
               Login
             </button>
           </div>
+          <p className="mt-6 text-center text-neutral-800">
+            Not a member?
+            {' '}
+            <Link
+              to="/register"
+              className="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+            >
+              Sign up
+            </Link
+            >
+          </p>
         </form>
       </div>
     </div>
