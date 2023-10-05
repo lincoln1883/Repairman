@@ -2,6 +2,8 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logoutUser } from '../redux/reducers/auth/logoutSlice';
+import FooterToolbar from './FooterToolbar';
+
 
 const Navbar = () => {
   const userInfo = JSON.parse(localStorage.getItem('user')) || [];
@@ -26,7 +28,7 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-50">
+    <nav className="w-50 flex flex-col justify-between center border-e-2">
       <div className="flex flex-col justify-around items-center m-3">
         <h1 className="text-3xl">Trade Tracker</h1>
         <h2 className="text-xl">
@@ -45,6 +47,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
+      <FooterToolbar />
     </nav>
   );
 };
