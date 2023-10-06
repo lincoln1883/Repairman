@@ -27,7 +27,7 @@ const TradesList = () => {
   }
 
   return (
-    <div className="min-h-screen text-center mt-4 w-full bg-cyan-100">
+    <div className="text-center mt-4 w-full">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {trades.map((trade) => (
           <Link
