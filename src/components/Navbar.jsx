@@ -37,53 +37,61 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-50 flex flex-col justify-between center border-e-2">
-      <div className="flex flex-col justify-between items-center gap-8 m-3">
-        <h1
-          className="text-2xl mt-4"
-          style={headerStyle}
-        >
+    <nav className="w-50 bg-cyan-600 text-white h-screen flex flex-col justify-between">
+      <div className="p-4">
+        <h1 className="text-2xl mt-4 mb-8" style={headerStyle}>
           HandyHome
         </h1>
-        { user?.role === 'admin' && (
-        <>
-          <h2 className="text-xl">
-            Signed in as
-            {' '}
-            { user.name }
-          </h2>
-          <div className="navbar-nav mx-auto">
+        {user?.role === 'admin' && (
+          <>
+            <h2 className="text-lg font-semibold mb-4">
+              Signed in as
+              {' '}
+              {user.name}
+            </h2>
             <ul>
               {adminLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-lg font-serif">{link.text}</Link>
+                  <Link
+                    to={link.path}
+                    className="block text-lg font-semibold py-2 hover:bg-blue-700 hover:text-white rounded-md transition duration-300"
+                  >
+                    {link.text}
+                  </Link>
                 </li>
               ))}
-              <button type="button" className="text-lg font-serif" onClick={handleLogout}>Logout</button>
             </ul>
-          </div>
-        </>
+          </>
         )}
-        { user?.role === 'user' && (
-        <>
-          <h2 className="text-xl">
-            Signed in as
-            {' '}
-            { user.name }
-          </h2>
-          <div className="navbar-nav mx-auto">
+        {user?.role === 'user' && (
+          <>
+            <h2 className="text-lg font-semibold mb-4">
+              Signed in as
+              {' '}
+              {user.name}
+            </h2>
             <ul>
               {userLinks.map((link) => (
                 <li key={link.path}>
-                  <Link to={link.path} className="text-lg font-serif">{link.text}</Link>
+                  <Link
+                    to={link.path}
+                    className="block text-lg font-semibold py-2 hover:bg-blue-700 hover:text-white rounded-md transition duration-300"
+                  >
+                    {link.text}
+                  </Link>
                 </li>
               ))}
-              <button type="button" className="text-lg font-serif" onClick={handleLogout}>Logout</button>
             </ul>
-          </div>
-        </>
+          </>
         )}
       </div>
+      <button
+        type="button"
+        onClick={handleLogout}
+        className="text-lg font-semibold py-2 bg-red-600 hover:bg-red-700 transition duration-300"
+      >
+        Logout
+      </button>
       <FooterToolbar />
     </nav>
   );
