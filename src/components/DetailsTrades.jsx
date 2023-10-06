@@ -16,9 +16,18 @@ const TradesDetails = () => {
     return <div className="text-center mt-4">Loading...</div>;
   }
 
+  const backgroundStyle = {
+    backgroundImage: `url(${trade.image})`,
+    backgroundSize: 'cover',
+    backgroundPosition: 'center',
+  };
+
   return (
-    <div className="container mx-auto p-4">
-      <div className="bg-white rounded-lg shadow-md p-4">
+    <div
+      className="min-h-screen flex items-center justify-center p-4"
+      style={backgroundStyle}
+    >
+      <div className="bg-black rounded-lg shadow-md p-6 bg-opacity-80 backdrop-blur-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="md:col-span-1">
             <img
@@ -28,39 +37,43 @@ const TradesDetails = () => {
             />
           </div>
           <div className="md:col-span-1">
-            <h2 className="text-2xl font-semibold">{trade.name}</h2>
-            <p className="text-gray-600 mt-2">
-              Description:
+            <h2 className="text-4xl font-semibold text-lime-300 mb-4">
+              {trade.name}
+            </h2>
+            <p className="text-cyan-300 mt-2 text-lg">
+              <strong>Description:</strong>
+              {' '}
               {trade.description}
             </p>
-            <p className="text-gray-600 mt-2">
-              Location:
+            <p className="text-cyan-300 mt-2 text-lg">
+              <strong>Location:</strong>
+              {' '}
               {trade.location}
             </p>
-            <p className="text-gray-600 mt-2">
-              Price:$
+            <p className="text-cyan-300 mt-2 text-lg">
+              <strong>Price:</strong>
+              {' '}
+              $
               {trade.price}
             </p>
-            <p className="text-gray-600 mt-2">
-              Duration:
+            <p className="text-cyan-300 mt-2 text-lg">
+              <strong>Duration:</strong>
+              {' '}
               {trade.duration}
+              {' '}
+              hours
             </p>
-            <p className="text-gray-600 mt-2">
-              Type:
+            <p className="text-cyan-300 mt-2 text-lg">
+              <strong>Type:</strong>
+              {' '}
               {trade.trade_type}
             </p>
-            <div className="mt-4 space-x-2">
+            <div className="mt-6">
               <Link
                 to={`/trade/reserve/${trade.id}`}
-                className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                className="bg-lime-600 hover:bg-cyan-300 text-white px-4 py-2 rounded-full transition-colors duration-300 text-lg font-semibold"
               >
-                Reserve
-              </Link>
-              <Link
-                to="/trade/delete"
-                className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-              >
-                Delete
+                Click to Reserve
               </Link>
             </div>
           </div>
