@@ -10,7 +10,9 @@ const Register = () => {
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const status = useSelector((state) => state.register.status);
+  const registerStatus = useSelector((state) => state.register.status);
+  const registerError = useSelector((state) => state.login.error);
+  const registerLoading = useSelector((state) => state.login.status === 'loading');
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -29,11 +31,10 @@ const Register = () => {
   };
 
   useEffect(() => {
-    if (status === 'success') {
+    if (registerStatus === 'success') {
       navigate('/login');
-      window.location.reload();
     }
-  }, [status, navigate]);
+  }, [registerStatus, navigate]);
 
   return (
     <div className="flex flex-col justify-center bg-gray-200 items-center mx-auto h-screen">
@@ -42,6 +43,12 @@ const Register = () => {
           className="bg-white shadow-2xl w-full rounded-xl px-8 pt-6 pb-8 mb-4"
           onSubmit={handleRegister}
         >
+          {registerError && <p className="text-red-500 text-xs italic mb-2">{registerError}</p>}
+          {registerLoading && <p className="text-green-500 text-xs italic mb-2">Loading...</p>}
+          <div className="mb-4">
+            <h1 className="text-center text-2xl font-bold mb-2">Sign Up</h1>
+            <p className="text-center text-gray-600 text-xs">Please fill in this form to create an account!</p>
+          </div>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
               Name
