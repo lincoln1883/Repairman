@@ -12,50 +12,62 @@ const headers = {
 };
 
 const initialState = {
-  cities: null,
+  cities: [],
+  createReservationStatus: 'idle',
 };
 
-const createReservation = createAsyncThunk(
+export const createReservation = createAsyncThunk(
   'reservation/createReservation',
-  async (reservationData) => {
+  async (reservationData, { rejectWithValue }) => {
     try {
       const response = await axios.post(url, reservationData, { headers });
       return response.data;
     } catch (error) {
-      console.error('Error:', error);
-      throw error;
+      return rejectWithValue(error.response.data);
     }
   },
 );
 
-const fetchCities = createAsyncThunk(
+export const fetchCities = createAsyncThunk(
   'reservation/fetchCities',
-  async () => {
+  async (_, { rejectWithValue }) => {
     try {
       const cityEndpoint = '/api/v1/trade/';
       const cityUrl = baseUrl + cityEndpoint;
       const response = await axios.get(cityUrl, { headers });
-      console.log('the response is', response);
       return response.data;
     } catch (error) {
-      console.error('Error:', error);
-      throw error;
+      return rejectWithValue(error.response.data);
     }
   },
 );
 
-const reservationSlice = createSlice({
+const reserveSlice = createSlice({
   name: 'reservation',
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(fetchCities.pending, (state) => {
+        state.createReservationStatus = 'loading';
+      })
       .addCase(fetchCities.fulfilled, (state, action) => {
-        console.log('the action.payload is', action.payload);
+        state.createReservationStatus = 'succeeded';
         state.cities = action.payload;
+      })
+      .addCase(fetchCities.rejected, (state) => {
+        state.createReservationStatus = 'failed';
+      })
+      .addCase(createReservation.pending, (state) => {
+        state.createReservationStatus = 'loading';
+      })
+      .addCase(createReservation.fulfilled, (state) => {
+        state.createReservationStatus = 'succeeded';
+      })
+      .addCase(createReservation.rejected, (state) => {
+        state.createReservationStatus = 'failed';
       });
   },
 });
 
-export const reserveReducer = reservationSlice.reducer;
-export { createReservation, fetchCities };
+export default reserveSlice.reducer;

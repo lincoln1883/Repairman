@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createReservation } from '../redux/reducers/reserevSlice';
+import { createReservation } from '../redux/reducers/reserveSlice';
 
 const ReserveForm = () => {
   const [reservationData, setReservationData] = useState({
