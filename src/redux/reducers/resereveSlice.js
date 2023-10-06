@@ -18,13 +18,21 @@ const initialState = {
 
 const createReservation = createAsyncThunk(
   'reservation/createReservation',
-  async (reservationData) => {
+  async (reservationData, { rejectWithValue }) => {
     try {
       const response = await axios.post(url, reservationData, { headers });
       return response.data;
     } catch (error) {
+      // Log the error for debugging purposes
       console.error('Error:', error);
-      throw error;
+
+      // If the error includes a response, return the response data as part of the rejection
+      if (error.response) {
+        return rejectWithValue(error.response.data);
+      }
+
+      // If there's no response, reject with a generic error message
+      return rejectWithValue({ message: 'An error occurred.' });
     }
   },
 );
@@ -35,14 +43,20 @@ const reservationSlice = createSlice({
   reducers: {
     resetCreated: (state) => {
       state.isCreated = false;
+      state.error = null; // Add an error state
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(createReservation.fulfilled, (state, action) => {
-      console.log('the trades are', action.payload);
-      state.trades = action.payload;
-      state.isCreated = true;
-    });
+    builder
+      .addCase(createReservation.fulfilled, (state, action) => {
+        state.trades = action.payload;
+        state.isCreated = true;
+        state.error = null; // Clear any previous error
+      })
+      .addCase(createReservation.rejected, (state, action) => {
+        state.error = action.payload; // Set the error state with the payload
+        state.isCreated = false; // Reservation was not created
+      });
   },
 });
 
