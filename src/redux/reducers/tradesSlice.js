@@ -66,7 +66,6 @@ const tradesSlice = createSlice({
     builder
       .addCase(fetchTrades.pending, (state) => {
         state.loading = true;
-        state.status = 'loading';
         state.error = null;
       })
       .addCase(addTrades.fulfilled, (state, action) => {

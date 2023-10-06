@@ -6,7 +6,7 @@ import { getUserRole, getUserId } from '../utils/userStorage';
 
 const TradeInput = () => {
   const dispatch = useDispatch();
-  const tradeLoading = useSelector((state) => state.trades.status === 'loading');
+  const tradeLoading = useSelector((state) => state.trades.loading);
   const tradeError = useSelector((state) => state.trades.error);
   const tradeSuccess = useSelector((state) => state.trades.status);
   const navigate = useNavigate();
