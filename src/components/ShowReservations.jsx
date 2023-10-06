@@ -10,34 +10,58 @@ const ShowReservation = () => {
     dispatch(fetchReservations());
   }, [dispatch]);
 
+  // Function to calculate days and hours remaining
+  const calculateTimeRemaining = (reservationDate) => {
+    const currentDate = new Date();
+    const reservationDateObj = new Date(reservationDate);
+    const timeDifference = reservationDateObj - currentDate;
+    const daysRemaining = Math.floor(timeDifference / (1000 * 3600 * 24));
+    const hoursRemaining = Math.floor(
+      (timeDifference % (1000 * 3600 * 24)) / (1000 * 3600),
+    );
+
+    // Decide how to display the remaining time
+    if (daysRemaining > 0) {
+      return `${daysRemaining} days`;
+    } if (hoursRemaining > 0) {
+      return `${hoursRemaining} hours`;
+    }
+    return 'Less than 1 hour';
+  };
+
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-semibold mb-4">Reservations</h1>
-      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <h1 className="text-3xl font-semibold text-gray-800 mb-4">
+        Reservations
+      </h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {reservations ? (
           reservations.map((reservation) => (
-            <li key={reservation.id} className="bg-white shadow-md rounded-lg p-4">
-              <p className="text-lg font-semibold">
-                Reservation Date:
-                {' '}
-                {reservation.date}
-              </p>
-              <p className="text-base mt-2">
-                Trade Name:
-                {' '}
-                {reservation.trade.name}
-              </p>
-              <img
-                src={reservation.trade.image}
-                alt={reservation.trade.name}
-                className="mt-2 h-32 object-cover w-full"
+            <div
+              key={reservation.id}
+              className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer relative"
+            >
+              <div
+                className="bg-cover bg-center bg-no-repeat h-72 grayscale transition-all duration-300"
+                style={{ backgroundImage: `url(${reservation.trade.image})` }}
               />
-            </li>
+              <div className="p-6 bg-black backdrop-filter bg-opacity-50 absolute inset-0 flex flex-col items-center justify-center text-white">
+                <h2 className="text-2xl font-semibold text-white text-shadow mb-4 text-center">
+                  {reservation.trade.name}
+                </h2>
+                <p className="text-2xl font-semibold text-green-400 text-gradient text-shadow mb-4">
+                  {calculateTimeRemaining(reservation.date)}
+                </p>
+                <div className="bg-indigo-600 text-white py-2 px-4 text-center rounded-full hover:bg-indigo-700 transition-colors duration-300 cursor-pointer">
+                  View Details
+                </div>
+              </div>
+            </div>
           ))
         ) : (
           <p className="text-gray-500">Loading reservations...</p>
         )}
-      </ul>
+      </div>
     </div>
   );
 };
