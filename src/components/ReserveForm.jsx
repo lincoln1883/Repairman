@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { createReservation, resetCreated } from '../redux/reducers/resereveSlice';
-import { fetchTrades } from '../redux/reducers/tradesSlice';
+import {
+  createReservation,
+  resetCreated,
+} from '../redux/reducers/resereveSlice'; // Correct the import path if needed
+import { fetchTrades } from '../redux/reducers/tradesSlice'; // Correct the import path if needed
 
 const ReserveForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const trades = useSelector((state) => state.trades.trades);
   const created = useSelector((state) => state.reserve.isCreated);
-  console.log('the status is', created);
   const [reservationData, setReservationData] = useState({
     trade_id: '',
     date: '',
     city: '',
   });
+
+  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     if (created) {
@@ -27,15 +31,21 @@ const ReserveForm = () => {
     dispatch(fetchTrades());
   }, [dispatch]);
 
-  if (trades === null) {
-    return <div>Loading...</div>;
-  }
-
-  console.log('the trades are in from', trades);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createReservation(reservationData));
+    dispatch(createReservation(reservationData))
+      .unwrap()
+      .then(() => {
+        // Handle success here if needed
+      })
+      .catch((rejectedValueOrSerializedError) => {
+        // Handle the error here and set the error message
+        // console.error('Reservation error:', rejectedValueOrSerializedError);
+
+        // Access the error message and set it
+        const errorMessage = rejectedValueOrSerializedError.message || 'Already reserved for this date';
+        setErrorMessage(errorMessage);
+      });
   };
 
   const handleInputChange = (event) => {
@@ -94,10 +104,12 @@ const ReserveForm = () => {
           onChange={handleInputChange}
         />
       </div>
-
       <div>
         <button type="submit">Create Reservation</button>
       </div>
+      {errorMessage && (
+        <p style={{ color: 'red', marginTop: '10px' }}>{errorMessage}</p>
+      )}
     </form>
   );
 };
