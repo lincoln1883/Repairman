@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/splashscreen.css';
 
 const SplashScreen = () => {
   const navigate = useNavigate();
+
+  const currentUser = localStorage.getItem('user');
+
+  useEffect(() => {
+    if (currentUser) {
+      navigate('/trade');
+    }
+  }, [currentUser, navigate]);
 
   const handleLogin = () => {
     navigate('/login');
@@ -15,10 +23,10 @@ const SplashScreen = () => {
 
   return (
     <div className="flex h-screen justify-center items-center splash-container">
-      <div className="splash p-10 shadow-2xl text-center">
-        <h1 className="splash-head text-4xl font-semibold mb-4">Welcome</h1>
+      <div className="splash p-10 shadow-2xl text-center ms-2 me-2">
+        <h1 className="splash-head text-4xl font-semibold mb-4">Handy Home Hub</h1>
         <p className="splash-subhead text-lg text-gray-600 mb-6">
-          A Trade reservation system
+          Trade appointment app for tradesmen and customers
         </p>
         <div className="flex flex-col gap-4">
           <button

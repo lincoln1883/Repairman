@@ -1,8 +1,9 @@
 import React from 'react';
+import TradeInput from '../components/TradeInput';
 
 const AddTrades = () => (
   <>
-    <h1>Add Trades</h1>
+    <TradeInput />
   </>
 );
 
