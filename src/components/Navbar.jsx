@@ -38,21 +38,16 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-50 flex flex-col justify-between center border-e-2">
+    <nav className="w-50 flex flex-col justify-between center border-e-2 p-3">
       <div className="flex flex-col justify-between items-center gap-8 m-3">
         <h1
-          className="text-2xl mt-4"
+          className="text-3xl mt-4 -rotate-6 text-bold underline"
           style={headerStyle}
         >
           HandyHome
         </h1>
         { user.role === 'admin' && (
         <>
-          <h2 className="text-xl">
-            Signed in as
-            {' '}
-            { user.name }
-          </h2>
           <div className="navbar-nav mx-auto">
             <ul>
               {adminLinks.map((link) => (
@@ -67,11 +62,6 @@ const Navbar = () => {
         )}
         { user.role === 'user' && (
         <>
-          <h2 className="text-xl">
-            Signed in as
-            {' '}
-            { user.name }
-          </h2>
           <div className="navbar-nav mx-auto">
             <ul>
               {userLinks.map((link) => (
