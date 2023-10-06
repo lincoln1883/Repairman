@@ -56,62 +56,55 @@ const ReserveForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-indigo-600 via-indigo-400 to-blue-300"
+      className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-indigo-600 via-indigo-400 to-blue-300 backdrop-blur-md"
     >
-      <div className="bg-white p-8 rounded-lg shadow-lg flex flex-col space-y-4 w-96">
-        <h1 className="text-2xl font-bold text-gray-800 text-center">
-          Create Reservation
-        </h1>
-
-        <div className="flex flex-col space-y-4">
-          <div className="flex space-x-4">
-            <div className="flex-1">
-              <label htmlFor="trade_id" className="text-gray-600">
-                Select a Trade:
-                <select
-                  name="trade_id"
-                  id="trade_id"
-                  value={reservationData.trade_id}
-                  onChange={handleInputChange}
-                  className="p-2 border border-gray-300 rounded-md w-full focus:ring focus:ring-indigo-200 focus:outline-none"
-                >
-                  <option value="">Select a Trade</option>
-                  {trades.map((trade) => (
-                    <option key={trade.id} value={trade.id}>
-                      {trade.name}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            </div>
-            <div className="flex-1">
-              <label htmlFor="city" className="text-gray-600">
-                Select a City:
-                <select
-                  name="city"
-                  id="city"
-                  value={reservationData.city}
-                  onChange={handleInputChange}
-                  className="p-2 border border-gray-300 rounded-md w-full focus:ring focus:ring-indigo-200 focus:outline-none"
-                >
-                  <option value="">Select a City</option>
-                  {trades.map((trade) => (
-                    <option key={trade.id} value={trade.location}>
-                      {trade.location}
-                    </option>
-                  ))}
-                </select>
-              </label>
-            </div>
+      <div className="bg-opacity-80 bg-white p-8 rounded-lg shadow-lg w-128 space-y-4">
+        <div className="flex space-x-4">
+          <div className="flex-1">
+            <label htmlFor="trade_id" className="text-gray-600">
+              Select a Trade:
+              <select
+                name="trade_id"
+                id="trade_id"
+                value={reservationData.trade_id}
+                onChange={handleInputChange}
+                className="p-2 border border-gray-300 rounded-md w-full focus:ring focus:ring-indigo-200 focus:outline-none"
+              >
+                <option value="">Select a Trade</option>
+                {trades.map((trade) => (
+                  <option key={trade.id} value={trade.id}>
+                    {trade.name}
+                  </option>
+                ))}
+              </select>
+            </label>
           </div>
-
-          <div>
+          <div className="flex-1">
+            <label htmlFor="city" className="text-gray-600">
+              Select a City:
+              <select
+                name="city"
+                id="city"
+                value={reservationData.city}
+                onChange={handleInputChange}
+                className="p-2 border border-gray-300 rounded-md w-full focus:ring focus:ring-indigo-200 focus:outline-none"
+              >
+                <option value="">Select a City</option>
+                {trades.map((trade) => (
+                  <option key={trade.id} value={trade.location}>
+                    {trade.location}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
+          <div className="flex-1">
             <label htmlFor="date" className="text-gray-600">
               Select a Date:
               <input
                 type="date"
                 name="date"
-                id="date" // Add unique id
+                id="date"
                 value={reservationData.date}
                 onChange={handleInputChange}
                 className="p-2 border border-gray-300 rounded-md w-full focus:ring focus:ring-indigo-200 focus:outline-none"
@@ -119,11 +112,9 @@ const ReserveForm = () => {
             </label>
           </div>
         </div>
+      </div>
 
-        {errorMessage && (
-          <p className="text-red-600 text-center">{errorMessage}</p>
-        )}
-
+      <div className="mt-4 w-96">
         <button
           type="submit"
           className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md w-full transition-colors duration-300"
@@ -131,6 +122,10 @@ const ReserveForm = () => {
           Create Reservation
         </button>
       </div>
+
+      {errorMessage && (
+        <p className="text-red-600 text-center mt-4">{errorMessage}</p>
+      )}
     </form>
   );
 };
