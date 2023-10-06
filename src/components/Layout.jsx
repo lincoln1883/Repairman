@@ -8,7 +8,7 @@ const Layout = () => (
     <div
       className="mx-auto w-full h-full bg-gray-100"
       style={{
-        flex: 1, padding: '20px', height: '100%', overflowY: 'auto',
+        flex: 1, padding: '30px 20px 20px', height: '100%', overflowY: 'auto',
       }}
     >
       <Outlet />
