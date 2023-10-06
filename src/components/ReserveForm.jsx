@@ -1,24 +1,36 @@
-/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { createReservation, fetchCitiesAndTrades } from '../redux/reducers/reserevSlice';
+import { createReservation, resetCreated } from '../redux/reducers/resereveSlice';
+import { fetchTrades } from '../redux/reducers/tradesSlice';
 
 const ReserveForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const trades = useSelector((state) => state.trades.trades);
+  const created = useSelector((state) => state.reserve.isCreated);
+  console.log('the status is', created);
   const [reservationData, setReservationData] = useState({
     trade_id: '',
     date: '',
-    city: 'dhaka',
+    city: '',
   });
 
-  const dispatch = useDispatch();
+  useEffect(() => {
+    if (created) {
+      dispatch(resetCreated());
+      navigate('/trade/reservations');
+    }
+  }, [created, navigate, dispatch]);
 
   useEffect(() => {
-    dispatch(fetchCitiesAndTrades());
+    dispatch(fetchTrades());
   }, [dispatch]);
 
-  const cities = useSelector((state) => state.reserve.cities);
-  const trades = useSelector((state) => state.reserve.trades);
-  console.log('the cities are in from', cities);
+  if (trades === null) {
+    return <div>Loading...</div>;
+  }
+
   console.log('the trades are in from', trades);
 
   const handleSubmit = (e) => {
@@ -37,12 +49,41 @@ const ReserveForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <input
-          type="text"
-          name="trade_id"
-          value={reservationData.trade_id}
-          onChange={handleInputChange}
-        />
+        <label htmlFor="trade_id">
+          Select a Trade:
+          <select
+            name="trade_id"
+            id="trade_id"
+            value={reservationData.trade_id}
+            onChange={handleInputChange}
+          >
+            <option value="">Select a Trade</option>
+            {trades.map((trade) => (
+              <option key={trade.id} value={trade.id}>
+                {trade.name}
+              </option>
+            ))}
+          </select>
+        </label>
+      </div>
+
+      <div>
+        <label htmlFor="city">
+          Select a City:
+          <select
+            name="city"
+            id="city"
+            value={reservationData.city}
+            onChange={handleInputChange}
+          >
+            <option value="">Select a City</option>
+            {trades.map((trade) => (
+              <option key={trade.id} value={trade.location}>
+                {trade.location}
+              </option>
+            ))}
+          </select>
+        </label>
       </div>
 
       <div>

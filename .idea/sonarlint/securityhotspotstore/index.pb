@@ -47,8 +47,6 @@ P
  src/components/auth/Register.jsx,3/e/3e9f4c0e27f3014db45596839e5b6e0599361204
 I
 src/components/Navbar.jsx,d/1/d1eb1e252fd507134cfc95e08757d087da9b650a
-C
-src/api/RailsApi.js,8/a/8a75587c5b9a4bb54bccc42061e8825bc23e440c
 X
 (src/redux/reducers/auth/registerSlice.js,4/2/425ae99d06398dfca20293710a15e5fcb6fef518
 M
