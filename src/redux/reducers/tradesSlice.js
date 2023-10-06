@@ -3,14 +3,30 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const BASE_URL = `${process.env.REACT_APP_API_URL}/trades`;
 const initialState = {
   trades: [],
   loading: false,
   error: null,
 };
 
+export const addTrades = createAsyncThunk('trades/AddTrades', async (add) => {
+  try {
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.post(BASE_URL, add,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
+});
+
 export const fetchTrades = createAsyncThunk('trades/fetchTrades', async (includeRemoved = false) => {
-  const response = await axios.get('http://localhost:3001/api/v1/trades/');
+  const response = await axios.get(BASE_URL);
 
   let trades = [];
 
@@ -28,8 +44,13 @@ export const updateRemoveTrade = createAsyncThunk(
   'trades/updatedTrade',
   async ({ id, removed }) => {
     // makes a PUT request to the API to update the trade
-    const response = await axios.put(`http://localhost:3001/api/v1/trades/${id}`, {
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.put(`${BASE_URL}/${id}`, {
       removed,
+    }, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
 
     return response.data;
@@ -42,6 +63,29 @@ const tradesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(addTrades.fulfilled, (state, action) => {
+        const {
+          name, description, image, price, duration, location, tradeType, userId,
+        } = action.payload;
+
+        const newTrade = {
+          name,
+          description,
+          image,
+          price,
+          duration,
+          location,
+          tradeType,
+          userId,
+        };
+        state.trades.push(newTrade);
+        state.loading = false;
+        state.error = null;
+      })
+      .addCase(addTrades.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
       .addCase(fetchTrades.pending, (state) => {
         state.loading = true;
         state.error = null;
@@ -65,6 +109,3 @@ const tradesSlice = createSlice({
 });
 
 export default tradesSlice.reducer;
-
-// Commented out the unused export statement to resolve linting error
-// export { fetchTrades };
