@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { logoutUser } from '../redux/reducers/auth/logoutSlice';
@@ -6,6 +6,7 @@ import FooterToolbar from './FooterToolbar';
 import { getUserData } from '../utils/userStorage';
 
 const Navbar = () => {
+  const [menu, setMenu] = useState(false);
   const { role, name } = getUserData().data;
   const user = { role, name };
 
