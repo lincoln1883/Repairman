@@ -1,23 +1,37 @@
 // Function to get user data from local storage
-export const getUserData = () => {
-  const userData = localStorage.getItem('user');
-  return JSON.parse(userData);
+const getUserData = () => {
+  const userData = JSON.parse(localStorage.getItem('user'));
+  return userData || null;
 };
 
 // Function to get user ID
-export const getUserId = () => {
+const getUserId = () => {
   const userData = getUserData();
   return userData?.data?.id || null;
 };
 
 // Function to get user role
-export const getUserRole = () => {
+const getUserRole = () => {
   const userData = getUserData();
   return userData?.data?.role || null;
 };
 
 // Function to get user name
-export const getUserName = () => {
+const getUserName = () => {
   const userData = getUserData();
   return userData?.data?.name || null;
+};
+
+// Function to get token
+const getToken = () => {
+  const tokenData = localStorage.getItem('token');
+  return tokenData || null;
+};
+
+export {
+  getUserData,
+  getUserId,
+  getUserRole,
+  getUserName,
+  getToken,
 };
