@@ -1,6 +1,10 @@
+// ShowReservation.js
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchReservations } from '../redux/reducers/rservationSlice';
+import {
+  fetchReservations,
+  cancelReservation,
+} from '../redux/reducers/rservationSlice';
 
 const ShowReservation = () => {
   const dispatch = useDispatch();
@@ -23,10 +27,15 @@ const ShowReservation = () => {
     // Decide how to display the remaining time
     if (daysRemaining > 0) {
       return `${daysRemaining} days`;
-    } if (hoursRemaining > 0) {
+    }
+    if (hoursRemaining > 0) {
       return `${hoursRemaining} hours`;
     }
     return 'Less than 1 hour';
+  };
+
+  const handleCancelReservation = (reservationId) => {
+    dispatch(cancelReservation(reservationId));
   };
 
   return (
@@ -52,9 +61,14 @@ const ShowReservation = () => {
                 <p className="text-2xl font-semibold text-green-400 text-gradient text-shadow mb-4">
                   {calculateTimeRemaining(reservation.date)}
                 </p>
-                <div className="bg-indigo-600 text-white py-2 px-4 text-center rounded-full hover:bg-indigo-700 transition-colors duration-300 cursor-pointer">
-                  View Details
-                </div>
+                {/* Replace View Details with Cancel Reservation button */}
+                <button
+                  type="button"
+                  onClick={() => handleCancelReservation(reservation.id)}
+                  className="bg-red-600 text-white py-2 px-4 text-center rounded-full hover:bg-red-700 transition-colors duration-300 cursor-pointer"
+                >
+                  Cancel Reservation
+                </button>
               </div>
             </div>
           ))
