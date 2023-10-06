@@ -1,10 +1,16 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { addTrades } from '../redux/reducers/tradesSlice';
 import { getUserRole, getUserId } from '../utils/userStorage';
 
 const TradeInput = () => {
   const dispatch = useDispatch();
+  const tradeLoading = useSelector((state) => state.trades.status === 'loading');
+  const tradeError = useSelector((state) => state.trades.error);
+  const tradeSuccess = useSelector((state) => state.trades.status);
+  const navigate = useNavigate();
+
   const currentUser = getUserId();
   const isAdmin = getUserRole() === 'admin';
 
@@ -20,6 +26,12 @@ const TradeInput = () => {
   });
 
   const [errorMessage, setErrorMessage] = useState('');
+
+  useEffect(() => {
+    if (tradeSuccess === 'success') {
+      navigate('/trade');
+    }
+  }, [tradeSuccess, navigate]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -78,6 +90,8 @@ const TradeInput = () => {
       <div className="bg-white bg-opacity-90 shadow-md p-4 rounded-md mx-auto max-w-md">
         {errorMessage && <div className="text-red-500 mb-4">{errorMessage}</div>}
         <form onSubmit={handleNewTrade} className="space-y-4">
+          {tradeLoading && <div className="text-blue-500">Loading...</div>}
+          {tradeError && <div className="text-red-500">{tradeError}</div>}
           <input
             type="text"
             name="name"
