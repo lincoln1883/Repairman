@@ -27,38 +27,29 @@ const TradesList = () => {
   }
 
   return (
-    <div className="trades-list grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-      {trades.map((trade) => (
-        <div
-          key={trade.id}
-          className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg"
-        >
-          <img
-            src={trade.image}
-            alt={trade.name}
-            className="w-full h-40 object-cover" // Adjust the height here (e.g., h-40) as needed
-          />
-          <h2 className="text-lg font-semibold mt-2">
-            <Link to={`/trade/${trade.id}`}>{trade.name}</Link>
-          </h2>
-          <p className="text-gray-700 text-sm">
-            Location:
-            {trade.location}
-          </p>
-          <p className="text-gray-700 text-sm">
-            Price:$
-            {trade.price}
-          </p>
-          <p className="text-gray-700 text-sm">
-            Duration:
-            {trade.duration}
-          </p>
-          <p className="text-gray-700 text-sm">
-            Type:
-            {trade.trade_type}
-          </p>
-        </div>
-      ))}
+    <div className="min-h-screen text-center mt-4 w-full bg-cyan-100">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {trades.map((trade) => (
+          <Link
+            key={trade.id}
+            to={`/trade/${trade.id}`}
+            className="bg-cyan-100 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer relative"
+          >
+            <div
+              style={{
+                backgroundImage: `url(${trade.image})`,
+                filter: 'brightness(0.6)',
+              }}
+              className="bg-cover bg-center bg-no-repeat h-72"
+            />
+            <div className="p-6 bg-black bg-opacity-30 absolute inset-0 flex flex-col items-center justify-center text-white">
+              <h5 className="text-2xl font-semibold">{trade.name}</h5>
+              <p className="text-green-300 text-sm mt-2">{`$${trade.price}`}</p>
+              <p className="text-blue-300 text-sm">{`${trade.location}`}</p>
+            </div>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };
