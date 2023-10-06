@@ -10,6 +10,7 @@ const headers = {
   'Content-Type': 'application/json',
   Authorization: `Bearer ${token}`,
 };
+console.log(headers);
 
 const initialState = {
   cities: [],
@@ -23,7 +24,16 @@ export const createReservation = createAsyncThunk(
       const response = await axios.post(url, reservationData, { headers });
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.response.data);
+      // Log the error for debugging purposes
+      console.error('Error:', error);
+
+      // If the error includes a response, return the response data as part of the rejection
+      if (error.response) {
+        return rejectWithValue(error.response.data);
+      }
+
+      // If there's no response, reject with a generic error message
+      return rejectWithValue({ message: 'An error occurred.' });
     }
   },
 );

@@ -15,15 +15,24 @@ const ReserveForm = () => {
     dispatch(createReservation(reservationData));
   };
 
-  const createReservationStatus = useSelector(
-    (state) => state.status,
-  );
+  const createReservationStatus = useSelector((state) => state.status);
+
+  if (createReservationStatus === 'rejected') {
+    return (
+      <div>
+        Error:
+        {createReservationStatus.error.message || 'An error occurred.'}
+      </div>
+    );
+  }
 
   if (createReservationStatus === 'pending') {
     return <div>Creating reservation...</div>;
-  } if (createReservationStatus === 'fulfilled') {
+  }
+  if (createReservationStatus === 'fulfilled') {
     return <div>Reservation created successfully!</div>;
-  } if (createReservationStatus === 'rejected') {
+  }
+  if (createReservationStatus === 'rejected') {
     return (
       <div>
         Error:
