@@ -3,6 +3,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const BASE_URL = `${process.env.REACT_APP_API_URL}/trades`;
 const initialState = {
   trades: [],
   loading: false,
@@ -10,13 +11,22 @@ const initialState = {
 };
 
 export const addTrades = createAsyncThunk('trades/AddTrades', async (add) => {
-  const response = await axios.post('http://localhost:3001/api/v1/trades', add);
-  console.log('Post Requset:', response.data);
-  return response.data;
+  try {
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.post(BASE_URL, add,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    return response.data;
+  } catch (error) {
+    return error.response.data;
+  }
 });
 
 export const fetchTrades = createAsyncThunk('trades/fetchTrades', async (includeRemoved = false) => {
-  const response = await axios.get('http://localhost:3001/api/v1/trades/');
+  const response = await axios.get(BASE_URL);
 
   let trades = [];
 
@@ -34,8 +44,13 @@ export const updateRemoveTrade = createAsyncThunk(
   'trades/updatedTrade',
   async ({ id, removed }) => {
     // makes a PUT request to the API to update the trade
-    const response = await axios.put(`http://localhost:3001/api/v1/trades/${id}`, {
+    const token = JSON.parse(localStorage.getItem('token'));
+    const response = await axios.put(`${BASE_URL}/${id}`, {
       removed,
+    }, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     });
 
     return response.data;

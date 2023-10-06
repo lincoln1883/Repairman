@@ -53,7 +53,6 @@ const TradeInput = () => {
       return;
     }
 
-    console.log(tradeData);
     dispatch(addTrades(tradeData))
       .then(() => {
         setTradeData({
@@ -69,7 +68,6 @@ const TradeInput = () => {
         setErrorMessage('');
       })
       .catch((error) => {
-        console.error('Submission failed:', error);
         setErrorMessage(error);
       });
   };
@@ -87,6 +85,7 @@ const TradeInput = () => {
             value={tradeData.name}
             onChange={handleInputChange}
             className="w-full px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-300 border border-gray-300"
+            required
           />
           <input
             type="hidden"
@@ -101,6 +100,7 @@ const TradeInput = () => {
             value={tradeData.description}
             onChange={handleInputChange}
             className="w-full px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-300 border border-gray-300"
+            required
           />
           <input
             type="text"
@@ -109,6 +109,7 @@ const TradeInput = () => {
             value={tradeData.image}
             onChange={handleInputChange}
             className="w-full px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-300 border border-gray-300"
+            required
           />
           <input
             type="text"
@@ -117,6 +118,7 @@ const TradeInput = () => {
             value={tradeData.location}
             onChange={handleInputChange}
             className="w-full px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-300 border border-gray-300"
+            required
           />
           <input
             type="number"
@@ -127,6 +129,7 @@ const TradeInput = () => {
             min={0}
             onChange={handleInputChange}
             className="w-full px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-300 border border-gray-300"
+            required
           />
           <input
             type="text"
@@ -135,6 +138,7 @@ const TradeInput = () => {
             value={tradeData.duration}
             onChange={handleInputChange}
             className="w-full px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-300 border border-gray-300"
+            required
           />
           <input
             type="text"
@@ -143,6 +147,7 @@ const TradeInput = () => {
             value={tradeData.trade_type}
             onChange={handleInputChange}
             className="w-full px-4 py-2 rounded-md focus:outline-none focus:ring focus:border-blue-300 border border-gray-300"
+            required
           />
           <button
             type="submit"
