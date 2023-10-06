@@ -38,6 +38,12 @@ const Navbar = () => {
     fontFamily: 'Dancing Script',
   };
 
+  const toggleMenu = () => {
+    setMenu(!menu);
+  };
+  const closeMenu = () => {
+    setMenu(false);
+  };
   return (
     <nav className="w-50 flex flex-col justify-between center border-e-2 p-3">
       <div className="flex flex-col justify-between items-center gap-8 m-3">
