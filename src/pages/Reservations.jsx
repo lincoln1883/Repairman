@@ -3,7 +3,6 @@ import ShowReservation from '../components/ShowReservations';
 
 const Reservations = () => (
   <>
-    <h1>Reservations</h1>
     <ShowReservation />
   </>
 );
