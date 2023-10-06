@@ -39,11 +39,8 @@ const ReserveForm = () => {
         // Handle success here if needed
       })
       .catch((rejectedValueOrSerializedError) => {
-        // Handle the error here and set the error message
-        // console.error('Reservation error:', rejectedValueOrSerializedError);
-
-        // Access the error message and set it
-        const errorMessage = rejectedValueOrSerializedError.message || 'Already reserved for this date';
+        const errorMessage = rejectedValueOrSerializedError.message
+          || 'Already reserved for this date';
         setErrorMessage(errorMessage);
       });
   };
@@ -57,59 +54,83 @@ const ReserveForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="trade_id">
-          Select a Trade:
-          <select
-            name="trade_id"
-            id="trade_id"
-            value={reservationData.trade_id}
-            onChange={handleInputChange}
-          >
-            <option value="">Select a Trade</option>
-            {trades.map((trade) => (
-              <option key={trade.id} value={trade.id}>
-                {trade.name}
-              </option>
-            ))}
-          </select>
-        </label>
-      </div>
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-indigo-600 via-indigo-400 to-blue-300"
+    >
+      <div className="bg-white p-8 rounded-lg shadow-lg flex flex-col space-y-4 w-96">
+        <h1 className="text-2xl font-bold text-gray-800 text-center">
+          Create Reservation
+        </h1>
 
-      <div>
-        <label htmlFor="city">
-          Select a City:
-          <select
-            name="city"
-            id="city"
-            value={reservationData.city}
-            onChange={handleInputChange}
-          >
-            <option value="">Select a City</option>
-            {trades.map((trade) => (
-              <option key={trade.id} value={trade.location}>
-                {trade.location}
-              </option>
-            ))}
-          </select>
-        </label>
-      </div>
+        <div className="flex flex-col space-y-4">
+          <div className="flex space-x-4">
+            <div className="flex-1">
+              <label htmlFor="trade_id" className="text-gray-600">
+                Select a Trade:
+                <select
+                  name="trade_id"
+                  id="trade_id"
+                  value={reservationData.trade_id}
+                  onChange={handleInputChange}
+                  className="p-2 border border-gray-300 rounded-md w-full focus:ring focus:ring-indigo-200 focus:outline-none"
+                >
+                  <option value="">Select a Trade</option>
+                  {trades.map((trade) => (
+                    <option key={trade.id} value={trade.id}>
+                      {trade.name}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+            <div className="flex-1">
+              <label htmlFor="city" className="text-gray-600">
+                Select a City:
+                <select
+                  name="city"
+                  id="city"
+                  value={reservationData.city}
+                  onChange={handleInputChange}
+                  className="p-2 border border-gray-300 rounded-md w-full focus:ring focus:ring-indigo-200 focus:outline-none"
+                >
+                  <option value="">Select a City</option>
+                  {trades.map((trade) => (
+                    <option key={trade.id} value={trade.location}>
+                      {trade.location}
+                    </option>
+                  ))}
+                </select>
+              </label>
+            </div>
+          </div>
 
-      <div>
-        <input
-          type="date"
-          name="date"
-          value={reservationData.date}
-          onChange={handleInputChange}
-        />
+          <div>
+            <label htmlFor="date" className="text-gray-600">
+              Select a Date:
+              <input
+                type="date"
+                name="date"
+                id="date" // Add unique id
+                value={reservationData.date}
+                onChange={handleInputChange}
+                className="p-2 border border-gray-300 rounded-md w-full focus:ring focus:ring-indigo-200 focus:outline-none"
+              />
+            </label>
+          </div>
+        </div>
+
+        {errorMessage && (
+          <p className="text-red-600 text-center">{errorMessage}</p>
+        )}
+
+        <button
+          type="submit"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md w-full transition-colors duration-300"
+        >
+          Create Reservation
+        </button>
       </div>
-      <div>
-        <button type="submit">Create Reservation</button>
-      </div>
-      {errorMessage && (
-        <p style={{ color: 'red', marginTop: '10px' }}>{errorMessage}</p>
-      )}
     </form>
   );
 };
