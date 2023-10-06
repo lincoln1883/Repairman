@@ -19,7 +19,6 @@ export const logoutUser = createAsyncThunk('logout/logoutUser', async (_, thunkA
         Authorization: `Bearer ${token}`,
       },
     });
-    window.location.reload();
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data);
@@ -50,6 +49,4 @@ const logoutSlice = createSlice({
     });
   },
 });
-
-export const { logout } = logoutSlice.actions;
 export const logoutReducer = logoutSlice.reducer;
