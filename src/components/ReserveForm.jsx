@@ -113,19 +113,17 @@ const ReserveForm = () => {
           </div>
         </div>
       </div>
-
-      <div className="mt-4 w-96">
+      <div className="mt-4 w-60">
         <button
           type="submit"
-          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md w-full transition-colors duration-300"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md w-full transition-colors duration-300 shadow-md"
         >
           Create Reservation
         </button>
+        {errorMessage && (
+          <p className="text-red-600 text-center mt-4">{errorMessage}</p>
+        )}
       </div>
-
-      {errorMessage && (
-        <p className="text-red-600 text-center mt-4">{errorMessage}</p>
-      )}
     </form>
   );
 };
