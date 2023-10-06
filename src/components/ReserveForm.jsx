@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { createReservation } from '../redux/reducers/reserevSlice';
+import { createReservation, fetchCitiesAndTrades } from '../redux/reducers/reserevSlice';
 
 const ReserveForm = () => {
   const [reservationData, setReservationData] = useState({
@@ -10,27 +11,20 @@ const ReserveForm = () => {
   });
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCitiesAndTrades());
+  }, [dispatch]);
+
+  const cities = useSelector((state) => state.reserve.cities);
+  const trades = useSelector((state) => state.reserve.trades);
+  console.log('the cities are in from', cities);
+  console.log('the trades are in from', trades);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(createReservation(reservationData));
   };
-
-  const createReservationStatus = useSelector(
-    (state) => state.status,
-  );
-
-  if (createReservationStatus === 'pending') {
-    return <div>Creating reservation...</div>;
-  } if (createReservationStatus === 'fulfilled') {
-    return <div>Reservation created successfully!</div>;
-  } if (createReservationStatus === 'rejected') {
-    return (
-      <div>
-        Error:
-        {createReservationStatus.error.message}
-      </div>
-    );
-  }
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;

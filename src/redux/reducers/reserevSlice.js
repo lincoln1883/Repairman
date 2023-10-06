@@ -13,6 +13,7 @@ const headers = {
 
 const initialState = {
   cities: null,
+  trades: null,
 };
 
 const createReservation = createAsyncThunk(
@@ -28,14 +29,14 @@ const createReservation = createAsyncThunk(
   },
 );
 
-const fetchCities = createAsyncThunk(
-  'reservation/fetchCities',
+const fetchCitiesAndTrades = createAsyncThunk(
+  'reservation/fetchCitiesAndTrades',
   async () => {
     try {
-      const cityEndpoint = '/api/v1/trade/';
+      const cityEndpoint = '/api/v1/trades/';
       const cityUrl = baseUrl + cityEndpoint;
       const response = await axios.get(cityUrl, { headers });
-      console.log('the response is', response);
+      console.log('I am in fetch cities and the response is', response.location);
       return response.data;
     } catch (error) {
       console.error('Error:', error);
@@ -50,12 +51,14 @@ const reservationSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchCities.fulfilled, (state, action) => {
-        console.log('the action.payload is', action.payload);
-        state.cities = action.payload;
+      .addCase(fetchCitiesAndTrades.fulfilled, (state, action) => {
+        console.log('the trades are', action.payload);
+        state.trades = action.payload;
+        state.cities = action.payload.map((trade) => trade.location);
+        console.log('cities are', state.cities);
       });
   },
 });
 
 export const reserveReducer = reservationSlice.reducer;
-export { createReservation, fetchCities };
+export { createReservation, fetchCitiesAndTrades };
