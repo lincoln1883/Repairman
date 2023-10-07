@@ -11,6 +11,7 @@
     - [Key Features](#key-features)
 - [💻 Getting Started](#getting-started)
 - [👥 Authors](#authors)
+- [📈 Kanban Board](#kanban)
 - [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [⭐️ Show your support](#support)
@@ -81,7 +82,8 @@ This front-end project is designed to seamlessly integrate with its counterpart 
 <!-- AUTHORS -->
 
 ## 👥 Authors (in alphabetical order)<a name="authors"></a>
->
+
+This project was developed by the following people:
 
 👤 **Cosmos Hagan**
 - GitHub: [cosmosha](https://github.com/Cosmosha)
@@ -108,6 +110,18 @@ This front-end project is designed to seamlessly integrate with its counterpart 
 - LinkedIn: [moyasi](https://www.linkedin.com/in/moyasi/)
 - Twitter: [@moyasi_ginko](https://twitter.com/moyasi_ginko)
 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- KANBAN BOARD -->
+
+## 📈 Kanban Board<a name="kanban"></a>
+
+The project's kanban board is available [here](https://github.com/lincoln1883/appointment-capstone-frontend/projects/1)
+
+You can see a screenshoot of the initial state of the board below:
+
+![Kanban Board](./src/assets/images/kanban-board-initial.png)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
