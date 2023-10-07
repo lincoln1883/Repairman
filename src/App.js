@@ -14,35 +14,22 @@ import Login from './components/auth/Login';
 import Register from './components/auth/Register';
 import NotFound from './components/NotFound';
 
-function App() {
-  const currentUser = localStorage.getItem('user');
-  if (currentUser) {
-    return (
-      <Routes>
-        <Route path="/" element={<Splash />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/trade" element={<Layout />}>
-          <Route index element={<ListTrades />} />
-          <Route path=":id" element={<TradeDetails />} />
-          <Route path="reservations" element={<Reservations />} />
-          <Route path="reserve" element={<Reserve />} />
-          <Route path="/trade/reserve/:tradeId" element={<ReserveFromTd />} />
-          <Route path="add" element={<AddTrades />} />
-          <Route path="delete" element={<DeleteTrade />} />
-          <Route path="*" element={<NotFound />} />
-        </Route>
-      </Routes>
-    );
-  }
-  return (
-    <Routes>
-      <Route path="/" element={<Splash />} />
-      <Route path="/login" element={<Login />} />
-      <Route path="/register" element={<Register />} />
+const App = () => (
+  <Routes>
+    <Route path="/" element={<Splash />} />
+    <Route path="/login" element={<Login />} />
+    <Route path="/register" element={<Register />} />
+    <Route path="/trade" element={<Layout />}>
+      <Route index element={<ListTrades />} />
+      <Route path=":id" element={<TradeDetails />} />
+      <Route path="reservations" element={<Reservations />} />
+      <Route path="reserve" element={<Reserve />} />
+      <Route path="/trade/reserve/:tradeId" element={<ReserveFromTd />} />
+      <Route path="add" element={<AddTrades />} />
+      <Route path="delete" element={<DeleteTrade />} />
       <Route path="*" element={<NotFound />} />
-    </Routes>
-  );
-}
-
+    </Route>
+  </Routes>
+);
+ 
 export default App;

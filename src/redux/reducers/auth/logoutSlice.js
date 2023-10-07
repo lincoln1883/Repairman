@@ -5,10 +5,10 @@ const BASE_URL = `${process.env.REACT_APP_API_AUTH_URL}/logout`;
 
 const initialState = {
   status: 'idle',
-  token: null,
+  error: null,
 };
 
-export const logoutUser = createAsyncThunk('logout', async (_, thunkAPI) => {
+export const logoutUser = createAsyncThunk('logout/logoutUser', async (_, thunkAPI) => {
   try {
     const token = JSON.parse(localStorage.getItem('token'));
     if (!token) {
@@ -19,7 +19,6 @@ export const logoutUser = createAsyncThunk('logout', async (_, thunkAPI) => {
         Authorization: `Bearer ${token}`,
       },
     });
-    window.location.reload();
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data);
@@ -32,16 +31,17 @@ const logoutSlice = createSlice({
   reducers: {
     logout: (state) => {
       state.status = 'idle';
-      state.token = null;
+      state.error = null;
     },
   },
   extraReducers: (builder) => {
     builder.addCase(logoutUser.pending, (state) => {
       state.status = 'loading';
+      state.error = null;
     });
     builder.addCase(logoutUser.fulfilled, (state, action) => {
       state.status = 'success';
-      state.token = action.payload;
+      state.action = action.payload;
     });
     builder.addCase(logoutUser.rejected, (state, payload) => {
       state.status = 'failed';
@@ -49,6 +49,4 @@ const logoutSlice = createSlice({
     });
   },
 });
-
-export const { logout } = logoutSlice.actions;
 export const logoutReducer = logoutSlice.reducer;

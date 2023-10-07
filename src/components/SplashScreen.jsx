@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/splashscreen.css';
+import { getUserData } from '../utils/userStorage';
 
 const SplashScreen = () => {
   const navigate = useNavigate();
 
-  const currentUser = localStorage.getItem('user');
+  const currentUser = getUserData();
 
   useEffect(() => {
     if (currentUser) {
@@ -24,6 +25,7 @@ const SplashScreen = () => {
   return (
     <div className="flex h-screen justify-center items-center splash-container">
       <div className="splash p-10 shadow-2xl text-center ms-2 me-2">
+        {!currentUser && (<p className="text-gray-600 mb-6">Please login or sign up to continue..</p>)}
         <h1 className="splash-head text-4xl font-semibold mb-4">Handy Home Hub</h1>
         <p className="splash-subhead text-lg text-gray-600 mb-6">
           Trade appointment app for tradesmen and customers

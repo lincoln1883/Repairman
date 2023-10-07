@@ -8,7 +8,8 @@ const Login = () => {
   const [password, setPass] = useState('');
 
   const loginStatus = useSelector((state) => state.login.status);
-
+  const loginError = useSelector((state) => state.login.error);
+  const loginLoading = useSelector((state) => state.login.status === 'loading');
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -21,7 +22,6 @@ const Login = () => {
       },
     };
     dispatch(loginUser(login));
-
     setEmail('');
     setPass('');
   };
@@ -29,13 +29,21 @@ const Login = () => {
   useEffect(() => {
     if (loginStatus === 'success') {
       navigate('/trade');
-      window.location.reload();
     }
   }, [loginStatus, navigate]);
   return (
     <div className="flex flex-col justify-center bg-gray-200 items-center mx-auto h-screen">
       <div className="w-full max-w-xs">
         <form className="bg-white shadow-2xl w-full rounded-xl px-8 pt-6 pb-8 mb-4" onSubmit={handleLogin}>
+          <div className="mb-4">
+            <h1 className="text-center text-2xl font-bold">Login</h1>
+          </div>
+          <div className="mb-4">
+            <p className="text-center text-red-500 font-bold">
+              {loginStatus === 'failed' && loginError}
+              {loginLoading && 'Loading...'}
+            </p>
+          </div>
           <div className="mb-4">
             <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="email">
               Email
