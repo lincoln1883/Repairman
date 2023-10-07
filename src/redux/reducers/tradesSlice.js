@@ -14,31 +14,40 @@ const initialState = {
 export const addTrades = createAsyncThunk('trades/AddTrades', async (add) => {
   try {
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.post(BASE_URL, add,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+    const response = await axios.post(BASE_URL, add, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
     return response.data;
   } catch (error) {
     return error.response.data;
   }
 });
 
-export const fetchTrades = createAsyncThunk('trades/fetchTrades', async (includeRemoved = false) => {
-  const response = await axios.get(BASE_URL);
+const token = JSON.parse(localStorage.getItem('token'));
 
-  let trades = [];
+const headers = {
+  'Content-Type': 'application/json',
+  Authorization: `Bearer ${token}`,
+};
 
-  // If include removed is false, filter the data to include only trades with removed = false
-  if (includeRemoved) {
-    trades = response.data;
-  } else {
-    trades = response.data.filter((trade) => trade.removed === false);
-  }
-  return trades;
-});
+export const fetchTrades = createAsyncThunk(
+  'trades/fetchTrades',
+  async (includeRemoved = false) => {
+    const response = await axios.get(BASE_URL, { headers });
+
+    let trades = [];
+
+    // If include removed is false, filter the data to include only trades with removed = false
+    if (includeRemoved) {
+      trades = response.data;
+    } else {
+      trades = response.data.filter((trade) => trade.removed === false);
+    }
+    return trades;
+  },
+);
 
 // this action creator is used to update the removed field of a trade (toogling the remove button)
 export const updateRemoveTrade = createAsyncThunk(
@@ -46,13 +55,17 @@ export const updateRemoveTrade = createAsyncThunk(
   async ({ id, removed }) => {
     // makes a PUT request to the API to update the trade
     const token = JSON.parse(localStorage.getItem('token'));
-    const response = await axios.put(`${BASE_URL}/${id}`, {
-      removed,
-    }, {
-      headers: {
-        Authorization: `Bearer ${token}`,
+    const response = await axios.put(
+      `${BASE_URL}/${id}`,
+      {
+        removed,
       },
-    });
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
 
     return response.data;
   },
@@ -71,7 +84,14 @@ const tradesSlice = createSlice({
       .addCase(addTrades.fulfilled, (state, action) => {
         state.loading = false;
         const {
-          name, description, image, price, duration, location, tradeType, userId,
+          name,
+          description,
+          image,
+          price,
+          duration,
+          location,
+          tradeType,
+          userId,
         } = action.payload;
 
         const newTrade = {
