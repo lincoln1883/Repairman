@@ -1,4 +1,3 @@
-// Redux Slice (reservationSlice.js)
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -13,34 +12,17 @@ const headers = {
 };
 
 const initialState = {
-  reservations: [], // Updated state property name
+  reservations: [],
 };
 
 const fetchReservations = createAsyncThunk(
   'reservations/fetchReservations',
-  async () => {
+  async (thunkAPI) => {
     try {
       const response = await axios.get(url, { headers });
       return response.data;
     } catch (error) {
-      console.error('Error:', error);
-      throw error;
-    }
-  },
-);
-
-// Create a new action to cancel a reservation
-const cancelReservation = createAsyncThunk(
-  'reservations/cancelReservation',
-  async (reservationId) => {
-    try {
-      const response = await axios.delete(`${url}${reservationId}`, {
-        headers,
-      });
-      return response.data;
-    } catch (error) {
-      console.error('Error:', error);
-      throw error;
+      return thunkAPI.rejectWithValue(error.response.data);
     }
   },
 );
@@ -53,15 +35,9 @@ const reservationsSlice = createSlice({
     builder
       .addCase(fetchReservations.fulfilled, (state, action) => {
         state.reservations = action.payload;
-      })
-      .addCase(cancelReservation.fulfilled, (state, action) => {
-        // Update the store by removing the canceled reservation
-        state.reservations = state.reservations.filter(
-          (reservation) => reservation.id !== action.payload.id,
-        );
       });
   },
 });
 
 export const reservationReducer = reservationsSlice.reducer;
-export { fetchReservations, cancelReservation };
+export { fetchReservations };

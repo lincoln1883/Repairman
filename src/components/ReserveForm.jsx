@@ -12,13 +12,12 @@ const ReserveForm = () => {
   const navigate = useNavigate();
   const trades = useSelector((state) => state.trades.trades);
   const created = useSelector((state) => state.reserve.isCreated);
+  const msg = useSelector((state) => state.reserve.msg);
   const [reservationData, setReservationData] = useState({
     trade_id: '',
     date: '',
     city: '',
   });
-
-  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
     if (created) {
@@ -33,16 +32,7 @@ const ReserveForm = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(createReservation(reservationData))
-      .unwrap()
-      .then(() => {
-        // Handle success here if needed
-      })
-      .catch((rejectedValueOrSerializedError) => {
-        const errorMessage = rejectedValueOrSerializedError.message
-          || 'Already reserved for this date';
-        setErrorMessage(errorMessage);
-      });
+    dispatch(createReservation(reservationData));
   };
 
   const handleInputChange = (event) => {
@@ -120,8 +110,8 @@ const ReserveForm = () => {
         >
           Create Reservation
         </button>
-        {errorMessage && (
-          <p className="text-red-600 text-center mt-4">{errorMessage}</p>
+        {msg && (
+          <p className="text-red-600 text-center mt-4">{msg}</p>
         )}
       </div>
     </form>
