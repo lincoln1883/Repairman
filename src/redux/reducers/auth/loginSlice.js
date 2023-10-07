@@ -11,7 +11,7 @@ const initialState = {
 };
 
 export const loginUser = createAsyncThunk(
-  'login',
+  'login/loginUser',
   async (user, thunkAPI) => {
     try {
       const response = await axios.post(BASE_URL, user,
@@ -32,7 +32,7 @@ const loginSlice = createSlice({
   initialState,
   reducers: {
     login: (state, action) => {
-      state.status = 'succeeded';
+      state.status = 'success';
       state.action = action.payload;
     },
   },
