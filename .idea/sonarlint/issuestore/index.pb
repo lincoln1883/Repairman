@@ -55,3 +55,15 @@ U
 %src/redux/reducers/auth/loginSlice.js,8/2/8228f5b9e8af856bf306c30d5800aa29e3101972
 V
 &src/redux/reducers/auth/logoutSlice.js,1/f/1f054940c27b35105b287be145b2702132146d83
+P
+ src/redux/reducers/usersSlice.js,b/a/ba5353ae50f65134447e5b54547d6058121d5dd5
+N
+src/components/TradeDelete.jsx,a/1/a183575aee37bcd11556264d53ec7a5e0a3c1f14
+P
+ src/components/FooterToolbar.jsx,7/d/7d55c13baa53dd06658179e38540213345a09f41
+O
+src/components/SplashScreen.jsx,3/d/3d5b817137cbadcc8470242ee8533ca98687d967
+K
+src/components/NotFound.jsx,5/a/5ae663b583904677397b1fcfc9ae61f0d17a5704
+Q
+!src/redux/reducers/tradesSlice.js,7/f/7f0cc577cd0ca4f7f3de762c52ee43d61bb13845

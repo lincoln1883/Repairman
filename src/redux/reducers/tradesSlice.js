@@ -6,6 +6,7 @@ import axios from 'axios';
 const BASE_URL = `${process.env.REACT_APP_API_URL}/trades`;
 const initialState = {
   trades: [],
+  status: 'idle',
   loading: false,
   error: null,
 };
@@ -63,7 +64,12 @@ const tradesSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+      .addCase(fetchTrades.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
       .addCase(addTrades.fulfilled, (state, action) => {
+        state.loading = false;
         const {
           name, description, image, price, duration, location, tradeType, userId,
         } = action.payload;
@@ -79,16 +85,12 @@ const tradesSlice = createSlice({
           userId,
         };
         state.trades.push(newTrade);
-        state.loading = false;
+        state.status = 'success';
         state.error = null;
       })
       .addCase(addTrades.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
-      })
-      .addCase(fetchTrades.pending, (state) => {
-        state.loading = true;
-        state.error = null;
       })
       .addCase(fetchTrades.fulfilled, (state, action) => {
         state.loading = false;
