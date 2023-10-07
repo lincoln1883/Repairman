@@ -13,16 +13,17 @@ const headers = {
 
 const initialState = {
   reservations: [],
+  msg: null,
 };
 
 const fetchReservations = createAsyncThunk(
   'reservations/fetchReservations',
-  async (thunkAPI) => {
+  async () => {
     try {
       const response = await axios.get(url, { headers });
       return response.data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.response.data);
+      return Promise.reject(error.response.statusText);
     }
   },
 );
@@ -35,6 +36,13 @@ const reservationsSlice = createSlice({
     builder
       .addCase(fetchReservations.fulfilled, (state, action) => {
         state.reservations = action.payload;
+      })
+      .addCase(fetchReservations.rejected, (state, action) => {
+        if (action.error.message === 'Unauthorized') {
+          state.msg = 'Please refresh the page to continue';
+        } else {
+          state.msg = action.error.message;
+        }
       });
   },
 });

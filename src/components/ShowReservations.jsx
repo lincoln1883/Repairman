@@ -8,6 +8,7 @@ const ShowReservation = () => {
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations.reservations);
   const msg = useSelector((state) => state.reserve.msg);
+  const UnAmsg = useSelector((state) => state.reservations.msg);
 
   useEffect(() => {
     dispatch(fetchReservations());
@@ -43,6 +44,7 @@ const ShowReservation = () => {
   return (
     <div className="container mx-auto p-4">
       {msg && <p className="text-green-600 text-center mt-4">{msg}</p>}
+      {UnAmsg && <p className="text-red-600 text-center mt-4">{UnAmsg}</p>}
       <h1 className="text-3xl font-semibold text-gray-800 mb-4">
         Reservations
       </h1>
