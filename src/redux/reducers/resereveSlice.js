@@ -62,6 +62,8 @@ const reservationSlice = createSlice({
           state.msg = 'You already have a reservation on this date';
         } else if (action.payload === 'Unauthorized') {
           state.msg = 'Session expired: Please Login to continue';
+        } else {
+          state.msg = action.payload.message;
         }
         state.isCreated = false;
       })

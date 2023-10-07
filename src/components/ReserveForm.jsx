@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   createReservation,
   resetCreated,
-} from '../redux/reducers/resereveSlice'; // Correct the import path if needed
-import { fetchTrades } from '../redux/reducers/tradesSlice'; // Correct the import path if needed
+} from '../redux/reducers/resereveSlice';
+import { fetchTrades } from '../redux/reducers/tradesSlice';
 
 const ReserveForm = () => {
   const dispatch = useDispatch();

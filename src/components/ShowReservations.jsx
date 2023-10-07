@@ -37,9 +37,6 @@ const ShowReservation = () => {
     dispatch(cancelReservation(reservationId))
       .then(() => {
         dispatch(fetchReservations());
-      })
-      .catch((error) => {
-        console.error('Error cancelling reservation:', error);
       });
   };
 
