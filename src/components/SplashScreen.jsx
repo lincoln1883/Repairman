@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../styles/splashscreen.css';
 import Lottie from 'lottie-react';
@@ -6,6 +6,7 @@ import { getUserData } from '../utils/userStorage';
 import animationData from '../assets/homeshop.json';
 
 const SplashScreen = () => {
+  const splashRef = useRef(null);
   const navigate = useNavigate();
 
   const currentUser = getUserData();
@@ -28,7 +29,15 @@ const SplashScreen = () => {
     <div className="flex h-screen justify-center items-center splash-container">
       <div className="splash p-10 shadow-2xl text-center ms-2 me-2">
         <div className="flex justify-center items-center">
-          <Lottie animationData={animationData} className="w-60" />
+          <Lottie
+            onComplete={() => {
+              splashRef.current.playSegments([10, animationData.op], true);
+            }}
+            lottieRef={splashRef}
+            loop={false}
+            animationData={animationData}
+            className="w-60"
+          />
         </div>
         <h1 className="splash-head text-4xl font-semibold mb-4">Handy Home Hub</h1>
         <p className="splash-subhead text-lg text-gray-600 mb-6">
