@@ -1,10 +1,10 @@
-.splash-container > .splash {
+.splash-container .splash {
   border: 1px solid #000;
   border-radius: 2rem;
   box-shadow: 8px 14px 8px grey;
 }
 
-.splash-container > .splash  .splashBtn {
+.splash-container .splash .splashBtn {
  border: 2px solid #fff;
  transition: all 0.3s ease;
  width: 100%;
