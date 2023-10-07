@@ -1,4 +1,3 @@
-// Redux Slice (reservationSlice.js)
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
@@ -13,7 +12,8 @@ const headers = {
 };
 
 const initialState = {
-  reservations: [], // Updated state property name
+  reservations: [],
+  msg: null,
 };
 
 const fetchReservations = createAsyncThunk(
@@ -23,24 +23,7 @@ const fetchReservations = createAsyncThunk(
       const response = await axios.get(url, { headers });
       return response.data;
     } catch (error) {
-      console.error('Error:', error);
-      throw error;
-    }
-  },
-);
-
-// Create a new action to cancel a reservation
-const cancelReservation = createAsyncThunk(
-  'reservations/cancelReservation',
-  async (reservationId) => {
-    try {
-      const response = await axios.delete(`${url}${reservationId}`, {
-        headers,
-      });
-      return response.data;
-    } catch (error) {
-      console.error('Error:', error);
-      throw error;
+      return Promise.reject(error.response.statusText);
     }
   },
 );
@@ -54,14 +37,15 @@ const reservationsSlice = createSlice({
       .addCase(fetchReservations.fulfilled, (state, action) => {
         state.reservations = action.payload;
       })
-      .addCase(cancelReservation.fulfilled, (state, action) => {
-        // Update the store by removing the canceled reservation
-        state.reservations = state.reservations.filter(
-          (reservation) => reservation.id !== action.payload.id,
-        );
+      .addCase(fetchReservations.rejected, (state, action) => {
+        if (action.error.message === 'Unauthorized') {
+          state.msg = 'Please refresh the page to continue';
+        } else {
+          state.msg = action.error.message;
+        }
       });
   },
 });
 
 export const reservationReducer = reservationsSlice.reducer;
-export { fetchReservations, cancelReservation };
+export { fetchReservations };

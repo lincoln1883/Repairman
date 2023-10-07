@@ -1,14 +1,14 @@
 // ShowReservation.js
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {
-  fetchReservations,
-  cancelReservation,
-} from '../redux/reducers/rservationSlice';
+import { fetchReservations } from '../redux/reducers/rservationSlice';
+import { cancelReservation } from '../redux/reducers/resereveSlice';
 
 const ShowReservation = () => {
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations.reservations);
+  const msg = useSelector((state) => state.reserve.msg);
+  const UnAmsg = useSelector((state) => state.reservations.msg);
 
   useEffect(() => {
     dispatch(fetchReservations());
@@ -38,14 +38,13 @@ const ShowReservation = () => {
     dispatch(cancelReservation(reservationId))
       .then(() => {
         dispatch(fetchReservations());
-      })
-      .catch((error) => {
-        console.error('Error cancelling reservation:', error);
       });
   };
 
   return (
     <div className="container mx-auto p-4">
+      {msg && <p className="text-green-600 text-center mt-4">{msg}</p>}
+      {UnAmsg && <p className="text-red-600 text-center mt-4">{UnAmsg}</p>}
       <h1 className="text-3xl font-semibold text-gray-800 mb-4">
         Reservations
       </h1>
@@ -67,7 +66,6 @@ const ShowReservation = () => {
                 <p className="text-2xl font-semibold text-green-400 text-gradient text-shadow mb-4">
                   {calculateTimeRemaining(reservation.date)}
                 </p>
-                {/* Replace View Details with Cancel Reservation button */}
                 <button
                   type="button"
                   onClick={() => handleCancelReservation(reservation.id)}
