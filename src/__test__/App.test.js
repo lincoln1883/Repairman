@@ -14,6 +14,5 @@ test('renders App component', () => {
     </Provider>,
   );
 
-
   expect(getByText(/Handy Home/i)).toBeInTheDocument();
 });
