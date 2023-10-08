@@ -47,11 +47,10 @@ describe('TradesDetails', () => {
     expect(screen.getByText('Trade Name')).toBeInTheDocument();
     expect(screen.getByText('Trade Description')).toBeInTheDocument();
     expect(screen.getByText('Trade Location')).toBeInTheDocument();
-    expect(screen.getByText(/\$100\b/)).toBeInTheDocument(); // Update to '$100.0'
+    expect(screen.getByText(/\$100\b/)).toBeInTheDocument();
     expect(screen.getByText('1 hour hours')).toBeInTheDocument();
     expect(screen.getByText('Type of Trade')).toBeInTheDocument();
 
-    // Check if the "Click to Reserve" button navigates to the correct reserve page
     expect(screen.getByText('Click to Reserve')).toBeInTheDocument();
     const reserveButton = screen.getByText('Click to Reserve');
     fireEvent.click(reserveButton); // Click the button
