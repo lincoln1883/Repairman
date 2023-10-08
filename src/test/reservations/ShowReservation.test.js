@@ -1,10 +1,9 @@
 import React from 'react';
-import { render, screen, fireEvent, waitFor, act } from '@testing-library/react';
+import { render, screen, fireEvent, act } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import ShowReservation from '../../components/ShowReservations';
-import { applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 
 const middlewares = [thunk];
@@ -64,4 +63,38 @@ test('renders component with reservations', async () => {
 
   expect(trade1).toBeInTheDocument();
   expect(trade2).toBeInTheDocument();
+});
+
+
+
+test('clicking cancel reservation calls the cancelReservation action', async () => {
+  const reservationsData = [
+    { id: 1, trade: { name: 'Trade 1' }, date: '2023-10-09T12:00:00Z' },
+  ];
+
+  const updatedState = {
+    ...initialState,
+    reservations: { reservations: reservationsData },
+  };
+
+  store = mockStore(updatedState);
+
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <ShowReservation />
+      </MemoryRouter>
+    </Provider>,
+  );
+
+  const cancelButton = screen.getByText('Cancel Reservation');
+
+  await act(async () => {
+    fireEvent.click(cancelButton);
+  });
+
+  const actions = store.getActions();
+  const lastAction = actions[actions.length - 1];
+
+  expect(lastAction.type).toEqual('reservations/cancelReservation/pending');
 });
