@@ -1,12 +1,12 @@
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, fireEvent } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
-import thunk from 'redux-thunk'; // Import redux-thunk
+import thunk from 'redux-thunk';
 import TradesDetails from '../components/DetailsTrades';
 
-const mockStore = configureStore([thunk]); // Use redux-thunk middleware
+const mockStore = configureStore([thunk]);
 
 describe('TradesDetails', () => {
   let store;
@@ -37,7 +37,7 @@ describe('TradesDetails', () => {
             <Route path="/trade/:id" element={<TradesDetails />} />
           </Routes>
         </MemoryRouter>
-      </Provider>,
+      </Provider>
     );
 
     // Wait for the component to fetch trade details and render
@@ -50,7 +50,11 @@ describe('TradesDetails', () => {
     expect(screen.getByText(/\$100\b/)).toBeInTheDocument(); // Update to '$100.0'
     expect(screen.getByText('1 hour hours')).toBeInTheDocument();
     expect(screen.getByText('Type of Trade')).toBeInTheDocument();
+
+    // Check if the "Click to Reserve" button navigates to the correct reserve page
     expect(screen.getByText('Click to Reserve')).toBeInTheDocument();
+    const reserveButton = screen.getByText('Click to Reserve');
+    fireEvent.click(reserveButton); // Click the button
   });
 
   it('displays loading message when trade data is not available', async () => {
@@ -67,7 +71,7 @@ describe('TradesDetails', () => {
             <Route path="/trade/:id" element={<TradesDetails />} />
           </Routes>
         </MemoryRouter>
-      </Provider>,
+      </Provider>
     );
 
     // Wait for the loading message to appear
