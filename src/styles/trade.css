@@ -1,3 +1,7 @@
+.tradeinput-container{
+  margin-top: 2rem;
+  box-shadow: 5px 3px 7px 3px  grey !important;
+}
 
 .tradeBtn{
   margin-top: 2rem !important;
