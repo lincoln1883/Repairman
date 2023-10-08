@@ -53,27 +53,27 @@ describe('TradesDetails', () => {
     expect(screen.getByText('Click to Reserve')).toBeInTheDocument();
   });
 
-//   it('displays loading message when trade data is not available', async () => {
-//     store = mockStore({
-//       tradeDetails: {
-//         trade: null,
-//       },
-//     });
+  it('displays loading message when trade data is not available', async () => {
+    store = mockStore({
+      tradeDetails: {
+        trade: null,
+      },
+    });
 
-//     render(
-//       <Provider store={store}>
-//         <MemoryRouter initialEntries={['/trade/1']}>
-//           <Routes>
-//             <Route path="/trade/:id" element={<TradesDetails />} />
-//           </Routes>
-//         </MemoryRouter>
-//       </Provider>,
-//     );
+    render(
+      <Provider store={store}>
+        <MemoryRouter initialEntries={['/trade/1']}>
+          <Routes>
+            <Route path="/trade/:id" element={<TradesDetails />} />
+          </Routes>
+        </MemoryRouter>
+      </Provider>,
+    );
 
-//     // Wait for the loading message to appear
-//     await waitFor(() => screen.getByText('Loading...'));
+    // Wait for the loading message to appear
+    await waitFor(() => screen.getByText('Loading...'));
 
-//     // Assertions for loading message
-//     expect(screen.getByText('Loading...')).toBeInTheDocument();
-//   });
+    // Assertions for loading message
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
+  });
 });
