@@ -56,9 +56,25 @@ test('selects a trade', async () => {
       </MemoryRouter>
     </Provider>,
   );
-  
+
   fireEvent.change(screen.getByLabelText('Select a Trade:'), {
     target: { value: '1' },
   });
   expect(screen.getByLabelText('Select a Trade:')).toHaveValue('1');
+});
+
+
+test('selects a city', async () => {
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <ReserveForm />
+      </MemoryRouter>
+    </Provider>,
+  );
+
+  fireEvent.change(screen.getByLabelText('Select a City:'), {
+    target: { value: 'New York' },
+  });
+  expect(screen.getByLabelText('Select a City:')).toHaveValue('New York');
 });
