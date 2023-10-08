@@ -18,3 +18,8 @@
   width: 100%;
   gap: 2rem;
 }
+
+.loginBtn:hover {
+  box-shadow: 2px 3px 3px 2px #31030381;
+  transition: all 400ms ease;
+}
