@@ -14,6 +14,6 @@ test('renders App component', () => {
     </Provider>,
   );
 
-  // For example, if you want to check if the "Handy Home" text is present:
+
   expect(getByText(/Handy Home/i)).toBeInTheDocument();
 });
