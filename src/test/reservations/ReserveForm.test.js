@@ -78,3 +78,19 @@ test('selects a city', async () => {
   });
   expect(screen.getByLabelText('Select a City:')).toHaveValue('New York');
 });
+
+
+test('selects a date', async () => {
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <ReserveForm />
+      </MemoryRouter>
+    </Provider>,
+  );
+  
+  fireEvent.change(screen.getByLabelText('Select a Date:'), {
+    target: { value: '2023-10-09' },
+  });
+  expect(screen.getByLabelText('Select a Date:')).toHaveValue('2023-10-09');
+});
