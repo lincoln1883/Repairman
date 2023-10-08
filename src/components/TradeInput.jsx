@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addTrades } from '../redux/reducers/tradesSlice';
 import { getUserRole, getUserId } from '../utils/userStorage';
+import '../styles/trade.css';
 
 const TradeInput = () => {
   const dispatch = useDispatch();
@@ -153,7 +154,7 @@ const TradeInput = () => {
             type="submit"
             className={`bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 ${
               tradeLoading ? 'cursor-not-allowed' : ''
-            }`}
+            }tradeBtn`}
             disabled={tradeLoading}
           >
             {tradeLoading ? 'Adding Trade...' : 'Add Trade'}
