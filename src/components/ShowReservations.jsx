@@ -24,7 +24,7 @@ const ShowReservation = () => {
       (timeDifference % (1000 * 3600 * 24)) / (1000 * 3600),
     );
 
-
+    // Decide how to display the remaining time
     if (daysRemaining > 0) {
       return `${daysRemaining} days`;
     }
@@ -45,7 +45,7 @@ const ShowReservation = () => {
     <div className="container mx-auto p-4">
       {msg && <p className="text-green-600 text-center mt-4">{msg}</p>}
       {UnAmsg && <p className="text-red-600 text-center mt-4">{UnAmsg}</p>}
-      <h1 className="text-3xl font-semibold text-gray-800 mb-4">
+      <h1 className="text-3xl flex justify-center font-semibold text-gray-800 mb-4">
         Reservations
       </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
