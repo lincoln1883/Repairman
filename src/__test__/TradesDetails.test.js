@@ -40,7 +40,6 @@ describe('TradesDetails', () => {
       </Provider>
     );
 
-    // Wait for the component to fetch trade details and render
     await waitFor(() => screen.getByText('Trade Name'));
 
     expect(screen.getByText('Trade Name')).toBeInTheDocument();
