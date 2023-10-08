@@ -1,5 +1,7 @@
 import React from 'react';
-import { render, screen, waitFor, fireEvent } from '@testing-library/react';
+import {
+  render, screen, waitFor, fireEvent,
+} from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
@@ -37,7 +39,7 @@ describe('TradesDetails', () => {
             <Route path="/trade/:id" element={<TradesDetails />} />
           </Routes>
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
 
     await waitFor(() => screen.getByText('Trade Name'));
@@ -68,7 +70,7 @@ describe('TradesDetails', () => {
             <Route path="/trade/:id" element={<TradesDetails />} />
           </Routes>
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
 
     await waitFor(() => screen.getByText('Loading...'));
