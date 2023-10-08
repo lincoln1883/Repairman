@@ -59,7 +59,7 @@ const FooterToolbar = () => (
       </a>
     </div>
     <p className="text-center text-sm text-gray-700 pt-2">
-      &copy; 2023 by Handyhome
+      &copy; 2023 by HandyHome
     </p>
   </div>
 );
