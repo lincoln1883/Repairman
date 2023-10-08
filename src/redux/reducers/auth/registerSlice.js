@@ -6,6 +6,7 @@ const BASE_URL = `${process.env.REACT_APP_API_AUTH_URL}/signup`;
 const initialState = {
   status: 'idle',
   userToken: '',
+  error: null,
 };
 
 export const registerUser = createAsyncThunk(
