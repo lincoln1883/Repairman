@@ -42,3 +42,17 @@ test('renders the form elements', () => {
   expect(screen.getByLabelText('Select a Date:')).toBeInTheDocument();
   expect(screen.getByText('Create Reservation')).toBeInTheDocument();
 });
+
+test('submits the form', async () => {
+  
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <ReserveForm/>
+      </MemoryRouter>
+    </Provider>,
+  );
+  const handleSubmit = jest.spyOn(ReserveForm.prototype, 'handleSubmit');
+  fireEvent.submit(screen.getByText('Create Reservation'));
+  expect(handleSubmit).toHaveBeenCalled();
+});
