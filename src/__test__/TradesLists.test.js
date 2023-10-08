@@ -71,8 +71,6 @@ describe('TradesList Component', () => {
       // Simulate a click on the trade link
       tradeLink.click();
 
-      // You can assert the navigation behavior here, depending on your routing setup.
-      // For example, if you are using react-router-dom, you can check if the URL has changed.
     });
   });
 
