@@ -24,7 +24,6 @@ const ShowReservation = () => {
       (timeDifference % (1000 * 3600 * 24)) / (1000 * 3600),
     );
 
-    // Decide how to display the remaining time
     if (daysRemaining > 0) {
       return `${daysRemaining} days`;
     }
