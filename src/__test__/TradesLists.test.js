@@ -1,4 +1,3 @@
-// TradesList.test.js
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { Provider } from 'react-redux';
@@ -44,7 +43,7 @@ describe('TradesList Component', () => {
         <MemoryRouter>
           <TradesList />
         </MemoryRouter>
-      </Provider>,
+      </Provider>
     );
 
     await waitFor(() => {
@@ -62,7 +61,7 @@ describe('TradesList Component', () => {
         <MemoryRouter>
           <TradesList />
         </MemoryRouter>
-      </Provider>,
+      </Provider>
     );
 
     await waitFor(() => {
@@ -76,4 +75,50 @@ describe('TradesList Component', () => {
       // For example, if you are using react-router-dom, you can check if the URL has changed.
     });
   });
+
+  it('displays a loading message when data is loading', async () => {
+    store = mockStore({
+      trades: {
+        trades: [],
+        loading: true, // Simulate loading state
+        error: null,
+      },
+    });
+
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <TradesList />
+        </MemoryRouter>
+      </Provider>
+    );
+
+    await waitFor(() => {
+      const loadingMessage = screen.getByText(/Loading/i);
+      expect(loadingMessage).toBeInTheDocument();
+    });
+  });
+
+//   it('displays an error message when there is an error', async () => {
+//     store = mockStore({
+//       trades: {
+//         trades: [],
+//         loading: false,
+//         error: 'Network Error', // Simulate an error
+//       },
+//     });
+
+//     render(
+//       <Provider store={store}>
+//         <MemoryRouter>
+//           <TradesList />
+//         </MemoryRouter>
+//       </Provider>
+//     );
+
+//     await waitFor(() => {
+//       const errorMessage = screen.getByText(/Error:Network Error/i);
+//       expect(errorMessage).toBeInTheDocument();
+//     });
+//   });
 });
