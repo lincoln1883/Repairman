@@ -6,7 +6,6 @@ import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import TradesList from '../components/TradesList';
-import { fetchTrades } from '../redux/reducers/tradesSlice';
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
