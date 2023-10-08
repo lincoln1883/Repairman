@@ -1,15 +1,9 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const baseUrl = process.env.REACT_APP_API_AUTH_URL;
-const endpoint = '/api/v1/reservations/';
+const baseUrl = process.env.REACT_APP_API_URL;
+const endpoint = '/reservations/';
 const url = baseUrl + endpoint;
-const token = JSON.parse(localStorage.getItem('token'));
-
-const headers = {
-  'Content-Type': 'application/json',
-  Authorization: `Bearer ${token}`,
-};
 
 const initialState = {
   reservations: [],
@@ -19,6 +13,11 @@ const initialState = {
 const fetchReservations = createAsyncThunk(
   'reservations/fetchReservations',
   async () => {
+    const token = JSON.parse(localStorage.getItem('token'));
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    };
     try {
       const response = await axios.get(url, { headers });
       return response.data;
