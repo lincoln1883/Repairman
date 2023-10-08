@@ -31,7 +31,7 @@ const SplashScreen = () => {
         <div className="flex justify-center items-center">
           <Lottie
             onComplete={() => {
-              splashRef.current.playSegments([10, animationData.op], true);
+              splashRef.current.playSegments([12, animationData.op], true);
             }}
             lottieRef={splashRef}
             loop={false}
