@@ -1,8 +1,10 @@
+
 .tradeBtn{
+  margin-top: 2rem !important;
   font-weight: 600;
   border: 2px solid #fff;
   transition: all 0.3s ease;
-  width: 50%;
+  width: 60%;
   gap: 2rem;
 }
 
