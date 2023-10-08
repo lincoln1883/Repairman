@@ -78,23 +78,23 @@ describe('TradesList Component', () => {
 //     });
 //   });
 
-//   it('renders trade items when data is loaded', async () => {
-//     render(
-//       <Provider store={store}>
-//         <MemoryRouter>
-//           <TradesList />
-//         </MemoryRouter>
-//       </Provider>
-//     );
+  it('renders trade items when data is loaded', async () => {
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <TradesList />
+        </MemoryRouter>
+      </Provider>
+    );
 
-//     await waitFor(() => {
-//       const trade1 = screen.getByText('Trade 1');
-//       const trade2 = screen.getByText('Trade 2');
+    await waitFor(() => {
+      const trade1 = screen.getByText('Trade 1');
+      const trade2 = screen.getByText('Trade 2');
 
-//       expect(trade1).toBeInTheDocument();
-//       expect(trade2).toBeInTheDocument();
-//     });
-//   });
+      expect(trade1).toBeInTheDocument();
+      expect(trade2).toBeInTheDocument();
+    });
+  });
 
 //   it('navigates to trade detail page when a trade item is clicked', async () => {
 //     render(
