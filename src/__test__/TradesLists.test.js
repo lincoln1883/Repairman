@@ -68,7 +68,6 @@ describe('TradesList Component', () => {
       const tradeLink = screen.getByText('Trade 1');
       expect(tradeLink).toBeInTheDocument();
 
-      // Simulate a click on the trade link
       tradeLink.click();
 
     });
