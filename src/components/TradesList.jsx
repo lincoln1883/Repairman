@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchTrades } from '../redux/reducers/tradesSlice';
+import '../styles/trade.css';
 
 const TradesList = () => {
   const dispatch = useDispatch();
@@ -31,7 +32,7 @@ const TradesList = () => {
       {trades.map((trade) => (
         <div
           key={trade.id}
-          className="bg-white rounded-3xl shadow-md p-4 hover:shadow-2xl transition duration-300"
+          className="bg-white rounded-3xl shadow-lg p-4 transition duration-300 trade-container"
         >
           <Link to={`/trade/${trade.id}`}>
             <div className="image-container bg-slate-100 rounded-xl">
