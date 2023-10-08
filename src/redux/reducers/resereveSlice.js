@@ -4,12 +4,6 @@ import axios from 'axios';
 const baseUrl = process.env.REACT_APP_API_AUTH_URL;
 const endpoint = '/api/v1/reservations/';
 const url = baseUrl + endpoint;
-const token = JSON.parse(localStorage.getItem('token'));
-
-const headers = {
-  'Content-Type': 'application/json',
-  Authorization: `Bearer ${token}`,
-};
 
 const initialState = {
   isCreated: false,
@@ -19,6 +13,11 @@ const initialState = {
 const createReservation = createAsyncThunk(
   'reservation/createReservation',
   async (reservationData, thunkAPI) => {
+    const token = JSON.parse(localStorage.getItem('token'));
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    };
     try {
       const response = await axios.post(url, reservationData, { headers });
       return response.data;
@@ -31,6 +30,11 @@ const createReservation = createAsyncThunk(
 const cancelReservation = createAsyncThunk(
   'reservations/cancelReservation',
   async (reservationId, thunkAPI) => {
+    const token = JSON.parse(localStorage.getItem('token'));
+    const headers = {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${token}`,
+    };
     try {
       const response = await axios.delete(`${url}${reservationId}`, {
         headers,
