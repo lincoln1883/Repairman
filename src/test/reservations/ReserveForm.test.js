@@ -88,9 +88,33 @@ test('selects a date', async () => {
       </MemoryRouter>
     </Provider>,
   );
-  
+
   fireEvent.change(screen.getByLabelText('Select a Date:'), {
     target: { value: '2023-10-09' },
   });
   expect(screen.getByLabelText('Select a Date:')).toHaveValue('2023-10-09');
 });
+
+
+test('displays an error message', () => {
+  const msg = 'Reservation failed.';
+  const errorState = {
+    ...initialState,
+    reserve: {
+      ...initialState.reserve,
+      msg: msg,
+    },
+  };
+
+  store = mockStore(errorState);
+
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <ReserveForm />
+      </MemoryRouter>
+    </Provider>,
+  );
+  expect(screen.getByText(msg)).toBeInTheDocument();
+});
+
