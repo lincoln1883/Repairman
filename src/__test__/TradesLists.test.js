@@ -41,19 +41,6 @@ describe('TradesList Component', () => {
 
 
 
-//     render(
-//       <Provider store={store}>
-//         <MemoryRouter>
-//           <TradesList />
-//         </MemoryRouter>
-//       </Provider>
-//     );
-
-//     await waitFor(() => {
-//       const errorMessage = screen.getByText(/Error: Error occurred/i); // Use a regular expression to match text case-insensitively
-//       expect(errorMessage).toBeInTheDocument();
-//     });
-//   });
 
   it('renders trade items when data is loaded', async () => {
     render(
