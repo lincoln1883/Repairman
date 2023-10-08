@@ -90,7 +90,6 @@ const TradeInput = () => {
       <div className="bg-white bg-opacity-90 shadow-md p-4 rounded-md mx-auto max-w-md">
         {errorMessage && <div className="text-red-500 mb-4">{errorMessage}</div>}
         <form onSubmit={handleNewTrade} className="space-y-4">
-          {tradeLoading && <div className="text-blue-500">Loading...</div>}
           {tradeError && <div className="text-red-500">{tradeError}</div>}
           <input
             type="text"
@@ -165,9 +164,12 @@ const TradeInput = () => {
           />
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+            className={`bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 ${
+              tradeLoading ? 'cursor-not-allowed' : ''
+            }`}
+            disabled={tradeLoading}
           >
-            Add Trade
+            {tradeLoading ? 'Adding Trade...' : 'Add Trade'}
           </button>
         </form>
       </div>
