@@ -39,9 +39,6 @@ describe('TradesList Component', () => {
     });
   });
 
-
-
-
   it('renders trade items when data is loaded', async () => {
     render(
       <Provider store={store}>
