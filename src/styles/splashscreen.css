@@ -15,3 +15,7 @@
   box-shadow: 2px 3px #31030381;
   transition: all 400ms ease;
 }
+.imgBorder{
+  border: 1px solid rgba(128, 128, 128, 0.103);
+  border-radius: 1rem 0 1rem !important;
+}
