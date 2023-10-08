@@ -39,20 +39,7 @@ describe('TradesList Component', () => {
     });
   });
 
-//     await waitFor(() => {
-//       const loadingMessage = screen.getByText(/Loading/i); // Use a regular expression to match text case-insensitively
-//       expect(loadingMessage).toBeInTheDocument();
-//     });
-//   });
 
-//   it('renders error message when there is an error', async () => {
-//     store = mockStore({
-//       trades: {
-//         trades: [],
-//         loading: false,
-//         error: 'Error occurred',
-//       },
-//     });
 
 //     render(
 //       <Provider store={store}>
