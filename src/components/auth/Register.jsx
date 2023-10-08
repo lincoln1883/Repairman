@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../../redux/reducers/auth/registerSlice';
@@ -15,7 +15,7 @@ const Register = () => {
   const registerError = useSelector((state) => state.register.error);
   const registerLoading = useSelector((state) => state.register.status === 'loading');
 
-  const handleRegister = async (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
     const register = {
       user: {
@@ -24,25 +24,18 @@ const Register = () => {
         password,
       },
     };
+    dispatch(registerUser(register));
 
-    // Dispatch the registration action and handle errors
-    try {
-      await dispatch(registerUser(register));
-      // If registration succeeds, navigate to the login page
-      if (registerStatus === 'success') {
-        navigate('/login');
-      }
-    } catch (error) {
-      // Registration failed, error.message will contain the API error message
-      console.error('Registration Error:', error.message);
-    }
+    setName('');
+    setEmail('');
+    setPass('');
   };
 
   useEffect(() => {
-    if (registerStatus === 'failed') {
-      console.error('Registration reduxs Error:', registerError);
+    if (registerStatus === 'success') {
+      navigate('/login');
     }
-  }, [registerStatus, registerError]);
+  }, [registerStatus, navigate]);
 
   return (
     <div className="flex flex-col justify-center bg-white items-center mx-auto h-screen">
@@ -57,7 +50,7 @@ const Register = () => {
             <p className="text-center text-gray-600 text-xs">
               Please fill in this form to create an account!
             </p>
-            <p className="text-center text-red-500 font-bold">
+            <p className="text-center text-red-500 font-bold mt-4">
               {registerStatus === 'failed' && registerError.status.message}
             </p>
           </div>
