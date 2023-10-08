@@ -12,7 +12,7 @@ const ReserveTdForm = () => {
   const navigate = useNavigate();
   const trades = useSelector((state) => state.trades.trades);
   const created = useSelector((state) => state.reserve.isCreated);
-  const [errorMessage, setErrorMessage] = useState(''); // State for error message
+  const [errorMessage, setErrorMessage] = useState('');
   const { tradeId } = useParams();
 
   const [reservationData, setReservationData] = useState({
@@ -41,13 +41,8 @@ const ReserveTdForm = () => {
     dispatch(createReservation(reservationData))
       .unwrap()
       .then(() => {
-        // Handle success here if needed
       })
       .catch((rejectedValueOrSerializedError) => {
-        // Handle the error here and set the error message
-        // console.error('Reservation error:', rejectedValueOrSerializedError);
-
-        // Access the error message and set it
         const errorMessage = rejectedValueOrSerializedError.message
           || 'Already reserved for this date';
         setErrorMessage(errorMessage);
@@ -92,6 +87,7 @@ const ReserveTdForm = () => {
             <label htmlFor="date" className="text-gray-600">
               Select a Date:
               <input
+                id='date'
                 type="date"
                 name="date"
                 value={reservationData.date}
