@@ -13,9 +13,7 @@ const initialState = {
 const fetchReservations = createAsyncThunk(
   'reservations/fetchReservations',
   async () => {
-    console.log('i am in fetchReservations');
     const token = JSON.parse(localStorage.getItem('token'));
-    console.log('the token in fetch reservation is', token);
     const headers = {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
