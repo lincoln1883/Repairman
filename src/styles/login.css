@@ -2,3 +2,12 @@
   border-radius: 5rem;
   box-shadow: 8px 4px 10px 8px  grey !important;
 }
+
+.signup {
+  font-weight: 600;
+}
+
+.signup:hover {
+  color: blue;
+  font-weight: 700;
+}
