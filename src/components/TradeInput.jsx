@@ -52,19 +52,6 @@ const TradeInput = () => {
   const handleNewTrade = (e) => {
     e.preventDefault();
 
-    if (
-      !tradeData.name
-      || !tradeData.description
-      || !tradeData.image
-      || !tradeData.location
-      || !tradeData.price
-      || !tradeData.duration
-      || !tradeData.trade_type
-    ) {
-      setErrorMessage('Please fill in all required fields');
-      return;
-    }
-
     dispatch(addTrades(tradeData))
       .then(() => {
         setTradeData({
