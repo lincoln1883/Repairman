@@ -28,8 +28,7 @@
       {
         "devDependencies": true,
         "optionalDependencies": false,
-        "peerDependencies": false,
-        "allow": ["redux-mock-store"]
+        "peerDependencies": false
       }
     ]
   },

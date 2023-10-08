@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { createRoot } from "react-dom/client"
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import TradeDelete from '../components/TradeDelete';
@@ -22,11 +22,14 @@ jest.mock('../utils/userStorage', () => ({
 // mock the fetchTrades action creator to return a sample list of trades
 jest.mock('../redux/reducers/tradesSlice', () => ({
   fetchTrades: jest.fn(() => [
-    { id: 1, name: 'Trade 1', removed: false, image: 'mock-image-1.jpg' },
-    { id: 2, name: 'Trade 2', removed: true, image: 'mock-image-2.jpg' },
+    {
+      id: 1, name: 'Trade 1', removed: false, image: 'mock-image-1.jpg',
+    },
+    {
+      id: 2, name: 'Trade 2', removed: true, image: 'mock-image-2.jpg',
+    },
   ]),
 }));
-
 
 describe('TradeDelete Component', () => {
   let store;
@@ -35,8 +38,12 @@ describe('TradeDelete Component', () => {
     const initialState = {
       trades: {
         trades: [
-          { id: 1, name: 'Trade 1', removed: false, image: 'mock-image-1.jpg' },
-          { id: 2, name: 'Trade 2', removed: true, image: 'mock-image-2.jpg' },
+          {
+            id: 1, name: 'Trade 1', removed: false, image: 'mock-image-1.jpg',
+          },
+          {
+            id: 2, name: 'Trade 2', removed: true, image: 'mock-image-2.jpg',
+          },
         ],
         status: 'idle',
         loading: false,
@@ -51,27 +58,27 @@ describe('TradeDelete Component', () => {
       preloadedState: initialState,
     });
   });
-    
+
   it('renders the component correctly', () => {
     const container = document.createElement('div');
-    let root = createRoot(container); 
+    const root = createRoot(container);
     root.render(
       <Provider store={store}>
         <TradeDelete />
-      </Provider>
+      </Provider>,
     );
 
     console.log('container.innerHTML: ');
-    console.log( container.innerHTML);
+    console.log(container.innerHTML);
     console.log('container.innerHTML: FIN');
-    
-      // check if the page contains the title 'Trades' in some part of the page
+
+    // check if the page contains the title 'Trades' in some part of the page
     expect(container.innerHTML).toContain('');
-    
+
     // takes a snapshot of the component
     expect(container.innerHTML).toMatchSnapshot();
 
-    // expect(getByText('Trades Administration')).toBeInTheDocument();  
+    // expect(getByText('Trades Administration')).toBeInTheDocument();
   });
 
   // it('handles button click to toggle removed status', () => {
