@@ -16,5 +16,5 @@ test('renders App component', () => {
 
   // You can add assertions here to check if specific content is present in your app.
   // For example, if you want to check if the "learn react" text is present:
-  expect(getByText(/learn react/i)).toBeInTheDocument();
+  expect(getByText(/Handy Home/i)).toBeInTheDocument();
 });
