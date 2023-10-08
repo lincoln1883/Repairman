@@ -28,6 +28,21 @@ beforeEach(() => {
   store = mockStore(initialState);
 });
 
+test('renders the form elements', () => {
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <ReserveForm />
+      </MemoryRouter>
+    </Provider>
+  );
+
+  expect(screen.getByLabelText('Select a Trade:')).toBeInTheDocument();
+  expect(screen.getByLabelText('Select a City:')).toBeInTheDocument();
+  expect(screen.getByLabelText('Select a Date:')).toBeInTheDocument();
+  expect(screen.getByText('Create Reservation')).toBeInTheDocument();
+});
+
 
 test('submits the form', async () => {
   render(
