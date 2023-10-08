@@ -74,7 +74,6 @@ describe('TradesDetails', () => {
       </Provider>
     );
 
-    // Wait for the loading message to appear
     await waitFor(() => screen.getByText('Loading...'));
 
     expect(screen.getByText('Loading...')).toBeInTheDocument();
