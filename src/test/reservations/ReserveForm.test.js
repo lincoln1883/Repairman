@@ -46,8 +46,17 @@ test('submits the form', async () => {
   expect(hasExpectedAction).toBeTruthy();
 });
 
+
+
 test('selects a trade', async () => {
-  render(<ReserveForm />);
+  render(
+    <Provider store={store}>
+      <MemoryRouter>
+        <ReserveForm />
+      </MemoryRouter>
+    </Provider>,
+  );
+  
   fireEvent.change(screen.getByLabelText('Select a Trade:'), {
     target: { value: '1' },
   });
