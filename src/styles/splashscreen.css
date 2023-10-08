@@ -10,3 +10,8 @@
   width: 100%;
   gap: 2rem;
 }
+
+.splash-container > .splash .splashBtn:hover {
+  box-shadow: 2px 3px #31030381;
+  transition: all 400ms ease;
+}
