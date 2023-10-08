@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, screen} from '@testing-library/react';
+import { render, screen, fireEvent} from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
@@ -44,15 +44,16 @@ test('renders the form elements', () => {
 });
 
 test('submits the form', async () => {
-  
   render(
     <Provider store={store}>
       <MemoryRouter>
-        <ReserveForm/>
+        <ReserveForm />
       </MemoryRouter>
     </Provider>,
   );
-  const handleSubmit = jest.spyOn(ReserveForm.prototype, 'handleSubmit');
+
+  const handleSubmit = jest.fn(ReserveForm.handleSubmit);
   fireEvent.submit(screen.getByText('Create Reservation'));
   expect(handleSubmit).toHaveBeenCalled();
 });
+
