@@ -96,24 +96,24 @@ describe('TradesList Component', () => {
     });
   });
 
-//   it('navigates to trade detail page when a trade item is clicked', async () => {
-//     render(
-//       <Provider store={store}>
-//         <MemoryRouter>
-//           <TradesList />
-//         </MemoryRouter>
-//       </Provider>
-//     );
+  it('navigates to trade detail page when a trade item is clicked', async () => {
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <TradesList />
+        </MemoryRouter>
+      </Provider>
+    );
 
-//     await waitFor(() => {
-//       const tradeLink = screen.getByText('Trade 1');
-//       expect(tradeLink).toBeInTheDocument();
+    await waitFor(() => {
+      const tradeLink = screen.getByText('Trade 1');
+      expect(tradeLink).toBeInTheDocument();
 
-//       // Simulate a click on the trade link
-//       tradeLink.click();
+      // Simulate a click on the trade link
+      tradeLink.click();
 
-//       // You can assert the navigation behavior here, depending on your routing setup.
-//       // For example, if you are using react-router-dom, you can check if the URL has changed.
-//     });
-//   });
+      // You can assert the navigation behavior here, depending on your routing setup.
+      // For example, if you are using react-router-dom, you can check if the URL has changed.
+    });
+  });
 });
