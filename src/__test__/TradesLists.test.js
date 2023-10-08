@@ -69,7 +69,6 @@ describe('TradesList Component', () => {
       expect(tradeLink).toBeInTheDocument();
 
       tradeLink.click();
-
     });
   });
 
