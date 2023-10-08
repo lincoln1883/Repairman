@@ -11,3 +11,10 @@
   color: blue;
   font-weight: 700;
 }
+
+.loginBtn {
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+  width: 100%;
+  gap: 2rem;
+}
