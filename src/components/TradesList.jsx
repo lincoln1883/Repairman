@@ -31,16 +31,20 @@ const TradesList = () => {
       {trades.map((trade) => (
         <div
           key={trade.id}
-          className="bg-white rounded-lg shadow-md p-4 hover:shadow-lg"
+          className="bg-white rounded-3xl shadow-md p-4 hover:shadow-2xl transition duration-300"
         >
-          <img
-            src={trade.image}
-            alt={trade.name}
-            className="w-full h-40 object-cover" // Adjust the height here (e.g., h-40) as needed
-          />
-          <h2 className="text-lg font-semibold mt-2">
-            <Link to={`/trade/${trade.id}`}>{trade.name}</Link>
-          </h2>
+          <Link to={`/trade/${trade.id}`}>
+            <div className="image-container bg-slate-100 rounded-xl">
+              <img
+                src={trade.image}
+                alt={trade.name}
+                className="w-full h-40 object-cover imgBorder"
+              />
+            </div>
+            <h2 className="text-lg font-semibold mt-2">
+              {trade.name}
+            </h2>
+          </Link>
           <p className="text-gray-700 text-sm">
             Location:
             {trade.location}
