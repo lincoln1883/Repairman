@@ -39,16 +39,6 @@ describe('TradesList Component', () => {
     });
   });
 
-//   it('renders loading message while loading', async () => {
-//     store.dispatch(fetchTrades()); // Simulate loading state
-//     render(
-//       <Provider store={store}>
-//         <MemoryRouter>
-//           <TradesList />
-//         </MemoryRouter>
-//       </Provider>
-//     );
-
 //     await waitFor(() => {
 //       const loadingMessage = screen.getByText(/Loading/i); // Use a regular expression to match text case-insensitively
 //       expect(loadingMessage).toBeInTheDocument();
