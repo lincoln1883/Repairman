@@ -77,7 +77,6 @@ describe('TradesDetails', () => {
     // Wait for the loading message to appear
     await waitFor(() => screen.getByText('Loading...'));
 
-    // Assertions for loading message
     expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 });
