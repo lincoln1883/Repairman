@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../redux/reducers/auth/loginSlice';
+import '../../styles/login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -31,17 +32,17 @@ const Login = () => {
       navigate('/trade');
     }
   }, [loginStatus, navigate]);
+
   return (
-    <div className="flex flex-col justify-center bg-gray-200 items-center mx-auto h-screen">
+    <div className="flex flex-col justify-center bg-white items-center mx-auto h-screen">
       <div className="w-full max-w-xs">
-        <form className="bg-white shadow-2xl w-full rounded-xl px-8 pt-6 pb-8 mb-4" onSubmit={handleLogin}>
+        <form className="bg-white shadow-2xl w-full rounded-xl px-8 pt-6 pb-8 mb-4 boxdecor" onSubmit={handleLogin}>
           <div className="mb-4">
             <h1 className="text-center text-2xl font-bold">Login</h1>
           </div>
           <div className="mb-4">
             <p className="text-center text-red-500 font-bold">
               {loginStatus === 'failed' && loginError}
-              {loginLoading && 'Loading...'}
             </p>
           </div>
           <div className="mb-4">
@@ -72,12 +73,16 @@ const Login = () => {
                 value={password}
                 onChange={(e) => setPass(e.target.value)}
               />
-              <p className="text-xs italic">Password must be (atleast 6 characters).</p>
+              <p className="text-xs italic">Password must be (at least 6 characters).</p>
             </label>
           </div>
           <div className="flex items-center justify-between">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full" type="submit">
-              Login
+            <button
+              className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline w-full ${loginLoading ? 'cursor-not-allowed' : ''} loginBtn`}
+              type="submit"
+              disabled={loginLoading}
+            >
+              {loginLoading ? 'Logging in...' : 'Login'}
             </button>
           </div>
           <p className="mt-6 text-center text-neutral-800">
@@ -85,17 +90,15 @@ const Login = () => {
             {' '}
             <Link
               to="/register"
-              className="text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700
-               dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
-              role="button"
+              className="text-primary transition duration-150 ease-in-out hover:text-primary-900 focus:text-primary-600 active:text-primary-700 dark:text-primary-800 dark:hover:text-primary-900 dark:focus:text-primary-900 dark:active:text-primary-600 signup"
             >
-              Sign up
-            </Link
-            >
+              Sign Up
+            </Link>
           </p>
         </form>
       </div>
     </div>
   );
 };
+
 export default Login;

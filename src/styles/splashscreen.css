@@ -3,3 +3,15 @@
   border-radius: 2rem;
   box-shadow: 8px 14px 8px grey;
 }
+
+.splash-container .splash .splashBtn {
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+  width: 100%;
+  gap: 2rem;
+}
+
+.splash-container > .splash .splashBtn:hover {
+  box-shadow: 2px 3px #31030381;
+  transition: all 400ms ease;
+}
