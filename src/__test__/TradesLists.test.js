@@ -43,7 +43,7 @@ describe('TradesList Component', () => {
         <MemoryRouter>
           <TradesList />
         </MemoryRouter>
-      </Provider>
+      </Provider>,
     );
 
     await waitFor(() => {
