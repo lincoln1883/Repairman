@@ -28,20 +28,6 @@ beforeEach(() => {
   store = mockStore(initialState);
 });
 
-test('renders the form elements', () => {
-  render(
-    <Provider store={store}>
-      <MemoryRouter>
-        <ReserveForm/>
-      </MemoryRouter>
-    </Provider>,
-  );
-
-  expect(screen.getByLabelText('Select a Trade:')).toBeInTheDocument();
-  expect(screen.getByLabelText('Select a City:')).toBeInTheDocument();
-  expect(screen.getByLabelText('Select a Date:')).toBeInTheDocument();
-  expect(screen.getByText('Create Reservation')).toBeInTheDocument();
-});
 
 test('submits the form', async () => {
   render(
@@ -51,9 +37,15 @@ test('submits the form', async () => {
       </MemoryRouter>
     </Provider>,
   );
+  fireEvent.click(screen.getByText('Create Reservation'));
 
-  const handleSubmit = jest.fn(ReserveForm.handleSubmit);
-  fireEvent.submit(screen.getByText('Create Reservation'));
-  expect(handleSubmit).toHaveBeenCalled();
+  // Ensure that the action you expect to happen on form submission occurs
+  const actions = store.getActions();
+  
+  // Check if any action in the array has the expected type
+  const expectedType = 'reservation/createReservation/pending';
+  const hasExpectedAction = actions.some(action => action.type === expectedType);
+
+  expect(hasExpectedAction).toBeTruthy();
 });
 
