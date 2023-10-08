@@ -1,0 +1,12 @@
+.tradeBtn{
+  font-weight: 600;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+  width: 70%;
+  gap: 2rem;
+}
+
+.tradeBtn:hover{
+  box-shadow: 2px 3px #31030381;
+  transition: all 400ms ease;
+}
