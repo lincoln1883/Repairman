@@ -99,26 +99,26 @@ describe('TradesList Component', () => {
     });
   });
 
-//   it('displays an error message when there is an error', async () => {
-//     store = mockStore({
-//       trades: {
-//         trades: [],
-//         loading: false,
-//         error: 'Network Error', // Simulate an error
-//       },
-//     });
+  it('displays an error message when there is an error', async () => {
+    store = mockStore({
+      trades: {
+        trades: [],
+        loading: false,
+        error: 'Network Error', // Simulate an error
+      },
+    });
 
-//     render(
-//       <Provider store={store}>
-//         <MemoryRouter>
-//           <TradesList />
-//         </MemoryRouter>
-//       </Provider>
-//     );
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <TradesList />
+        </MemoryRouter>
+      </Provider>
+    );
 
-//     await waitFor(() => {
-//       const errorMessage = screen.getByText(/Error:Network Error/i);
-//       expect(errorMessage).toBeInTheDocument();
-//     });
-//   });
+    await waitFor(() => {
+      const errorMessage = screen.getByText(/Error:Network Error/i);
+      expect(errorMessage).toBeInTheDocument();
+    });
+  });
 });
