@@ -39,13 +39,17 @@ test('submits the form', async () => {
   );
   fireEvent.click(screen.getByText('Create Reservation'));
 
-  // Ensure that the action you expect to happen on form submission occurs
   const actions = store.getActions();
-  
-  // Check if any action in the array has the expected type
   const expectedType = 'reservation/createReservation/pending';
   const hasExpectedAction = actions.some(action => action.type === expectedType);
 
   expect(hasExpectedAction).toBeTruthy();
 });
 
+test('selects a trade', async () => {
+  render(<ReserveForm />);
+  fireEvent.change(screen.getByLabelText('Select a Trade:'), {
+    target: { value: '1' },
+  });
+  expect(screen.getByLabelText('Select a Trade:')).toHaveValue('1');
+});
