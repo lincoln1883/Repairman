@@ -27,7 +27,7 @@ const TradesDetails = () => {
       className="min-h-screen flex items-center justify-center p-4"
       style={backgroundStyle}
     >
-      <div className="bg-black rounded-lg shadow-md p-6 bg-opacity-80 backdrop-blur-lg">
+      <div className="bg-gray-100 rounded-lg shadow-md p-6 bg-opacity-80 backdrop-blur-lg">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="md:col-span-1">
             <img
@@ -37,33 +37,33 @@ const TradesDetails = () => {
             />
           </div>
           <div className="md:col-span-1">
-            <h2 className="text-4xl font-semibold text-lime-300 mb-4">
+            <h2 className="text-4xl font-semibold text-cyan-600 mb-4">
               {trade.name}
             </h2>
-            <p className="text-cyan-300 mt-2 text-lg">
+            <p className="text-gray-900 mt-2 text-lg">
               <strong>Description:</strong>
               {' '}
               {trade.description}
             </p>
-            <p className="text-cyan-300 mt-2 text-lg">
+            <p className="text-gray-900 mt-2 text-lg">
               <strong>Location:</strong>
               {' '}
               {trade.location}
             </p>
-            <p className="text-cyan-300 mt-2 text-lg">
+            <p className="text-gray-900 mt-2 text-lg">
               <strong>Price:</strong>
               {' '}
               $
               {trade.price}
             </p>
-            <p className="text-cyan-300 mt-2 text-lg">
+            <p className="text-gray-900 mt-2 text-lg">
               <strong>Duration:</strong>
               {' '}
               {trade.duration}
               {' '}
               hours
             </p>
-            <p className="text-cyan-300 mt-2 text-lg">
+            <p className="text-gray-900 mt-2 text-lg">
               <strong>Type:</strong>
               {' '}
               {trade.trade_type}
@@ -71,7 +71,7 @@ const TradesDetails = () => {
             <div className="mt-6">
               <Link
                 to={`/trade/reserve/${trade.id}`}
-                className="bg-lime-600 hover:bg-cyan-300 text-white px-4 py-2 rounded-full transition-colors duration-300 text-lg font-semibold"
+                className="bg-blue-600 hover:bg-cyan-600 text-white px-4 py-2 rounded-full transition-colors duration-300 text-lg font-semibold"
               >
                 Click to Reserve
               </Link>
