@@ -17,15 +17,15 @@ describe('TradeDelete Component', () => {
   let store;
   const tradeData = [
     {
-    id: 1,
-    name: 'Trade Name',
-    description: 'Trade Description',
-    location: 'Trade Location',
-    price: 100,
-    duration: '1 hour',
-    trade_type: 'Type of Trade',
-    image: 'image-url',
-    }
+      id: 1,
+      name: 'Trade Name',
+      description: 'Trade Description',
+      location: 'Trade Location',
+      price: 100,
+      duration: '1 hour',
+      trade_type: 'Type of Trade',
+      image: 'image-url',
+    },
   ];
 
   beforeEach(() => {
@@ -48,6 +48,7 @@ describe('TradeDelete Component', () => {
 
   test('renders loading message when loading', () => {
     // mock the user role to be admin
+    // eslint-disable-next-line global-require
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
 
     store = mockStore({
@@ -67,6 +68,7 @@ describe('TradeDelete Component', () => {
 
   test('renders the component correctly when the user is an admin', () => {
     // mock the user role to be admin
+    // eslint-disable-next-line global-require
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
 
     store = mockStore({
