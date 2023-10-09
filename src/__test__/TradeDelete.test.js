@@ -8,13 +8,9 @@ import { Provider } from 'react-redux';
 import { configureStore } from '@reduxjs/toolkit';
 import TradeDelete from '../components/TradeDelete';
 
-// Mock the getToken function to return a sample token
+// Mock the getToken function to return a sample token and getUserRole to return an admin role
 jest.mock('../utils/userStorage', () => ({
   getToken: jest.fn(() => 'sampleToken'),
-}));
-
-// mock the getRole function to return a admin role
-jest.mock('../utils/userStorage', () => ({
   getUserRole: jest.fn(() => 'admin'),
 }));
 
@@ -33,24 +29,24 @@ jest.mock('../redux/reducers/tradesSlice', () => ({
   })),
 }));
 
-
 describe('TradeDelete Component', () => {
-  
   beforeEach(() => {
     jest.clearAllMocks();
   });
-  
+
   test('renders the component correctly', () => {
     const store = configureStore({
       reducer: {
-        trades: () => ({ status: 'idle',
-          loading : false,
+        trades: () => ({
+          status: 'idle',
+          loading: false,
           error: null,
-          trades : [] }),
+          trades: [],
+        }),
       },
     });
 
-    const { getByText, queryByText } = render(
+    const { getByText } = render(
       <Provider store={store}>
         <TradeDelete />
       </Provider>,
@@ -62,35 +58,39 @@ describe('TradeDelete Component', () => {
   test('renders loading message when loading', () => {
     const store = configureStore({
       reducer: {
-        trades: () => ({ status: 'idle', loading: true, error: null, trades: [] }),
+        trades: () => ({
+          status: 'idle', loading: true, error: null, trades: [],
+        }),
       },
     });
-  
+
     const { getByText } = render(
       <Provider store={store}>
         <TradeDelete />
       </Provider>,
     );
-  
+
     expect(getByText('Loading...')).toBeInTheDocument();
   });
-  
+
   test('renders admin-only message when user is not an admin', () => {
-    // Mock getUserRole to return a non-admin role
+    // eslint-disable-next-line global-require
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('user');
-  
+
     const store = configureStore({
       reducer: {
-        trades: () => ({ status: 'idle', loading: false, error: null, trades: [] }),
+        trades: () => ({
+          status: 'idle', loading: false, error: null, trades: [],
+        }),
       },
     });
-  
+
     const { getByText } = render(
       <Provider store={store}>
         <TradeDelete />
       </Provider>,
     );
-  
+
     expect(getByText('You must be an admin to see this page')).toBeInTheDocument();
   });
 });
