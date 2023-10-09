@@ -115,7 +115,7 @@ const Navbar = () => {
                     <li key={link.path}>
                       <button
                         type="button"
-                        className="text-lg font-semibold text-black transition-all hover:bg-indigo-600 hover:text-white w-full px-4 py-2 rounded-full"
+                        className="text-lg font-semibold text-black hover:bg-indigo-600 hover:text-white w-full px-4 py-2 rounded-full"
                         onClick={() => {
                           navigate(link.path);
                           closeMenu();
