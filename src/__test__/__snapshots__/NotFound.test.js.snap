@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound Component matches snapshot 1`] = `
+<div>
+  <div
+    class="flex flex-col justify-center items-center mx-auto"
+  >
+    <p
+      class="text-2xl"
+    >
+      Redirecting.....
+    </p>
+    <a
+      href="/"
+    >
+      Go back to home
+    </a>
+  </div>
+</div>
+`;
