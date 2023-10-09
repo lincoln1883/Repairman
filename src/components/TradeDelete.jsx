@@ -35,27 +35,41 @@ const TradeDelete = () => {
 
   return (
     <div className="text-center mt-4 w-full">
-      <h2 className="text-2xl font-semibold mb-2">
-        Trades administration
+      <h2 className="text-3xl font-semibold mb-4 text-neutral-800">
+        Trades Administration
       </h2>
-      <p className="text-sm text-gray-500">
+      <p className="text-sm text-gray-500 mb-6">
         Click on a trade to remove or restore it
       </p>
-      <div className="mt-4 flex flex-row flex-wrap justify-evenly gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
         {trades.map((trade) => (
-          <div key={trade.id} className="block h-40 w-80 min-w-0 relative rounded-lg bg-white p-6 shadow-lg border-solid border-2 border-slate-400">
+          <div
+            key={trade.id}
+            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer relative"
+          >
             <div
-              className={`absolute inset-0 bg-cover bg-center bg-no-repeat rounded-lg ${trade.removed ? 'opacity-50 grayscale' : 'opacity-60'}`}
+              className={`bg-cover bg-center bg-no-repeat h-72 ${
+                trade.removed ? 'grayscale' : ''
+              } transition-all duration-300`}
               style={{ backgroundImage: `url(${trade.image})` }}
             />
-            <div className="relative z-10 flex flex-col h-full justify-between">
-              <h5 className="text-xl font-bold text-neutral-800 text-slate-800">
+            <div className="p-6 bg-black backdrop-filter bg-opacity-50 absolute inset-0 flex flex-col items-center justify-center text-white">
+              <h5
+                className={`text-2xl font-semibold ${
+                  trade.removed
+                    ? 'text-gradient text-outline'
+                    : 'text-white text-shadow'
+                }`}
+              >
                 {trade.name}
               </h5>
               <button
                 type="button"
-                className={`text-gray-700 font-medium text-sm rounded-sm shadow-sm shadow-slate-600 p-2 border-2 hover:shadow-lg hover:bg-gray-100 hover:shadow-slate-900
-                  ${trade.removed ? 'border-slate-500' : 'border-red-500'}`}
+                className={`text-sm mt-4 px-4 py-2 rounded-md shadow-md ${
+                  trade.removed
+                    ? 'bg-gray-300 text-neutral-600 hover:bg-green-300 hover:text-neutral-800'
+                    : 'bg-red-500 text-white hover:bg-red-600 hover:text-white'
+                } transition-colors`}
                 onClick={() => handleToggleRemoved(trade.id, trade.removed)}
               >
                 {trade.removed ? 'Restore' : 'Remove'}

@@ -32,6 +32,7 @@ const Navbar = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     navigate('/');
+    window.location.reload();
   };
 
   const headerStyle = {
@@ -70,7 +71,7 @@ const Navbar = () => {
           menu ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'
         }`}
       >
-        <nav className="h-screen flex flex-col justify-between items-center border-e-2 p-3">
+        <nav className="h-screen bg-cyan-600 text-white  flex flex-col justify-between items-center border-e-2 p-3">
           <h1
             className="text-3xl mt-4 -rotate-6 text-bold underline"
             style={headerStyle}
