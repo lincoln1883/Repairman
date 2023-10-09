@@ -87,7 +87,7 @@ const ReserveTdForm = () => {
             <label htmlFor="date" className="text-gray-600">
               Select a Date:
               <input
-                id='date'
+                id="date"
                 type="date"
                 name="date"
                 value={reservationData.date}

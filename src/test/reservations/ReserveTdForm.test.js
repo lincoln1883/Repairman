@@ -1,5 +1,7 @@
 import React from 'react';
-import { render, screen, fireEvent, act } from '@testing-library/react';
+import {
+  render, screen, fireEvent,
+} from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
@@ -33,7 +35,7 @@ test('renders the form elements', () => {
       <MemoryRouter>
         <ReserveTdForm />
       </MemoryRouter>
-    </Provider>
+    </Provider>,
   );
 
   expect(screen.getByLabelText('Select a City:')).toBeInTheDocument();
@@ -49,7 +51,7 @@ test('submits the form', async () => {
           <Route path="/trade/:tradeId/reserve" element={<ReserveTdForm />} />
         </Routes>
       </MemoryRouter>
-    </Provider>
+    </Provider>,
   );
 
   fireEvent.change(screen.getByLabelText('Select a City:'), {
@@ -87,8 +89,7 @@ test('displays loading message when trades are not available', async () => {
           <Route path="/trade/:tradeId/reserve" element={<ReserveTdForm />} />
         </Routes>
       </MemoryRouter>
-    </Provider>
+    </Provider>,
   );
   expect(screen.getByText(loadingText)).toBeInTheDocument();
 });
-
