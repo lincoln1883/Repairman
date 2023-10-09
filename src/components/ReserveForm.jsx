@@ -6,7 +6,7 @@ import {
   resetCreated,
 } from '../redux/reducers/resereveSlice';
 import { fetchTrades } from '../redux/reducers/tradesSlice';
-import '../styles/reverse.css';
+import '../styles/reserve.css';
 
 const ReserveForm = () => {
   const dispatch = useDispatch();
