@@ -109,7 +109,7 @@ const ReserveForm = () => {
         <div className="mt-4 w-60">
           <button
             type="submit"
-            className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md w-full transition-colors duration-300 shadow-md"
+            className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md w-full transition-colors duration-300 shadow-md reserveBtn"
           >
             Create Reservation
           </button>
