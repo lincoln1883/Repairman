@@ -41,8 +41,6 @@ test('renders the form elements', () => {
   expect(screen.getByText('Create Reservation')).toBeInTheDocument();
 });
 
-
-
 test('submits the form', async () => {
   render(
     <Provider store={store}>
@@ -71,3 +69,26 @@ test('submits the form', async () => {
   const submittedAction = actions.find((action) => action.type === expectedActionType);
   expect(submittedAction).toBeTruthy();
 });
+
+test('displays loading message when trades are not available', async () => {
+  const loadingText = 'Loading...';
+  const loadingState = {
+    ...initialState,
+    trades: {
+      trades: null,
+    },
+  };
+  store = mockStore(loadingState);
+
+  render(
+    <Provider store={store}>
+      <MemoryRouter initialEntries={['/trade/1/reserve']}>
+        <Routes>
+          <Route path="/trade/:tradeId/reserve" element={<ReserveTdForm />} />
+        </Routes>
+      </MemoryRouter>
+    </Provider>
+  );
+  expect(screen.getByText(loadingText)).toBeInTheDocument();
+});
+
