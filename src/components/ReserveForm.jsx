@@ -46,7 +46,7 @@ const ReserveForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-indigo-600 via-indigo-400 to-blue-300 backdrop-blur-md"
+      className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-cyan-600 via-cyan-400 to-blue-300 backdrop-blur-md"
     >
       <div className="bg-opacity-80 bg-white p-8 rounded-lg shadow-lg w-128 space-y-4">
         <div className="flex space-x-4">
@@ -106,7 +106,7 @@ const ReserveForm = () => {
       <div className="mt-4 w-60">
         <button
           type="submit"
-          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md w-full transition-colors duration-300 shadow-md"
+          className="bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-2 rounded-md w-full transition-colors duration-300 shadow-md"
         >
           Create Reservation
         </button>
