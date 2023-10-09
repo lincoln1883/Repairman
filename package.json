@@ -22,7 +22,6 @@
     "redux": "^4.2.1",
     "redux-thunk": "^2.4.2",
     "redux-mock-store": "^1.5.4",
-    "redux-thunk": "^2.4.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
