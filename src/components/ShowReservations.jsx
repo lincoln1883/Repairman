@@ -1,4 +1,3 @@
-// ShowReservation.js
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchReservations } from '../redux/reducers/rservationSlice';
