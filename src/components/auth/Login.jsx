@@ -90,7 +90,9 @@ const Login = () => {
             {' '}
             <Link
               to="/register"
-              className="text-primary transition duration-150 ease-in-out hover:text-primary-900 focus:text-primary-600 active:text-primary-700 dark:text-primary-800 dark:hover:text-primary-900 dark:focus:text-primary-900 dark:active:text-primary-600 signup"
+              className="text-primary transition duration-150 ease-in-out hover:text-primary-900 focus:text-primary-600 active:text-primary-700
+               dark:text-primary-800 dark:hover:text-primary-900 dark:focus:text-primary-900 dark:active:text-primary-600 signup"
+              role="button"
             >
               Sign Up
             </Link>
