@@ -1,96 +1,86 @@
-/**
- * @jest-environment jsdom
- */
 import React from 'react';
-import '@testing-library/jest-dom';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
-import { configureStore } from '@reduxjs/toolkit';
+import configureStore from 'redux-mock-store';
+import thunk from 'redux-thunk';
 import TradeDelete from '../components/TradeDelete';
 
-// Mock the getToken function to return a sample token and getUserRole to return an admin role
+const mockStore = configureStore([thunk]);
+
+// Mock the getToken function to return a sample token and getUserRole to return an user role
 jest.mock('../utils/userStorage', () => ({
   getToken: jest.fn(() => 'sampleToken'),
-  getUserRole: jest.fn(() => 'admin'),
-}));
-
-// mock the fetchTrades action creator to return a sample list of trades
-jest.mock('../redux/reducers/tradesSlice', () => ({
-  fetchTrades: jest.fn(() => ({
-    type: 'trades/fetchTrades/fulfilled',
-    payload: [
-      {
-        id: 1, name: 'Trade 1', removed: false, image: 'mock-image-1.jpg',
-      },
-      {
-        id: 2, name: 'Trade 2', removed: true, image: 'mock-image-2.jpg',
-      },
-    ],
-  })),
+  getUserRole: jest.fn(() => 'user'),
 }));
 
 describe('TradeDelete Component', () => {
-  beforeEach(() => {
-    jest.clearAllMocks();
-  });
+  let store;
+  const tradeData = [
+    {
+    id: 1,
+    name: 'Trade Name',
+    description: 'Trade Description',
+    location: 'Trade Location',
+    price: 100,
+    duration: '1 hour',
+    trade_type: 'Type of Trade',
+    image: 'image-url',
+    }
+  ];
 
-  test('renders the component correctly', () => {
-    const store = configureStore({
-      reducer: {
-        trades: () => ({
-          status: 'idle',
-          loading: false,
-          error: null,
-          trades: [],
-        }),
+  beforeEach(() => {
+    store = mockStore({
+      trades: {
+        status: 'idle', loading: false, error: null, trades: tradeData,
       },
     });
+  });
 
-    const { getByText } = render(
+  it('renders admin-only message when user is not an admin', () => {
+    render(
       <Provider store={store}>
         <TradeDelete />
       </Provider>,
     );
 
-    expect(getByText(/Trades Administration/i)).toBeInTheDocument();
+    expect(screen.getByText('You must be an admin to see this page')).toBeInTheDocument();
   });
 
   test('renders loading message when loading', () => {
-    const store = configureStore({
-      reducer: {
-        trades: () => ({
-          status: 'idle', loading: true, error: null, trades: [],
-        }),
+    // mock the user role to be admin
+    jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
+
+    store = mockStore({
+      trades: {
+        status: 'idle', loading: true, error: null, trades: [],
       },
     });
 
-    const { getByText } = render(
+    render(
       <Provider store={store}>
         <TradeDelete />
       </Provider>,
     );
 
-    expect(getByText('Loading...')).toBeInTheDocument();
+    expect(screen.getByText('Loading...')).toBeInTheDocument();
   });
 
-  test('renders admin-only message when user is not an admin', () => {
-    // eslint-disable-next-line global-require
-    jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('user');
+  test('renders the component correctly when the user is an admin', () => {
+    // mock the user role to be admin
+    jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
 
-    const store = configureStore({
-      reducer: {
-        trades: () => ({
-          status: 'idle', loading: false, error: null, trades: [],
-        }),
+    store = mockStore({
+      trades: {
+        status: 'success', loading: false, error: null, trades: tradeData,
       },
     });
 
-    const { getByText } = render(
+    render(
       <Provider store={store}>
         <TradeDelete />
       </Provider>,
     );
 
-    expect(getByText('You must be an admin to see this page')).toBeInTheDocument();
+    expect(screen.getByText('Trades Administration')).toBeInTheDocument();
   });
 });
