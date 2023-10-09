@@ -37,7 +37,7 @@ const TradesDetails = () => {
             />
           </div>
           <div className="md:col-span-1">
-            <h2 className="text-4xl font-semibold text-cyan-600 mb-4">
+            <h2 className="text-4xl font-semibold text-indigo-600 mb-4">
               {trade.name}
             </h2>
             <p className="text-gray-900 mt-2 text-lg">
@@ -71,7 +71,7 @@ const TradesDetails = () => {
             <div className="mt-6">
               <Link
                 to={`/trade/reserve/${trade.id}`}
-                className="bg-blue-600 hover:bg-cyan-600 text-white px-4 py-2 rounded-full transition-colors duration-300 text-lg font-semibold"
+                className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-full transition-colors duration-300 text-lg font-semibold"
               >
                 Click to Reserve
               </Link>
