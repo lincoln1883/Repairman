@@ -50,7 +50,7 @@ const ReserveForm = () => {
       className="flex flex-col items-center justify-center min-h-screen"
     >
       <h2 className="text-xl font-semibold mb-9">Book Reservation</h2>
-      <div className="flex flex-col items-center gap-3 p-14 reserve-container">
+      <div className="flex flex-col justify-center items-center gap-3 p-14 reserve-container">
         <div className="bg-opacity-80 bg-white p-10 rounded-3xl shadow-lg w-128 space-y-4">
           <div className="flex space-x-4">
             <div className="flex-1">
@@ -106,7 +106,7 @@ const ReserveForm = () => {
             </div>
           </div>
         </div>
-        <div className="mt-4 mb-3 w-60">
+        <div className="mt-4 w-60">
           <button
             type="submit"
             className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md w-full transition-colors duration-300 shadow-md reserveBtn"
