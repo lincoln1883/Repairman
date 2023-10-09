@@ -9,12 +9,12 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import '@testing-library/jest-dom/extend-expect';
 import Login from '../components/auth/Login';
+
 const mockStore = configureStore([]);
 
 describe('Login Component', () => {
   let store;
   let initialState;
-
 
   beforeEach(() => {
     initialState = {
@@ -56,12 +56,11 @@ describe('Login Component', () => {
       </Provider>,
     );
 
-
     const emailInput = screen.getByPlaceholderText('Email');
     const passwordInput = screen.getByPlaceholderText('Password');
     const loginButton = screen.getByRole('button', { name: 'Login' });
 
-    const mockUser = { email: 'test@example.com', password: 'password123' };
+    const mockUser = { email: '__test__@example.com', password: 'password123' };
     store.dispatch = jest.fn();
 
     fireEvent.change(emailInput, { target: { value: mockUser.email } });
