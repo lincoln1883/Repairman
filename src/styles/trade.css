@@ -1,9 +1,9 @@
-.tradeinput-container{
+.tradeinput-container {
   margin-top: 2rem;
   box-shadow: 5px 3px 7px 3px  grey !important;
 }
 
-.tradeBtn{
+.tradeBtn {
   margin-top: 2rem !important;
   font-weight: 600;
   border: 2px solid #fff;
@@ -12,7 +12,7 @@
   gap: 2rem;
 }
 
-.tradeBtn:hover{
+.tradeBtn:hover {
   box-shadow: 2px 3px #31030381;
   transition: all 400ms ease;
 }
