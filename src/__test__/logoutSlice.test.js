@@ -11,7 +11,7 @@ const localStorageMock = {
 
 global.localStorage = {
   ...localStorageMock,
-  getItem: jest.fn(), // Add this line to mock localStorage.getItem
+  getItem: jest.fn(),
 };
 
 describe('logoutSlice and logoutUser async thunk', () => {
