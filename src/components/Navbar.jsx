@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { logoutUser } from '../redux/reducers/auth/logoutSlice';
 import FooterToolbar from './FooterToolbar';
 import { getUserData } from '../utils/userStorage';
@@ -32,7 +32,6 @@ const Navbar = () => {
     localStorage.removeItem('user');
     localStorage.removeItem('token');
     navigate('/');
-    window.location.reload();
   };
 
   const headerStyle = {
@@ -45,6 +44,7 @@ const Navbar = () => {
   const closeMenu = () => {
     setMenu(false);
   };
+
   return (
     <>
       <button
@@ -71,37 +71,67 @@ const Navbar = () => {
           menu ? 'translate-x-0' : '-translate-x-full sm:translate-x-0'
         }`}
       >
-        <nav className="h-screen bg-cyan-600 text-white  flex flex-col justify-between items-center border-e-2 p-3">
+        <nav className="h-screen flex flex-col justify-between items-center border-e-2 p-3">
           <h1
             className="text-3xl mt-4 -rotate-6 text-bold underline"
             style={headerStyle}
           >
             HandyHome
           </h1>
-          { user.role === 'admin' && (
+          {user.role === 'admin' && (
             <>
               <div className="navbar-nav">
-                <ul>
+                <ul className="space-y-4">
                   {adminLinks.map((link) => (
                     <li key={link.path}>
-                      <Link to={link.path} className="text-lg font-serif pt-2" onClick={closeMenu}>{link.text}</Link>
+                      <button
+                        type="button"
+                        className="text-lg font-semibold text-black transition-transform hover:bg-indigo-600 hover:text-white w-full px-4 py-2 rounded-full"
+                        onClick={() => {
+                          navigate(link.path);
+                          closeMenu();
+                        }}
+                      >
+                        {link.text}
+                      </button>
                     </li>
                   ))}
-                  <button type="button" className="text-lg font-serif pt-2" onClick={handleLogout}>Logout</button>
+                  <button
+                    type="button"
+                    className="text-lg font-semibold text-black hover:bg-indigo-600 hover:text-white w-full px-4 py-2 rounded-full"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
                 </ul>
               </div>
             </>
           )}
-          { user.role === 'user' && (
+          {user.role === 'user' && (
             <>
               <div className="navbar-nav">
-                <ul>
+                <ul className="space-y-4">
                   {userLinks.map((link) => (
                     <li key={link.path}>
-                      <Link to={link.path} className="text-lg font-serif pt-2" onClick={closeMenu}>{link.text}</Link>
+                      <button
+                        type="button"
+                        className="text-lg font-semibold text-black transition-all hover:bg-indigo-600 hover:text-white w-full px-4 py-2 rounded-full"
+                        onClick={() => {
+                          navigate(link.path);
+                          closeMenu();
+                        }}
+                      >
+                        {link.text}
+                      </button>
                     </li>
                   ))}
-                  <button type="button" className="text-lg font-serif pt-2" onClick={handleLogout}>Logout</button>
+                  <button
+                    type="button"
+                    className="text-lg font-semibold text-black hover:bg-indigo-600 hover:text-white w-full px-4 py-2 rounded-full"
+                    onClick={handleLogout}
+                  >
+                    Logout
+                  </button>
                 </ul>
               </div>
             </>
