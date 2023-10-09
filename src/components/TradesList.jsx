@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Lottie from 'lottie-react';
 import { fetchTrades } from '../redux/reducers/tradesSlice';
+import animationData from '../assets/images/loader-bals.json';
 
 const TradesList = () => {
   const dispatch = useDispatch();
@@ -14,7 +16,15 @@ const TradesList = () => {
   }, [dispatch]);
 
   if (loading) {
-    return <div className="text-center mt-4">Loading...</div>;
+    // return <div className="text-center mt-4">Loading...</div>;
+    return (
+      <div className="flex flex-col justify-center items-center">
+        <Lottie
+          animationData={animationData}
+          className="w-60"
+        />
+      </div>
+    );
   }
 
   if (error) {
