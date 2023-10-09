@@ -166,7 +166,7 @@ exports[`Testing the Layout Component matches snapshot 1`] = `
           <p
             class="text-center text-sm text-gray-700 pt-2"
           >
-            © 2023 by Handyhome
+            © 2023 by HandyHome
           </p>
         </div>
       </nav>
