@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import Lottie from 'lottie-react';
 import { fetchTrades, updateRemoveTrade } from '../redux/reducers/tradesSlice';
 import { getUserRole } from '../utils/userStorage';
+import animationData from '../assets/images/loader-bals.json';
 
 const TradeDelete = () => {
   const dispatch = useDispatch();
@@ -22,7 +24,14 @@ const TradeDelete = () => {
   }
 
   if (loading) {
-    return <div className="text-center mt-4">Loading...</div>;
+    return (
+      <div className="flex flex-col justify-center items-center">
+        <Lottie
+          animationData={animationData}
+          className="w-60"
+        />
+      </div>
+    );
   }
 
   const handleToggleRemoved = (tradeId, isRemoved) => {
