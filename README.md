@@ -81,6 +81,10 @@ This front-end project is designed to seamlessly integrate with its counterpart 
       <img alt="ruby" width="120px"  height="35px" src="https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" />
     </a>
     <br>
+    <a href="https://tailwind.com/">
+      <img alt="ruby" width="100px"  height="35px" src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" />
+    </a>
+    <br>
 
   </ul>
 </details>
