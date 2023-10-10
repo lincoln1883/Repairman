@@ -11,6 +11,9 @@
     - [Key Features](#key-features)
   - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Tests](#tests)
 - [👥 Authors](#authors)
 - [📈 Kanban Board](#kanban)
 - [🔭 Future Features](#future-features)
@@ -57,19 +60,20 @@ This front-end project is designed to seamlessly integrate with its counterpart 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
 <!-- GETTING STARTED -->
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-### Prerequisites
+### Prerequisites <a name="prerequisites"></a>
 
 - Node.js
 - NPM
 - React
 - Redux
 
-### Setup
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+### Setup <a name="setup"></a>
 
 1. Clone the repository:
 
@@ -89,8 +93,12 @@ This front-end project is designed to seamlessly integrate with its counterpart 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- AUTHORS -->
+### Tests <a name="tests"></a>
 
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- AUTHORS -->
 ## 👥 Authors (in alphabetical order)<a name="authors"></a>
 
 This project was developed by the following people:
