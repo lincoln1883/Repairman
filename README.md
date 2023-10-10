@@ -83,14 +83,24 @@ This front-end project is designed to seamlessly integrate with its counterpart 
 
 `npm install`
 
-3. Build the app:
-- For development: create `.env`
+3. Build the app: To setup your environment variables, you need to create a `.env` file in the root directory of the project and add the following line:
+
+- For development: 
+```bash
+REACT_APP_API_URL=http://localhost:3001/api/v1
+REACT_APP_API_AUTH_URL=http://localhost:3001
+```
+- For production:
+```bash
+REACT_APP_API_URL=https://appointments-ajt3.onrender.com/api/v1
+REACT_APP_API_AUTH_URL=https://appointments-ajt3.onrender.com 
+```
 
 4. Start the app in a bash terminal:
 
 `npm start`
 
-5. Open your web browser and navigate to: http://localhost:3000/ to access the application. 
+5. Open your web browser and navigate to: http://localhost:3000/ to access the application.
 
 6. **Back End**: You need to have the back-end running in order to see the greetings, please visit the [Appoinment-capstone-backend](https://github.com/lincoln1883/Appointment-capstone-backend) repository and follow the instructions in the README file.
 
