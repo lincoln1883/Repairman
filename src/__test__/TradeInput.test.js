@@ -46,6 +46,7 @@ describe ('TradeInput', () => {
     const Image = screen.getByPlaceholderText('Image URL');
     const Location = screen.getByPlaceholderText('Location');
     const Price = screen.getByPlaceholderText('Price');
+    const Duration = screen.getByPlaceholderText('Duration');
 
   }
 
