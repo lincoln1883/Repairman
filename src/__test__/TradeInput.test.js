@@ -16,5 +16,11 @@ jest.mock('../utils/userStorage', () => ({
 
 describe ('TradeInput', () => {
   let store;
-
+  let initialState = {
+    trades: {
+      trades: [],
+      loading: '',
+      error:'',
+    },
+  };
 });
