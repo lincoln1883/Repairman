@@ -126,10 +126,16 @@ Prerequisites and setup instructions for the project are listed below.
 <!-- Prerequisites -->
 ### Prerequisites <a name="prerequisites"></a>
 
-- Node.js
-- NPM
-- React
-- Redux
+In order to run this project you need:
+- Computer running MacOS, Linux or Windows
+- Terminal (MacOS/Linux) or Command Line (Windows)
+- Git ([Download](https://git-scm.com/downloads))
+- Web browser ([Chrome](https://www.google.com/chrome/), [Firefox](https://www.mozilla.org/en-US/firefox/new/), etc.)
+- Source code editor ([VSCode](https://code.visualstudio.com/), [Atom](https://atom.io/), etc.)
+- Node.js (version 14.15.4 or higher) ([Download](https://nodejs.org/en/download/))
+- NPM (version 6.14.10 or higher) ([Download](https://www.npmjs.com/get-npm))
+- React ([Create React App](https://create-react-app.dev/docs/getting-started/))
+- Redux ([React Redux](https://react-redux.js.org/))
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -139,7 +145,9 @@ Prerequisites and setup instructions for the project are listed below.
 1. Clone the repository:
 
 ```bash
+open git bash
 git clone https://github.com/lincoln1883/Appointment-capstone-frontend.git
+cd Appointment-capstone-frontend
 ```
 
 2. Install the dependencies:
@@ -148,7 +156,7 @@ git clone https://github.com/lincoln1883/Appointment-capstone-frontend.git
 npm install
 ```
 
-3. Build the app: To setup your environment variables, you need to create a `.env` file in the root directory of the project and add the following line:
+3. Modify your local environment: To setup your environment variables, you need to create a `.env` file in the root directory of the project and add the following line:
 
 - For development: 
 ```bash
@@ -161,7 +169,7 @@ REACT_APP_API_URL=https://appointments-ajt3.onrender.com/api/v1
 REACT_APP_API_AUTH_URL=https://appointments-ajt3.onrender.com 
 ```
 
-4. Start the app in a bash terminal:
+4. Start the app in a Power-Shell/bash terminal:
 
 ```bash
 npm start
