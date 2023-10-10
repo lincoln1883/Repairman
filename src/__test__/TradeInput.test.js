@@ -53,6 +53,7 @@ describe ('TradeInput', () => {
     expect(TradeName).toBeInTheDocument();
     expect(Description).toBeInTheDocument();
     expect(Image).toBeInTheDocument();
+    expect(Location).toBeInTheDocument();
 
   }
 
