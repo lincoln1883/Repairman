@@ -35,7 +35,7 @@ exports[`Navbar Component matches snapshot 1`] = `
     id="default-sidebar"
   >
     <nav
-      class="h-screen bg-cyan-600 text-white  flex flex-col justify-between items-center border-e-2 p-3"
+      class="h-screen flex flex-col justify-between items-center border-e-2 p-3"
     >
       <h1
         class="text-3xl mt-4 -rotate-6 text-bold underline"
