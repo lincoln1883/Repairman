@@ -24,7 +24,7 @@ const getUserName = () => {
 
 // Function to get token
 const getToken = () => {
-  const tokenData = localStorage.getItem('token');
+  const tokenData = JSON.parse(localStorage.getItem('token'));
   return tokenData || null;
 };
 
