@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { fetchTradeDetails } from '../redux/reducers/tradeDetailsSlice';
+import loadingImage from '../assets/images/loading.gif';
 
 const TradesDetails = () => {
   const { id } = useParams();
@@ -13,7 +14,14 @@ const TradesDetails = () => {
   }, [dispatch, id]);
 
   if (!trade) {
-    return <div className="text-center mt-4">Loading...</div>;
+    return (
+      <div className="text-center mt-4">
+        <img
+          src={loadingImage} // Use the imported image here
+          alt="Loading..."
+        />
+      </div>
+    );
   }
 
   const backgroundStyle = {
