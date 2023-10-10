@@ -98,4 +98,23 @@ describe ('TradeInput', () => {
     expect(screen.getByPlaceholderText('Description')).toHaveValue('Professional mobbing services');
   });
 
+  test('should have Image URL', async () => {
+  
+    jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
+
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <TradeInput />
+        </MemoryRouter>
+      </Provider>,
+    );
+  
+    fireEvent.change(screen.getByPlaceholderText('Image URL'), {
+      target: { value: 'http://example.com/image.jpg' },
+    });
+
+    expect(screen.getByPlaceholderText('Image URL')).toHaveValue('http://example.com/image.jpg');
+  }); 
+
 });
