@@ -1,12 +1,10 @@
 import React from 'react';
-import {
-  render, screen, fireEvent,
-} from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
-import ReserveTdForm from '../../components/ReserveTdForm';// Replace with the correct import path
+import ReserveTdForm from '../../components/ReserveTdForm'; // Replace with the correct import path
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -68,7 +66,9 @@ test('submits the form', async () => {
 
   const expectedActionType = 'reservation/createReservation/pending';
 
-  const submittedAction = actions.find((action) => action.type === expectedActionType);
+  const submittedAction = actions.find(
+    (action) => action.type === expectedActionType,
+  );
   expect(submittedAction).toBeTruthy();
 });
 
