@@ -59,9 +59,9 @@ const ReserveTdForm = () => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-cyan-600 via-cyan-400 to-blue-300 backdrop-blur-md bg-opacity-90"
+      className="flex flex-col items-center justify-center min-h-screen"
     >
-      <div className="bg-opacity-80 bg-white p-8 rounded-lg shadow-lg w-128 space-y-4">
+      <div className="bg-gray-100 bg-opacity-80 p-10 rounded-3xl shadow-lg w-128 space-y-4">
         <div className="flex items-center space-x-4">
           <div className="flex-1">
             <label htmlFor="city" className="text-gray-600">
@@ -100,14 +100,14 @@ const ReserveTdForm = () => {
       <div className="mt-4 w-60">
         <button
           type="submit"
-          className="bg-cyan-600 hover:bg-cyan-700 text-white font-semibold py-2 rounded-md w-full transition-colors duration-300"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md w-full transition-colors duration-300 shadow-md reserveBtn"
         >
           Create Reservation
         </button>
+        {errorMessage && (
+          <p className="text-red-600 text-center mt-4">{errorMessage}</p>
+        )}
       </div>
-      {errorMessage && (
-        <p className="text-red-600 text-center mt-4">{errorMessage}</p>
-      )}
     </form>
   );
 };
