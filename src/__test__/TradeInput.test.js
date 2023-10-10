@@ -76,6 +76,8 @@ describe ('TradeInput', () => {
       target: { value: 'Mobbing Service' },
     });
 
+    expect(screen.getByPlaceholderText('Trade Name')).toHaveValue('Mobbing Service');
+
   });
   
 
