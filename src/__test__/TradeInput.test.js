@@ -136,4 +136,23 @@ describe ('TradeInput', () => {
     expect(screen.getByPlaceholderText('Location')).toHaveValue('New York');
   });
 
+  test('should have Price', async () => {
+      
+    jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
+
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <TradeInput />
+        </MemoryRouter>
+      </Provider>,
+    );
+  
+    fireEvent.change(screen.getByPlaceholderText('Price'), {
+      target: { value: '30' },
+    });
+
+    expect(screen.getByPlaceholderText('Price')).toHaveValue(30);
+  });
+
 });
