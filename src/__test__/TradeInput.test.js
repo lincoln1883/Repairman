@@ -15,6 +15,7 @@ jest.mock('../utils/userStorage', () => ({
 }));
 
 describe ('TradeInput', () => {
+
   let store;
   let initialState = {
     trades: {
@@ -32,7 +33,6 @@ describe ('TradeInput', () => {
 
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
 
-    
     render(
       <Provider store={store}>
         <MemoryRouter>
@@ -62,6 +62,7 @@ describe ('TradeInput', () => {
   });
 
   test('should have Trade Name', async () => {
+
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
 
     render(
@@ -71,14 +72,14 @@ describe ('TradeInput', () => {
         </MemoryRouter>
       </Provider>,
     );
-
+  
     fireEvent.change(screen.getByPlaceholderText('Trade Name'), {
       target: { value: 'Mobbing Service' },
     });
 
     expect(screen.getByPlaceholderText('Trade Name')).toHaveValue('Mobbing Service');
   });
-  
+
   test('should have Description', async () => {
 
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
