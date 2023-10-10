@@ -77,8 +77,25 @@ describe ('TradeInput', () => {
     });
 
     expect(screen.getByPlaceholderText('Trade Name')).toHaveValue('Mobbing Service');
-
   });
   
+  test('should have Description', async () => {
+
+    jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
+
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <TradeInput />
+        </MemoryRouter>
+      </Provider>,
+    );
+  
+    fireEvent.change(screen.getByPlaceholderText('Description'), {
+      target: { value: 'Professional mobbing services' },
+    });
+
+    expect(screen.getByPlaceholderText('Description')).toHaveValue('Professional mobbing services');
+  });
 
 });
