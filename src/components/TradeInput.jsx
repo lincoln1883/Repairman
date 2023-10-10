@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { addTrades } from '../redux/reducers/tradesSlice';
 import { getUserRole, getUserId } from '../utils/userStorage';
+import '../styles/trade.css';
 
 const TradeInput = () => {
   const dispatch = useDispatch();
@@ -52,19 +53,6 @@ const TradeInput = () => {
   const handleNewTrade = (e) => {
     e.preventDefault();
 
-    if (
-      !tradeData.name
-      || !tradeData.description
-      || !tradeData.image
-      || !tradeData.location
-      || !tradeData.price
-      || !tradeData.duration
-      || !tradeData.trade_type
-    ) {
-      setErrorMessage('Please fill in all required fields');
-      return;
-    }
-
     dispatch(addTrades(tradeData))
       .then(() => {
         setTradeData({
@@ -87,10 +75,9 @@ const TradeInput = () => {
   return (
     <div className="text-center mt-20 w-full">
       <h2 className="text-xl font-semibold mb-4">Add a New Trade</h2>
-      <div className="bg-white bg-opacity-90 shadow-md p-4 rounded-md mx-auto max-w-md">
+      <div className="bg-white bg-opacity-90 shadow-md p-9 rounded-3xl mx-auto max-w-md tradeinput-container">
         {errorMessage && <div className="text-red-500 mb-4">{errorMessage}</div>}
         <form onSubmit={handleNewTrade} className="space-y-4">
-          {tradeLoading && <div className="text-blue-500">Loading...</div>}
           {tradeError && <div className="text-red-500">{tradeError}</div>}
           <input
             type="text"
@@ -165,9 +152,12 @@ const TradeInput = () => {
           />
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+            className={`bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-md ${
+              tradeLoading ? 'cursor-not-allowed' : ''
+            }tradeBtn`}
+            disabled={tradeLoading}
           >
-            Add Trade
+            {tradeLoading ? 'Adding Trade...' : 'Add Trade'}
           </button>
         </form>
       </div>

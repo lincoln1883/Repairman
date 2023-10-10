@@ -71,8 +71,9 @@ describe('TradesDetails', () => {
       </Provider>,
     );
 
-    await waitFor(() => screen.getByText('Loading...'));
-
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    await waitFor(() => {
+      const loadingImage = screen.getByAltText('Loading...');
+      expect(loadingImage).toBeInTheDocument();
+    });
   });
 });
