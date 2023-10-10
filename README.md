@@ -186,9 +186,18 @@ npm start
 
 **Testing Instructions**
 
-To ensure the reliability and functionality of this project, we have included a "tests" section. 
+To ensure the reliability and functionality of this project, we have included a "tests" section. This section includes unit tests for the project's components and integration tests for the project's functionality.
 
-We use **React Testing Library** in combination with **Jest** and **jest-dom** for our testing framework. These tools allow us to perform various types of tests, including unit tests and integration tests, ensuring that the application's components and functionality work as expected.
+Tools and dependencies used in the testing are listed below:
+```
+- Jest
+- Jest-Dom
+- React Testing Library
+- Redux Mock Store
+- Redux Thunk
+```
+
+We use ***React Testing Library*** in combination with ***Jest*** and ***jest-dom*** for our testing framework. These tools allow us to perform various types of tests, including unit tests and integration tests, ensuring that the application's components and functionality work as expected.
 
 Follow these specific instructions to correctly run the tests using npm. 
 
@@ -197,6 +206,8 @@ Follow these specific instructions to correctly run the tests using npm.
 2. Navigate to the project directory using the `cd` command:
    ```
    cd path/to/your/project
+   example:
+   cd ~/Documents/GitHub/Appointment-capstone-frontend
    ```
 
 3. Install project dependencies (if you haven't already) by running:
