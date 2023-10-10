@@ -61,6 +61,15 @@ const ShowReservation = () => {
                 <h2 className="text-2xl font-semibold text-white text-shadow mb-4 text-center">
                   {reservation.trade.name}
                 </h2>
+
+                <p className="text-xl font-semibold text-white-400 text-gradient text-shadow mb-4">
+                  {reservation.city}
+                </p>
+
+                <p className="text-xl font-semibold text-white-400 text-gradient text-shadow mb-4">
+                  {reservation.date}
+                </p>
+
                 <p className="text-2xl font-semibold text-green-400 text-gradient text-shadow mb-4">
                   {calculateTimeRemaining(reservation.date)}
                 </p>
