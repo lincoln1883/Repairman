@@ -210,21 +210,21 @@ open git bash
 ```
 
 2. Navigate to the project directory using the `cd` command:
-   ```
-   cd path/to/your/project
-   example:
-   cd ~/Documents/GitHub/Appointment-capstone-frontend
-   ```
+```
+cd path/to/your/project
+example:
+cd ~/Documents/GitHub/Appointment-capstone-frontend
+```
 
 3. Install project dependencies (if you haven't already) by running:
-   ```
-   npm install
-   ```
+```
+npm install
+```
 
 4. Now, run the tests using the following command:
-   ```
-   npm test
-   ```
+```
+npm test
+```
 
 5. Observe the test results in your terminal. Any failures or errors will be displayed, helping you identify and address any issues.
 
