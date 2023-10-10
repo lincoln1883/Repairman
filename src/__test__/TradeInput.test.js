@@ -63,6 +63,14 @@ describe ('TradeInput', () => {
 
   test('should have Trade Name', async () => {
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
+
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <TradeInput />
+        </MemoryRouter>
+      </Provider>,
+    );
     
   });
   
