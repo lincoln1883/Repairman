@@ -71,7 +71,11 @@ describe ('TradeInput', () => {
         </MemoryRouter>
       </Provider>,
     );
-    
+
+    fireEvent.change(screen.getByPlaceholderText('Trade Name'), {
+      target: { value: 'Mobbing Service' },
+    });
+
   });
   
 
