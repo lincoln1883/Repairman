@@ -3,12 +3,11 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { logoutUser } from '../redux/reducers/auth/logoutSlice';
 import FooterToolbar from './FooterToolbar';
-import { getUserData } from '../utils/userStorage';
+import { getUserRole } from '../utils/userStorage';
 
 const Navbar = () => {
   const [menu, setMenu] = useState(false);
-  const { role, name } = getUserData().data;
-  const user = { role, name };
+  const role = getUserRole();
 
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -78,7 +77,7 @@ const Navbar = () => {
           >
             HandyHome
           </h1>
-          {user.role === 'admin' && (
+          {role === 'admin' && (
             <>
               <div className="navbar-nav">
                 <ul className="space-y-4">
@@ -107,7 +106,7 @@ const Navbar = () => {
               </div>
             </>
           )}
-          {user.role === 'user' && (
+          {role === 'user' && (
             <>
               <div className="navbar-nav">
                 <ul className="space-y-4">
