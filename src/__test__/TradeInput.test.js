@@ -10,6 +10,7 @@ const mockStore = configureStore([]);
 
 jest.mock('../utils/userStorage', () => ({
   getToken: jest.fn(() => 'sampleToken'),
+  getUserRole: jest.fn(() => 'admin'),
 }));
 
 describe ('TradeInput', () => {
