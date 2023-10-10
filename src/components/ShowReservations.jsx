@@ -2,16 +2,29 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchReservations } from '../redux/reducers/rservationSlice';
 import { cancelReservation } from '../redux/reducers/resereveSlice';
+import loadingImage from '../assets/images/loading.gif';
 
 const ShowReservation = () => {
   const dispatch = useDispatch();
   const reservations = useSelector((state) => state.reservations.reservations);
   const msg = useSelector((state) => state.reserve.msg);
   const UnAmsg = useSelector((state) => state.reservations.msg);
+  const loading = useSelector((state) => state.reservations.loading);
 
   useEffect(() => {
     dispatch(fetchReservations());
   }, [dispatch]);
+
+  if (loading) {
+    return (
+      <div className="text-center mt-4">
+        <img
+          src={loadingImage} // Use the imported image here
+          alt="Loading..."
+        />
+      </div>
+    );
+  }
 
   // Function to calculate days and hours remaining
   const calculateTimeRemaining = (reservationDate) => {
@@ -33,10 +46,9 @@ const ShowReservation = () => {
   };
 
   const handleCancelReservation = (reservationId) => {
-    dispatch(cancelReservation(reservationId))
-      .then(() => {
-        dispatch(fetchReservations());
-      });
+    dispatch(cancelReservation(reservationId)).then(() => {
+      dispatch(fetchReservations());
+    });
   };
 
   return (
