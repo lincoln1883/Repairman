@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  render, screen, waitFor, fireEvent,
+  render, screen, waitFor,
 } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -52,8 +52,6 @@ describe('TradesDetails', () => {
     expect(screen.getByText('Type of Trade')).toBeInTheDocument();
 
     expect(screen.getByText('Click to Reserve')).toBeInTheDocument();
-    const reserveButton = screen.getByText('Click to Reserve');
-    fireEvent.click(reserveButton); // Click the button
   });
 
   it('displays loading message when trade data is not available', async () => {
