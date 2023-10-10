@@ -93,8 +93,33 @@ This front-end project is designed to seamlessly integrate with its counterpart 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- TESTS -->
 ### Tests <a name="tests"></a>
 
+**Testing Instructions**
+
+To ensure the reliability and functionality of this project, we have included a "tests" section. Follow these specific instructions to correctly run the tests using npm:
+
+1. Open your terminal or command prompt.
+
+2. Navigate to the project directory using the `cd` command:
+   ```
+   cd path/to/your/project
+   ```
+
+3. Install project dependencies (if you haven't already) by running:
+   ```
+   npm install
+   ```
+
+4. Now, run the tests using the following command:
+   ```
+   npm test
+   ```
+
+5. Observe the test results in your terminal. Any failures or errors will be displayed, helping you identify and address any issues.
+
+Running these tests regularly ensures that your project maintains its expected behavior and helps catch any regressions or bugs early in development.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
