@@ -49,9 +49,12 @@ const ReserveForm = () => {
       onSubmit={handleSubmit}
       className="flex flex-col items-center justify-center min-h-screen"
     >
-      <div className="bg-gray-100 bg-opacity-80 p-10 rounded-3xl shadow-lg w-128 space-y-4">
-        <div className="flex space-x-4">
-          <div className="flex-1">
+      <h3 className="text-2xl pb-6 font-semibold text-center text-gray-600">
+        Create a Reservation
+      </h3>
+      <div className="bg-gray-100 bg-opacity-80 p-6 rounded-3xl shadow-lg w-128 space-y-4">
+        <div className="flex flex-col">
+          <div className="flex-1 pb-2">
             <label htmlFor="trade_id" className="text-gray-600">
               Select a Trade:
               <select
@@ -70,7 +73,7 @@ const ReserveForm = () => {
               </select>
             </label>
           </div>
-          <div className="flex-1">
+          <div className="flex-1 pb-2">
             <label htmlFor="city" className="text-gray-600">
               Select a City:
               <select
@@ -107,7 +110,7 @@ const ReserveForm = () => {
       <div className="mt-4 w-60">
         <button
           type="submit"
-          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-md w-full transition-colors duration-300 shadow-md reserveBtn"
+          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 rounded-lg w-full transition-colors duration-300 shadow-md reserveBtn"
         >
           Create Reservation
         </button>
