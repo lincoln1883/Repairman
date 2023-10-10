@@ -48,6 +48,7 @@ describe ('TradeInput', () => {
     const Price = screen.getByPlaceholderText('Price');
     const Duration = screen.getByPlaceholderText('Duration');
     const TradeType = screen.getByPlaceholderText('Trade Type');
+    const AddTrade = screen.getByRole('button', { name: 'Add Trade' });
 
   }
 
