@@ -97,6 +97,8 @@ This front-end project is designed to seamlessly integrate with its counterpart 
 
 #### Key Features <a name="key-features"></a>
 
+- Authenticate users: Create an account by providing a valid name, e-mail, and password with password confirmation. Once your account is created, you'll be automatically logged in and can access all of the app's features.
+
 - User-Friendly Interface: The app offers an intuitive and visually appealing user interface, ensuring a seamless experience for users of all backgrounds.
 
 - Appointment Booking: Users can easily browse and book appointments for a wide range of home services, from cleaning to plumbing, with just a few clicks.
