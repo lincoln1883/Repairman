@@ -23,4 +23,10 @@ describe ('TradeInput', () => {
       error:'',
     },
   };
+
+  beforeEach(() => {
+    store = mockStore(initialState);
+  });
+
+
 });
