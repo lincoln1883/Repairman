@@ -203,6 +203,12 @@ Follow these specific instructions to correctly run the tests using npm.
 
 1. Open your terminal or command prompt.
 
+```
+example:
+
+open git bash
+```
+
 2. Navigate to the project directory using the `cd` command:
    ```
    cd path/to/your/project
