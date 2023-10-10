@@ -155,4 +155,23 @@ describe ('TradeInput', () => {
     expect(screen.getByPlaceholderText('Price')).toHaveValue(30);
   });
 
+  test('should have Duration', async () => {
+          
+    jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
+
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <TradeInput />
+        </MemoryRouter>
+      </Provider>,
+    );
+  
+    fireEvent.change(screen.getByPlaceholderText('Duration'), {
+      target: { value: '2 days' },
+    });
+
+    expect(screen.getByPlaceholderText('Duration')).toHaveValue('2 days');
+  });
+
 });
