@@ -64,6 +64,9 @@ This front-end project is designed to seamlessly integrate with its counterpart 
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
+Prerequisites and setup instructions for the project are listed below.
+
+<!-- Prerequisites -->
 ### Prerequisites <a name="prerequisites"></a>
 
 - Node.js
@@ -73,6 +76,7 @@ This front-end project is designed to seamlessly integrate with its counterpart 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+<!-- Setup -->
 ### Setup <a name="setup"></a>
 
 1. Clone the repository:
@@ -102,11 +106,13 @@ REACT_APP_API_AUTH_URL=https://appointments-ajt3.onrender.com
 
 4. Start the app in a bash terminal:
 
-`npm start`
+```bash
+npm start
+```
 
 5. Open your web browser and navigate to: http://localhost:3000/ to access the application.
 
-6. **Back End**: You need to have the back-end running in order to see the greetings, please visit the [Appoinment-capstone-backend](https://github.com/lincoln1883/Appointment-capstone-backend) repository and follow the instructions in the README file.
+6. **Back End**: You need to have the back-end running in order to see the run your frontend server, please visit the [Appoinment-capstone-backend](https://github.com/lincoln1883/Appointment-capstone-backend) repository and follow the instructions in the README file.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
