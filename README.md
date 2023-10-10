@@ -188,7 +188,7 @@ npm start
 
 To ensure the reliability and functionality of this project, we have included a "tests" section. 
 
-We use *React Testing Library* in combination with *Jest* and *jest-dom* for our testing framework. These tools allow us to perform various types of tests, including unit tests and integration tests, ensuring that the application's components and functionality work as expected.
+We use **React Testing Library** in combination with **Jest** and **jest-dom** for our testing framework. These tools allow us to perform various types of tests, including unit tests and integration tests, ensuring that the application's components and functionality work as expected.
 
 Follow these specific instructions to correctly run the tests using npm. 
 
