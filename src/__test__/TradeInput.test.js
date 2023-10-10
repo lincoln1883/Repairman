@@ -50,6 +50,8 @@ describe ('TradeInput', () => {
     const TradeType = screen.getByPlaceholderText('Trade Type');
     const AddTrade = screen.getByRole('button', { name: 'Add Trade' });
 
+    expect(TradeName).toBeInTheDocument();
+
   }
 
 });
