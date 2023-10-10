@@ -77,11 +77,15 @@ This front-end project is designed to seamlessly integrate with its counterpart 
 
 1. Clone the repository:
 
-`git clone https://github.com/lincoln1883/Appointment-capstone-frontend.git`
+```bash
+git clone https://github.com/lincoln1883/Appointment-capstone-frontend.git
+```
 
 2. Install the dependencies:
 
-`npm install`
+```
+npm install
+```
 
 3. Build the app: To setup your environment variables, you need to create a `.env` file in the root directory of the project and add the following line:
 
