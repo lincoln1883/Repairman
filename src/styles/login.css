@@ -1,0 +1,25 @@
+.boxdecor {
+  border-radius: 5rem;
+  box-shadow: 8px 4px 10px 8px  grey !important;
+}
+
+.signup {
+  font-weight: 600;
+}
+
+.signup:hover {
+  color: blue;
+  font-weight: 700;
+}
+
+.loginBtn {
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+  width: 100%;
+  gap: 2rem;
+}
+
+.loginBtn:hover {
+  box-shadow: 2px 3px 3px 2px #31030381;
+  transition: all 400ms ease;
+}
