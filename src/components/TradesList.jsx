@@ -44,16 +44,15 @@ const TradesList = () => {
           <Link
             key={trade.id}
             to={`/trade/${trade.id}`}
-            className="bg-cyan-100 rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer relative"
+            className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-transform transform hover:scale-105 cursor-pointer relative"
           >
             <div
               style={{
                 backgroundImage: `url(${trade.image})`,
-                filter: 'brightness(0.6)',
               }}
-              className="bg-cover bg-center bg-no-repeat h-72"
+              className="bg-cover bg-center bg-no-repeat h-72 transition-all duration-300"
             />
-            <div className="p-6 bg-black bg-opacity-30 absolute inset-0 flex flex-col items-center justify-center text-white">
+            <div className="p-6 bg-black backdrop-filter bg-opacity-50 absolute inset-0 flex flex-col items-center justify-center text-white">
               <h5 className="text-2xl font-semibold">{trade.name}</h5>
               <p className="text-green-300 text-sm mt-2">{`$${trade.price}`}</p>
               <p className="text-blue-300 text-sm">{`${trade.location}`}</p>
