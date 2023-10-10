@@ -15,6 +15,6 @@ jest.mock('../utils/userStorage', () => ({
 }));
 
 describe ('TradeInput', () => {
-
+  let store;
 
 });
