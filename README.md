@@ -83,6 +83,9 @@ This front-end project is designed to seamlessly integrate with its counterpart 
 
 `npm install`
 
+3. Build the app:
+- For development: create `.env`
+
 4. Start the app in a bash terminal:
 
 `npm start`
