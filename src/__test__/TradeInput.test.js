@@ -59,6 +59,11 @@ describe ('TradeInput', () => {
     expect(TradeType).toBeInTheDocument();
     expect(AddTrade).toBeInTheDocument();
 
-  }
+  });
+
+  test('should have Trade Name', async () => {
+    
+  });
+  
 
 });
