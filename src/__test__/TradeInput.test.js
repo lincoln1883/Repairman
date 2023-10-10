@@ -28,5 +28,19 @@ describe ('TradeInput', () => {
     store = mockStore(initialState);
   });
 
+  test('renders the TradeInput component', () => {
+
+    jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
+
+    
+    render(
+      <Provider store={store}>
+        <MemoryRouter>
+          <TradeInput />
+        </MemoryRouter>
+      </Provider>,
+    );
+
+  }
 
 });
