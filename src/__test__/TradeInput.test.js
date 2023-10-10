@@ -51,6 +51,7 @@ describe ('TradeInput', () => {
     const AddTrade = screen.getByRole('button', { name: 'Add Trade' });
 
     expect(TradeName).toBeInTheDocument();
+    expect(Description).toBeInTheDocument();
 
   }
 
