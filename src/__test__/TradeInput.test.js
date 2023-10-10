@@ -62,6 +62,7 @@ describe ('TradeInput', () => {
   });
 
   test('should have Trade Name', async () => {
+    jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
     
   });
   
