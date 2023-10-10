@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  render, screen, waitFor, fireEvent,
+  render, screen, waitFor,
 } from '@testing-library/react';
 import { MemoryRouter, Routes, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
