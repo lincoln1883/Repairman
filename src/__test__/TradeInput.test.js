@@ -57,6 +57,7 @@ describe ('TradeInput', () => {
     expect(Price).toBeInTheDocument();
     expect(Duration).toBeInTheDocument();
     expect(TradeType).toBeInTheDocument();
+    expect(AddTrade).toBeInTheDocument();
 
   }
 
