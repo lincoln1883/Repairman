@@ -47,6 +47,7 @@ describe ('TradeInput', () => {
     const Location = screen.getByPlaceholderText('Location');
     const Price = screen.getByPlaceholderText('Price');
     const Duration = screen.getByPlaceholderText('Duration');
+    const TradeType = screen.getByPlaceholderText('Trade Type');
 
   }
 
