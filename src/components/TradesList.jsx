@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 // import Lottie from 'lottie-react';
 import { fetchTrades } from '../redux/reducers/tradesSlice';
+import loadingImage from '../assets/images/loading.gif';
+
 // import animationData from '../assets/images/loader-bals.json';
 
 const TradesList = () => {
@@ -19,7 +21,7 @@ const TradesList = () => {
     return (
       <div className="text-center mt-4">
         <img
-          src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2Fcolor-fill-loading-image-gif--861172759983213769%2F&psig=AOvVaw3Fz0pxglpQYj0OIx9BdA1j&ust=1697039683032000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCPjKv8_r64EDFQAAAAAdAAAAABBm"
+          src={loadingImage} // Use the imported image here
           alt="Loading..."
         />
       </div>
