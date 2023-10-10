@@ -41,6 +41,8 @@ describe ('TradeInput', () => {
       </Provider>,
     );
 
+    const TradeName = screen.getByPlaceholderText('Trade Name');
+
   }
 
 });
