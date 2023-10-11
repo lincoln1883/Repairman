@@ -63,7 +63,7 @@ describe('TradeDelete Component', () => {
       </Provider>,
     );
 
-    expect(screen.getByText('Loading...')).toBeInTheDocument();
+    expect(screen.getByAltText('Loading...')).toBeInTheDocument();
   });
 
   test('renders the component correctly when the user is an admin', () => {

@@ -90,8 +90,8 @@ describe('TradesList Component', () => {
     );
 
     await waitFor(() => {
-      const loadingMessage = screen.getByText(/Loading/i);
-      expect(loadingMessage).toBeInTheDocument();
+      const loadingImage = screen.getByAltText('Loading...');
+      expect(loadingImage).toBeInTheDocument();
     });
   });
 
