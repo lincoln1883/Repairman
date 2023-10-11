@@ -14,14 +14,13 @@ jest.mock('../utils/userStorage', () => ({
   getUserId: jest.fn(() => 1),
 }));
 
-describe ('TradeInput', () => {
-
+describe('TradeInput', () => {
   let store;
-  let initialState = {
+  const initialState = {
     trades: {
       trades: [],
       loading: '',
-      error:'',
+      error: '',
     },
   };
 
@@ -30,7 +29,7 @@ describe ('TradeInput', () => {
   });
 
   test('renders the TradeInput component', () => {
-
+    // eslint-disable-next-line global-require
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
 
     render(
@@ -58,11 +57,10 @@ describe ('TradeInput', () => {
     expect(Duration).toBeInTheDocument();
     expect(TradeType).toBeInTheDocument();
     expect(AddTrade).toBeInTheDocument();
-
   });
 
   test('should have Trade Name', async () => {
-
+    // eslint-disable-next-line global-require
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
 
     render(
@@ -72,7 +70,7 @@ describe ('TradeInput', () => {
         </MemoryRouter>
       </Provider>,
     );
-  
+
     fireEvent.change(screen.getByPlaceholderText('Trade Name'), {
       target: { value: 'Mobbing Service' },
     });
@@ -81,7 +79,7 @@ describe ('TradeInput', () => {
   });
 
   test('should have Description', async () => {
-
+    // eslint-disable-next-line global-require
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
 
     render(
@@ -91,7 +89,7 @@ describe ('TradeInput', () => {
         </MemoryRouter>
       </Provider>,
     );
-  
+
     fireEvent.change(screen.getByPlaceholderText('Description'), {
       target: { value: 'Professional mobbing services' },
     });
@@ -100,7 +98,7 @@ describe ('TradeInput', () => {
   });
 
   test('should have Image URL', async () => {
-  
+    // eslint-disable-next-line global-require
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
 
     render(
@@ -110,16 +108,16 @@ describe ('TradeInput', () => {
         </MemoryRouter>
       </Provider>,
     );
-  
+
     fireEvent.change(screen.getByPlaceholderText('Image URL'), {
       target: { value: 'http://example.com/image.jpg' },
     });
 
     expect(screen.getByPlaceholderText('Image URL')).toHaveValue('http://example.com/image.jpg');
-  }); 
+  });
 
   test('should have Location', async () => {
-    
+    // eslint-disable-next-line global-require
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
 
     render(
@@ -129,7 +127,7 @@ describe ('TradeInput', () => {
         </MemoryRouter>
       </Provider>,
     );
-  
+
     fireEvent.change(screen.getByPlaceholderText('Location'), {
       target: { value: 'New York' },
     });
@@ -138,7 +136,7 @@ describe ('TradeInput', () => {
   });
 
   test('should have Price', async () => {
-      
+    // eslint-disable-next-line global-require
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
 
     render(
@@ -148,7 +146,7 @@ describe ('TradeInput', () => {
         </MemoryRouter>
       </Provider>,
     );
-  
+
     fireEvent.change(screen.getByPlaceholderText('Price'), {
       target: { value: '30' },
     });
@@ -157,7 +155,7 @@ describe ('TradeInput', () => {
   });
 
   test('should have Duration', async () => {
-          
+    // eslint-disable-next-line global-require
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
 
     render(
@@ -167,7 +165,7 @@ describe ('TradeInput', () => {
         </MemoryRouter>
       </Provider>,
     );
-  
+
     fireEvent.change(screen.getByPlaceholderText('Duration'), {
       target: { value: '2 days' },
     });
@@ -176,7 +174,7 @@ describe ('TradeInput', () => {
   });
 
   test('should have Trade Type', async () => {
-                
+    // eslint-disable-next-line global-require
     jest.spyOn(require('../utils/userStorage'), 'getUserRole').mockReturnValue('admin');
 
     render(
@@ -186,12 +184,11 @@ describe ('TradeInput', () => {
         </MemoryRouter>
       </Provider>,
     );
-  
+
     fireEvent.change(screen.getByPlaceholderText('Trade Type'), {
       target: { value: 'Service' },
     });
 
     expect(screen.getByPlaceholderText('Trade Type')).toHaveValue('Service');
   });
-
 });
