@@ -37,8 +37,6 @@ B
 src/App.js,1/e/1e43fa63aecd2127be034b3fb9d4caa172275714
 <
 src/index.js,f/9/f900edc44cb929c2267a16100a32851f6d5b477d
-?
-src/App.test.js,9/2/923703ced91ac38943d37930d9d27a7ebe8f01ad
 D
 src/pages/Splash.jsx,c/7/c7061783c4ef17f53d0f9222bef9898a581fc2f4
 I
@@ -55,8 +53,6 @@ U
 %src/redux/reducers/auth/loginSlice.js,8/2/8228f5b9e8af856bf306c30d5800aa29e3101972
 V
 &src/redux/reducers/auth/logoutSlice.js,1/f/1f054940c27b35105b287be145b2702132146d83
-P
- src/redux/reducers/usersSlice.js,b/a/ba5353ae50f65134447e5b54547d6058121d5dd5
 N
 src/components/TradeDelete.jsx,a/1/a183575aee37bcd11556264d53ec7a5e0a3c1f14
 P
@@ -67,3 +63,29 @@ K
 src/components/NotFound.jsx,5/a/5ae663b583904677397b1fcfc9ae61f0d17a5704
 Q
 !src/redux/reducers/tradesSlice.js,7/f/7f0cc577cd0ca4f7f3de762c52ee43d61bb13845
+M
+src/components/TradesList.jsx,d/4/d44af5934853731f7709d2393589e29e1f8a6c60
+P
+ src/components/DetailsTrades.jsx,c/8/c864a02ced652173417f588ba9c4bc57e761be63
+M
+src/components/TradeInput.jsx,6/0/60141c5d31edd0ec5cb354e1c98bb44e1c0c0727
+P
+ src/components/ReserveTdForm.jsx,f/2/f26f4a9a913a61de02c9c48bd95259670c34e374
+S
+#src/redux/reducers/resereveSlice.js,a/f/afd1097665c33d6040bc65327e0b9add4f190fd1
+W
+'src/redux/reducers/tradeDetailsSlice.js,e/9/e9a8c31b3b4ac77177c07a0edc11503ea7a98148
+U
+%src/redux/reducers/rservationSlice.js,1/8/1820c335db7d8729ca27f1fa49ced365a7161b1e
+R
+"src/__test__/TradesDetails.test.js,c/3/c32c6aef39e05b13819cea9e9d4228e02517a58a
+N
+src/components/ReserveForm.jsx,3/a/3abb3ee7d0d26218830788788eb5c2b2f0cf52a8
+S
+#src/components/ShowReservations.jsx,5/3/53cb2eaea3b90cef5e1239f4477f79e36b541549
+J
+src/__test__/Login.test.js,2/c/2c9a5e1869006cf7c91c3f10dece43917fbeb333
+K
+src/__test__/Layout.test.js,8/b/8bd638b0a8e1411a8ef86045c2dbf9f6d3a17e70
+O
+src/__test__/TradeInput.test.js,a/8/a8496271278b232291b32dd6e3b78edec4994494
